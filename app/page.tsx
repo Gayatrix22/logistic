@@ -45,7 +45,7 @@ export default function Hero() {
           <div className="w-full max-w-md rounded-3xl overflow-hidden 
           shadow-[0_0_60px_#7c5cff55] border border-white/10 bg-white/5 backdrop-blur-xl">
             <img
-              src="/neon-dashboard-hero.png"
+              src="/3D.png"
               alt="Neon Tech Dashboard"
               className="w-full object-cover"
             />
