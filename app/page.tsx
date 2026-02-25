@@ -1,144 +1,58 @@
-export default function Home() {
+export default function Hero() {
   return (
-    <div style={{ margin: "0", fontFamily: "'Poppins', sans-serif" }}>
-
-      {/* ====================== NAVIGATION BAR ====================== */}
-      <nav
-        style={{
-          width: "100%",
-          padding: "15px 5%",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          background: "#ffffff",
-          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          zIndex: 1000,
-        }}
-      >
-        {/* Logo */}
-        <div
-          style={{
-            fontSize: "1.4rem",
-            fontWeight: 700,
-            color: "#ff5200",
-          }}
-        >
-          ERA MARYA LOGISTICS
-        </div>
-
-        {/* Menu */}
-        <ul
-          style={{
-            listStyle: "none",
-            display: "flex",
-            gap: "35px",
-            margin: 0,
-            padding: 0,
-          }}
-        >
-          <li><a href="#home" style={menuLink}>Home</a></li>
-          <li><a href="#about" style={menuLink}>About</a></li>
-          <li><a href="#services" style={menuLink}>Services</a></li>
-          <li><a href="#blog" style={menuLink}>Blog</a></li>
-          <li><a href="#gallery" style={menuLink}>Gallery</a></li>
-          <li><a href="#contact" style={menuLink}>Contact</a></li>
-        </ul>
-      </nav>
-
-      {/* ====================== HERO HEADER ====================== */}
-      <header
-        id="home"
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "90vh",
-          background: "url('/your-image.jpg') center/cover no-repeat",
-          display: "flex",
-          alignItems: "center",
-          paddingLeft: "6%",
-          color: "white",
-          marginTop: "70px",
-        }}
-      >
-
-        {/* Dark Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "rgba(0,0,0,0.45)",
-          }}
-        ></div>
-
-        <div style={{ position: "relative", zIndex: 2, maxWidth: "650px" }}>
-          <h4
-            style={{
-              color: "#ff5200",
-              fontWeight: 600,
-              letterSpacing: "1px",
-              marginBottom: "15px",
-            }}
-          >
-            ERA MARYA GLOBAL LOGISTICS PVT. LTD.
-          </h4>
-
-          <h1
-            style={{
-              fontSize: "3.8rem",
-              fontWeight: 700,
-              lineHeight: 1.2,
-              marginBottom: "20px",
-            }}
-          >
-            Innovating logistics <br /> for a better tomorrow
+    <section className="w-full pt-24 pb-28 bg-[#0c0f16] text-white">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+        
+        {/* LEFT CONTENT */}
+        <div className="flex-1">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+            Powering the Future of Digital Experiences.
           </h1>
 
-          <p
-            style={{
-              fontSize: "1.2rem",
-              marginBottom: "30px",
-              opacity: 0.9,
-            }}
-          >
-            Facilitating Sea and Air Freight Forwarding and Custom Clearance
-            Across the Globe.
+          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-xl">
+            Modern neon-tech powered interfaces crafted for speed, clarity, 
+            and next-generation productivity.
           </p>
 
-          <a
-            href="#services"
-            style={buttonStyle}
-            onMouseOver={(e) => (e.target.style.background = "#d84400")}
-            onMouseOut={(e) => (e.target.style.background = "#ff5200")}
-          >
-            Explore Services
-          </a>
+          {/* CTA BUTTONS */}
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="#"
+              className="px-6 py-3 bg-gradient-to-r from-[#4b3bff] to-[#8d5cff]
+              rounded-lg text-base font-medium shadow-[0_0_20px_#7c5cff66]
+              hover:shadow-[0_0_35px_#7c5cff99] transition-all"
+            >
+              Get Started
+            </a>
+
+            <a
+              href="#"
+              className="px-6 py-3 border border-white/20 rounded-lg 
+              text-base font-medium hover:bg-white/5 transition"
+            >
+              Learn More
+            </a>
+          </div>
+
+          {/* SOCIAL PROOF */}
+          <div className="mt-10 flex items-center gap-4 text-sm text-gray-400">
+            ⭐⭐⭐⭐⭐ <span>Trusted by leading innovative teams</span>
+          </div>
         </div>
-      </header>
-    </div>
+
+        {/* RIGHT ILLUSTRATION */}
+        <div className="flex-1 flex justify-center">
+          <div className="w-full max-w-md rounded-3xl overflow-hidden 
+          shadow-[0_0_60px_#7c5cff55] border border-white/10 bg-white/5 backdrop-blur-xl">
+            <img
+              src="/3D.png"
+              alt="Neon Tech Dashboard"
+              className="w-full object-cover"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
   );
 }
-
-/* 🔵 Inline reusable styles */
-const menuLink = {
-  textDecoration: "none",
-  color: "#333",
-  fontSize: "1rem",
-  fontWeight: 500,
-};
-
-const buttonStyle = {
-  display: "inline-block",
-  padding: "12px 30px",
-  background: "#ff5200",
-  color: "#fff",
-  fontSize: "1.1rem",
-  borderRadius: "6px",
-  textDecoration: "none",
-  transition: "0.3s",
-};
