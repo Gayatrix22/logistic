@@ -1,5 +1,6 @@
 "use client";
 
+
 import Link from "next/link";
 
 export default function Header() {
@@ -103,6 +104,7 @@ export default function Header() {
               color: "#000",
             }}
           >
+
             {menuLinks.map((item) => (
               <li key={item.name} style={menuItemStyle}>
                 <Link
@@ -115,6 +117,19 @@ export default function Header() {
                 </Link>
               </li>
             ))}
+
+            {["Home", "About us", "Services", "Blog", "Gallery", "Contact"].map(
+              (item) => (
+                <li
+                  key={item}
+                  style={menuItemStyle}
+                  onClick={menuItemTouch}
+                  onTouchStart={menuItemTouch}
+                >
+                  {item}
+                </li>
+              )
+            )}
           </ul>
         </nav>
       </div>
