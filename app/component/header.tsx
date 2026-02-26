@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Header() {
   const menuItemStyle: React.CSSProperties = {
     cursor: "pointer",
@@ -12,6 +14,15 @@ export default function Header() {
       e.target.style.transform = "scale(1)";
     }, 150);
   };
+
+  const menuLinks = [
+    { name: "Home", link: "/" },
+    { name: "About us", link: "/about" },
+    { name: "Services", link: "/services" },
+    { name: "Blog", link: "/blog" },
+    { name: "Gallery", link: "/gallery" },
+    { name: "Contact", link: "/contact" },
+  ];
 
   return (
     <header
@@ -92,18 +103,18 @@ export default function Header() {
               color: "#000",
             }}
           >
-            {["Home", "About us", "Services", "Blog", "Gallery", "Contact"].map(
-              (item) => (
-                <li
-                  key={item}
-                  style={menuItemStyle}
+            {menuLinks.map((item) => (
+              <li key={item.name} style={menuItemStyle}>
+                <Link
+                  href={item.link}
+                  style={{ textDecoration: "none", color: "#000" }}
                   onClick={menuItemTouch}
                   onTouchStart={menuItemTouch}
                 >
-                  {item}
-                </li>
-              )
-            )}
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
