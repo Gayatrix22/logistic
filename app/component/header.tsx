@@ -29,8 +29,8 @@ export default function Header() {
       style={{
         width: "100%",
         background: "#ffffff",
-        borderBottom: "1px solid #e5e5e5",
-        padding: "10px 0",
+        borderBottom: "3px solid #e5e5e5",
+        padding: "15px 0",
       }}
     >
       <div
@@ -48,7 +48,7 @@ export default function Header() {
           <img
             src="/logo.png"
             alt="Company Logo"
-            style={{ width: "55px", height: "55px", objectFit: "contain" }}
+            style={{ width: "80px", height: "80px", objectFit: "contain" }}
           />
 
           <div style={{ lineHeight: "1.1" }}>
@@ -98,7 +98,7 @@ export default function Header() {
               listStyle: "none",
               margin: 0,
               padding: 0,
-              fontSize: "16px",
+              fontSize: "18px",
               fontWeight: "600",
               color: "#000",
             }}
