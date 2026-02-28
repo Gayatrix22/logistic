@@ -9,6 +9,7 @@ const blogs = [
     category: "Logistics",
     image: "/Smart Lgistic 1.jpg",
     desc: "AI and automation are transforming logistics operations.",
+    link: "https://happy.techstrota.com/blog",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const blogs = [
     category: "Warehouse",
     image: "/Warehouse Automation.jpg",
     desc: "Modern warehouses use robots and smart systems.",
+    link: "https://happy.techstrota.com/blog",
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const blogs = [
     category: "Transport",
     image: "/Future Transportaion.jpg",
     desc: "Electric trucks and digital tracking are the future.",
+    link: "https://happy.techstrota.com/blog",
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const blogs = [
     category: "Shipping",
     image: "/shipping-internationally.jpg",
     desc: "Learn how international cargo shipping works.",
+    link: "https://happy.techstrota.com/blog",
   },
   {
     id: 5,
@@ -37,6 +41,7 @@ const blogs = [
     category: "Transport",
     image: "/Fleet Management.jpg",
     desc: "Track trucks and deliveries in real time.",
+    link: "https://happy.techstrota.com/blog",
   },
   {
     id: 6,
@@ -44,9 +49,9 @@ const blogs = [
     category: "Logistics",
     image: "/Supply Chain.jpg",
     desc: "Improve delivery efficiency and reduce delays.",
+    link: "https://happy.techstrota.com/blog",
   },
 ];
-
 export default function BlogPage() {
   const [category, setCategory] = useState("All");
 
@@ -110,9 +115,13 @@ export default function BlogPage() {
                 warehouse management and logistics planning.
               </p>
 
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 w-fit hover:scale-105 transition">
+              <a
+                href="https://example.com/ai-logistics"
+                target="_blank"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 w-fit hover:scale-105 transition"
+              >
                 Read Article
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -142,9 +151,13 @@ export default function BlogPage() {
                   {blog.desc}
                 </p>
 
-                <button className="mt-4 text-blue-600 font-semibold hover:underline hover:translate-x-1 transition">
+                <a
+                  href={blog.link}
+                  target="_blank"
+                  className="mt-4 inline-block text-blue-600 font-semibold hover:underline hover:translate-x-1 transition"
+                >
                   Read More →
-                </button>
+                </a>
               </div>
             </div>
           ))}
