@@ -1,6 +1,14 @@
 export default function Hero() {
   return (
-    <section className="w-full pt-24 pb-28 bg-[#0c0f16] text-white">
+    <section
+      className="w-full pt-24 pb-28 bg-white text-black"
+      style={{
+        backgroundImage: "url('/bg.jpg')",   // your background image
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
         
         {/* LEFT CONTENT */}
@@ -9,7 +17,7 @@ export default function Hero() {
             Powering the Future of Digital Experiences.
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-xl">
+          <p className="mt-6 text-lg md:text-xl text-gray-700 max-w-xl">
             Modern neon-tech powered interfaces crafted for speed, clarity, 
             and next-generation productivity.
           </p>
@@ -20,22 +28,22 @@ export default function Hero() {
               href="#"
               className="px-6 py-3 bg-gradient-to-r from-[#4b3bff] to-[#8d5cff]
               rounded-lg text-base font-medium shadow-[0_0_20px_#7c5cff66]
-              hover:shadow-[0_0_35px_#7c5cff99] transition-all"
+              hover:shadow-[0_0_35px_#7c5cff99] transition-all text-white"
             >
               Get Started
             </a>
 
             <a
               href="#"
-              className="px-6 py-3 border border-white/20 rounded-lg 
-              text-base font-medium hover:bg-white/5 transition"
+              className="px-6 py-3 border border-black/20 rounded-lg 
+              text-base font-medium hover:bg-black/5 transition"
             >
               Learn More
             </a>
           </div>
 
           {/* SOCIAL PROOF */}
-          <div className="mt-10 flex items-center gap-4 text-sm text-gray-400">
+          <div className="mt-10 flex items-center gap-4 text-sm text-gray-600">
             ⭐⭐⭐⭐⭐ <span>Trusted by leading innovative teams</span>
           </div>
         </div>
@@ -43,7 +51,7 @@ export default function Hero() {
         {/* RIGHT ILLUSTRATION */}
         <div className="flex-1 flex justify-center">
           <div className="w-full max-w-md rounded-3xl overflow-hidden 
-          shadow-[0_0_60px_#7c5cff55] border border-white/10 bg-white/5 backdrop-blur-xl">
+          shadow-[0_0_60px_#7c5cff55] border border-black/10 bg-white/50 backdrop-blur-xl">
             <img
               src="/3D.png"
               alt="Neon Tech Dashboard"
