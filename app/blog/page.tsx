@@ -1,75 +1,41 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-type Blog = {
-  _id?: string;
-  id?: number;
-  title: string;
-  description?: string;
-  image?: string;
-  slug?: string;
-  createdAt?: string;
-};
+import Link from "next/link";
 
 export default function BlogPage() {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState<any[]>([]);
 
   useEffect(() => {
     fetch("https://happy.techstrota.com/api/blogs")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching blogs:", err);
-        setLoading(false);
       });
   }, []);
 
-  if (loading)
-    return (
-      <div className="flex justify-center items-center h-[60vh] text-lg font-semibold">
-        Loading blogs...
-      </div>
-    );
-
   return (
-    <div className="bg-gray-50 min-h-screen py-14 px-6 md:px-16">
-      <h1 className="text-4xl font-bold text-center mb-12">
-        Latest Blogs
-      </h1>
+    <div className="p-10">
+      <h1 className="text-3xl font-bold mb-10 text-center">Blogs</h1>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogs.map((blog, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
-          >
+      <div className="grid md:grid-cols-3 gap-8">
+        {blogs.map((blog) => (
+          <div key={blog._id} className="shadow-lg rounded-xl p-5">
             <img
-              src={blog.image || "/blog-default.jpg"}
-              alt={blog.title}
-              className="w-full h-52 object-cover"
+              src={blog.image}
+              className="h-48 w-full object-cover rounded-lg"
             />
 
-            <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3">
-                {blog.title}
-              </h3>
+            <h2 className="mt-4 font-semibold text-lg">
+              {blog.title}
+            </h2>
 
-              <p className="text-gray-600 text-sm mb-4">
-                {blog.description?.slice(0, 120)}...
-              </p>
-
-              <a
-                href={`/blog/${blog.slug || blog.id}`}
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
-              >
-                Read More
-              </a>
-            </div>
+            <Link
+              href={`/blog/${blog.slug}`}
+              className="text-blue-600 mt-3 inline-block"
+            >
+              Read More
+            </Link>
           </div>
         ))}
       </div>
