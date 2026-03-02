@@ -6,12 +6,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const services = [
-  { id: 1, title: "Sea Freight Forwarding", image: "/ship1.jpg"},
-  { id: 2, title: "Air Freight Forwarding", image: "/air.jpg"},
-  { id: 3, title: "Custom Clearance", image: "/c2.jpg"},
-  { id: 4, title: "ODC Logistics Support", image: "/odc.jpg" },
-  { id: 5, title: "Project Shipments", image: "/project.jpg" },
-  { id: 6, title: "Warehousing", image: "/warehouse.jpg" },
+  { id: 1, title: "Sea Freight Forwarding", image: "/ship1.jpg", link: "/service/sea-freight"},
+  { id: 2, title: "Air Freight Forwarding", image: "/air.jpg", link: "/service/air-freight"},
+  { id: 3, title: "Custom Clearance", image: "/c2.jpg", link: "/service/custom-clearance"},
+  { id: 4, title: "ODC Logistics Support", image: "/odc.jpg", link: "/service/odc-logistics"},
+  { id: 5, title: "Project Shipments", image: "/project.jpg", link: "/service/project-shipments"},
+  { id: 6, title: "Warehousing", image: "/warehouse.jpg", link: "/service/warehousing"},
 ];
 
 export default function Services() {
@@ -81,11 +81,11 @@ export default function Services() {
                 </h3>
 
                 {/* Arrow Button */}
-                <Link href="#">
-                  <div className="w-10 h-10 md:w-12 md:h-12 border border-white rounded-full flex items-center justify-center hover:bg-white hover:text-teal-900 transition-all duration-300 cursor-pointer hover:rotate-45">
-                    →
-                  </div>
-                </Link>
+               <Link href={service.link}>
+  <div className="w-10 h-10 md:w-12 md:h-12 border border-white rounded-full flex items-center justify-center hover:bg-white hover:text-teal-900 transition-all duration-300 cursor-pointer hover:rotate-45">
+    →
+  </div>
+</Link>
 
                 {/* Number */}
                 <span className="absolute bottom-4 right-5 text-white/20 text-4xl md:text-5xl font-bold">
