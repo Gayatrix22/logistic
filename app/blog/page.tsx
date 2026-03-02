@@ -9,7 +9,7 @@ const blogs = [
     category: "Logistics",
     image: "/Smart Lgistic 1.jpg",
     desc: "AI and automation are transforming logistics operations.",
-    link: "https://happy.techstrota.com/blog",
+    link: "https://happy.techstrota.com/api/blogs",
   },
   {
     id: 2,

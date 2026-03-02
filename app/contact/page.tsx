@@ -18,7 +18,7 @@ export default function ContactPage() {
     message: "",
   });
 
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors]: any = useState({});
 
   const validate = () => {
     let newErrors: any = {};
@@ -161,7 +161,6 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
 
               <InputField label="Your Name" name="name" value={form.name} onChange={handleChange} error={errors.name} />
-
               <InputField label="Company Name" name="company" value={form.company} onChange={handleChange} />
 
               <div className="grid grid-cols-2 gap-4">
@@ -176,7 +175,6 @@ export default function ContactPage() {
                 options={["India", "USA", "UK", "Canada", "Australia"]} error={errors.country} />
 
               <InputField label="Email Address" name="email" value={form.email} onChange={handleChange} error={errors.email} />
-
               <InputField label="Contact Number" name="phone" value={form.phone} onChange={handleChange} error={errors.phone} />
 
               <textarea
@@ -203,6 +201,14 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* MAP SECTION */}
+      <div className="max-w-7xl mx-auto mt-16 px-6 mb-16">
+        <iframe
+          src="https://maps.google.com/maps?q=Vadodara%20Gujarat&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          className="w-full h-[400px] rounded-xl shadow"
+        ></iframe>
+      </div>
     </>
   );
 }
