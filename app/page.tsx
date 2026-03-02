@@ -6,7 +6,7 @@ export default function Home() {
       <section
         className="relative h-[90vh] w-full bg-cover bg-center flex items-center"
         style={{
-          backgroundImage: "url('/homepagebg.jpg')",
+          backgroundImage: "homepagebg.jpeg",
         }}
       >
         {/* Dark overlay */}
@@ -83,55 +83,7 @@ export default function Home() {
             Our Core Services
           </h2>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Service 1 */}
-            <div className="p-8 bg-white shadow-md rounded-xl hover:shadow-xl transition">
-              <img
-                src="/icons/air.png"
-                className="w-16 mx-auto mb-4"
-                alt="Air Freight"
-              />
-              <h3 className="text-xl font-bold text-gray-800 text-center">
-                Air Freight
-              </h3>
-              <p className="text-gray-500 text-center mt-3">
-                Fast & reliable air cargo services ensuring timely deliveries
-                across global destinations.
-              </p>
-            </div>
-
-            {/* Service 2 */}
-            <div className="p-8 bg-white shadow-md rounded-xl hover:shadow-xl transition">
-              <img
-                src="/icons/ship.png"
-                className="w-16 mx-auto mb-4"
-                alt="Ocean Freight"
-              />
-              <h3 className="text-xl font-bold text-gray-800 text-center">
-                Ocean Freight
-              </h3>
-              <p className="text-gray-500 text-center mt-3">
-                Cost-effective sea freight services connecting worldwide ports
-                with reliability.
-              </p>
-            </div>
-
-            {/* Service 3 */}
-            <div className="p-8 bg-white shadow-md rounded-xl hover:shadow-xl transition">
-              <img
-                src="/icons/truck.png"
-                className="w-16 mx-auto mb-4"
-                alt="Road Transport"
-              />
-              <h3 className="text-xl font-bold text-gray-800 text-center">
-                Road Transport
-              </h3>
-              <p className="text-gray-500 text-center mt-3">
-                Safe & efficient road cargo movement with real-time tracking
-                capabilities.
-              </p>
-            </div>
-          </div>
+          
         </div>
       </section>
     </main>

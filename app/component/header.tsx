@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Header() {
+  const [openMenu, setOpenMenu] = useState(false);
+
   const menuItemStyle: React.CSSProperties = {
     cursor: "pointer",
     transition: "transform 0.2s ease, color 0.2s ease",
@@ -31,6 +34,9 @@ export default function Header() {
         background: "#ffffff",
         borderBottom: "3px solid #e5e5e5",
         padding: "15px 0",
+        position: "sticky",
+        top: 0,
+        zIndex: 999,
       }}
     >
       <div
@@ -92,6 +98,7 @@ export default function Header() {
         {/* Navigation Right */}
         <nav>
           <ul
+            className="menu-list"
             style={{
               display: "flex",
               gap: "30px",
@@ -117,7 +124,83 @@ export default function Header() {
             ))}
           </ul>
         </nav>
+
+        {/* Hamburger button (small screens) */}
+        <div
+          className="hamburger"
+          onClick={() => setOpenMenu(!openMenu)}
+          style={{
+            fontSize: "30px",
+            display: "none",
+            cursor: "pointer",
+            userSelect: "none",
+          }}
+        >
+          ☰
+        </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {openMenu && (
+        <div
+          className="mobile-menu"
+          style={{
+            display: "none",
+            flexDirection: "column",
+            width: "100%",
+            padding: "15px 0",
+            background: "#fff",
+            borderTop: "1px solid #ddd",
+            gap: "15px",
+            alignItems: "center",
+          }}
+        >
+          {menuLinks.map((item) => (
+            <Link
+              key={item.name}
+              href={item.link}
+              style={{
+                textDecoration: "none",
+                color: "#000",
+                fontSize: "18px",
+                fontWeight: "600",
+              }}
+              onClick={() => setOpenMenu(false)}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {/* Responsive CSS */}
+      <style jsx>{`
+        @media (max-width: 900px) {
+          .menu-list {
+            gap: 15px !important;
+            font-size: 16px !important;
+          }
+        }
+
+        @media (max-width: 700px) {
+          .menu-list {
+            display: none !important;
+          }
+          .hamburger {
+            display: block !important;
+          }
+          .mobile-menu {
+            display: flex !important;
+          }
+        }
+
+        @media (max-width: 500px) {
+          img {
+            width: 60px !important;
+            height: 60px !important;
+          }
+        }
+      `}</style>
     </header>
   );
 }
