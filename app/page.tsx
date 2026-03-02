@@ -38,7 +38,7 @@ export default function Hero() {
               className="px-6 py-3 border border-black/20 rounded-lg 
               text-base font-medium hover:bg-black/5 transition"
             >
-              Learn More
+            L
             </a>
           </div>
 
