@@ -30,7 +30,7 @@ export default function Header() {
         width: "100%",
         background: "#ffffff",
         borderBottom: "1px solid #e5e5e5",
-        padding: "10px 0",
+        padding: "20px 0",
       }}
     >
       <div
@@ -48,7 +48,7 @@ export default function Header() {
           <img
             src="/logo.png"
             alt="Company Logo"
-            style={{ width: "55px", height: "55px", objectFit: "contain" }}
+            style={{ width: "70px", height: "70px", objectFit: "contain" }}
           />
 
           <div style={{ lineHeight: "1.1" }}>
