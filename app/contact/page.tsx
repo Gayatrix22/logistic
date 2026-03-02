@@ -218,7 +218,7 @@ export default function ContactPage() {
           src="https://maps.google.com/maps?q=Vadodara%20Gujarat&t=&z=13&ie=UTF8&iwloc=&output=embed"
           className="w-full h-[400px] rounded-xl shadow"
         ></iframe>
-      </div>
+      </div> 
 
     </main>
   );

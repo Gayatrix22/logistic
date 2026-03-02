@@ -15,8 +15,7 @@ export default function About() {
   ></div>
 
   {/* Optional Dark Overlay */}
-  <div className="absolute inset-0 bg-black/40"></div>
-
+ <div className="absolute inset-0 bg-black/60"></div>
   {/* Content */}
   <div className="relative z-10 text-white text-center py-40 px-6">
     <h1 className="text-4xl md:text-5xl font-bold">

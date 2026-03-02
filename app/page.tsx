@@ -1,91 +1,66 @@
-export default function Home() {
+export default function Hero() {
   return (
-    <main className="w-full">
-
-      {/* HERO SECTION (ERAMARYA STYLE) */}
-      <section
-        className="relative h-[90vh] w-full bg-cover bg-center flex items-center"
-        style={{
-          backgroundImage: "homepagebg.jpeg",
-        }}
-      >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
-
-        {/* Text Content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-16">
-
-          {/* Orange Title */}
-          <p className="text-orange-500 font-semibold tracking-wide text-lg mb-3">
-            ERA MARYA GLOBAL LOGISTICS PVT. LTD.
-          </p>
-
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-xl">
-            Innovating logistics <br /> for a better tomorrow
+    <section
+      className="w-full pt-24 pb-28 bg-white text-black"
+      style={{
+        backgroundImage: "url('/bg.jpg')",   // your background image
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+        
+        {/* LEFT CONTENT */}
+        <div className="flex-1">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+            Powering the Future of Digital Experiences.
           </h1>
 
-          {/* Subtitle */}
-          <p className="mt-6 text-lg md:text-xl text-gray-200 max-w-2xl drop-shadow">
-            Facilitating Sea and Air Freight Forwarding and Custom Clearance
-            Across the Globe.
+          <p className="mt-6 text-lg md:text-xl text-gray-700 max-w-xl">
+            Modern neon-tech powered interfaces crafted for speed, clarity, 
+            and next-generation productivity.
           </p>
 
-          {/* Buttons */}
+          {/* CTA BUTTONS */}
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="/contact"
-              className="px-8 py-3 bg-red-600 text-white rounded-lg text-lg font-medium shadow-lg hover:bg-red-700 transition"
+              href="#"
+              className="px-6 py-3 bg-gradient-to-r from-[#4b3bff] to-[#8d5cff]
+              rounded-lg text-base font-medium shadow-[0_0_20px_#7c5cff66]
+              hover:shadow-[0_0_35px_#7c5cff99] transition-all text-white"
             >
-              Get a Quote
+              Get Started
             </a>
 
             <a
-              href="/services"
-              className="px-8 py-3 border border-white/40 text-white rounded-lg text-lg font-medium hover:bg-white/10 transition"
+              href="#"
+              className="px-6 py-3 border border-black/20 rounded-lg 
+              text-base font-medium hover:bg-black/5 transition"
             >
-              Explore Services
+              Learn More
             </a>
+          </div>
+
+          {/* SOCIAL PROOF */}
+          <div className="mt-10 flex items-center gap-4 text-sm text-gray-600">
+            ⭐⭐⭐⭐⭐ <span>Trusted by leading innovative teams</span>
           </div>
         </div>
 
-        {/* Bottom Slanted Shape */}
-        <div className="absolute bottom-0 w-full">
-          <svg
-            viewBox="0 0 1440 320"
-            className="w-full"
-            preserveAspectRatio="none"
-          >
-            <path fill="#ff4d00" d="M0,288L1440,224L1440,320L0,320Z"></path>
-            <path fill="#ffffff" d="M0,320L1440,320L1440,280L0,320Z"></path>
-          </svg>
+        {/* RIGHT ILLUSTRATION */}
+        <div className="flex-1 flex justify-center">
+          <div className="w-full max-w-md rounded-3xl overflow-hidden 
+          shadow-[0_0_60px_#7c5cff55] border border-black/10 bg-white/50 backdrop-blur-xl">
+            <img
+              src="/3D.png"
+              alt="Neon Tech Dashboard"
+              className="w-full object-cover"
+            />
+          </div>
         </div>
-      </section>
 
-      {/* ABOUT PREVIEW SECTION */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Global Logistics, Delivered With Excellence
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
-            We are a leading logistics and supply chain company committed to
-            delivering seamless, safe, and cost-effective transport solutions
-            across the world.
-          </p>
-        </div>
-      </section>
-
-      {/* SERVICES SECTION */}
-      <section className="py-20 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800">
-            Our Core Services
-          </h2>
-
-          
-        </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

@@ -6,6 +6,10 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-[#f3f6f7] pt-16">
+      <footer
+  className="pt-16 bg-cover bg-center bg-no-repeat relative"
+  style={{ backgroundImage: "url('/footer-bg.jpg')" }}
+></footer>
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-12">
 
@@ -15,8 +19,8 @@ export default function Footer() {
             <Image
               src="/logo.png"
               alt="Era Marya Logistics"
-              width={100}
-              height={100}
+              width={70}
+              height={70}
               className="object-contain"
             />
 
