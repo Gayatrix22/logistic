@@ -5,139 +5,156 @@ export default function Home() {
  
       {/* HERO SECTION */}
       <section
-      style={{
-        position: "relative",
-        height: "111.10vh",
-        width: "100%",
-        backgroundImage: "url('/bg.jpg')",
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        display: "flex",
-        alignItems: "center",
-        overflow: "hidden",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "rgba(0,0,0,0.55)",
-        }}
-      ></div>
-
-      <div
         style={{
           position: "relative",
-          zIndex: 2,
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 20px",
-          animation: "slideInRight 1.5s ease forwards",
-          opacity: 0,
-        }}
-      >
-        <p
-          style={{
-            color: "#ff4d00",
-            fontWeight: 700,
-            fontSize: "20px",
-            marginBottom: "10px",
-          }}
-        >
-          ERA MARYA GLOBAL LOGISTICS PVT. LTD.
-        </p>
-
-        <h1
-          style={{
-            fontSize: "48px",
-            fontWeight: 800,
-            color: "#fff",
-            lineHeight: 1.2,
-            marginBottom: "20px",
-          }}
-        >
-          Innovating logistics <br /> for a better tomorrow
-        </h1>
-
-        <p
-          style={{
-            color: "white",
-            fontSize: "20px",
-            maxWidth: "650px",
-          }}
-        >
-          Facilitating Sea and Air Freight Forwarding and Custom Clearance
-          Across the Globe.
-        </p>
-
-        <div style={{ marginTop: "30px", display: "flex", gap: "15px" }}>
-          <a
-            href="/contact"
-            style={{
-              padding: "12px 28px",
-              background: "#ff4d00",
-              color: "#fff",
-              borderRadius: "8px",
-              fontSize: "18px",
-              fontWeight: 600,
-              textDecoration: "none",
-            }}
-          >
-            Get a Quote
-          </a>
-
-          <a
-            href="/services"
-            style={{
-              padding: "12px 28px",
-              border: "2px solid white",
-              color: "#fff",
-              borderRadius: "8px",
-              fontSize: "18px",
-              fontWeight: 600,
-              textDecoration: "none",
-            }}
-          >
-            Explore Services
-          </a>
-        </div>
-      </div>
-
-      <svg
-        viewBox="0 0 1440 320"
-        style={{
-          position: "absolute",
-          bottom: 0,
+          height: "111.10vh",
           width: "100%",
-          zIndex: 1,
+          backgroundImage: "url('/bg.jpg')",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          alignItems: "center",
+          overflow: "hidden",
         }}
       >
-        <path fill="#ff4d00" d="M0,288L1440,224L1440,320L0,320Z"></path>
-        <path fill="#ffffff" d="M0,320L1440,320L1440,280L0,320Z"></path>
-      </svg>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(0,0,0,0.55)",
+          }}
+        ></div>
 
-      <style>
-        {`
-          @keyframes slideInRight {
-            from {
-              opacity: 0;
-              transform: translateX(100px);
-            }
-            to {
-              opacity: 1;
-              transform: translateX(0);
-            }
-          }
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "0 20px",
+            animation: "slideInRight 1.5s ease forwards",
+            opacity: 0,
+          }}
+        >
+          <p
+            style={{
+              color: "#ff4d00",
+              fontWeight: 700,
+              fontSize: "20px",
+              marginBottom: "10px",
+            }}
+          >
+            ERA MARYA GLOBAL LOGISTICS PVT. LTD.
+          </p>
 
-          @media (max-width: 768px) {
-            h1 { font-size: 32px !important; }
-            p { font-size: 16px !important; }
-            a { font-size: 16px !important; padding: 10px 20px !important; }
-          }
-        `}
-      </style>
-    </section>
+          <h1
+            style={{
+              fontSize: "48px",
+              fontWeight: 800,
+              color: "#fff",
+              lineHeight: 1.2,
+              marginBottom: "20px",
+            }}
+          >
+            Innovating logistics <br /> for a better tomorrow
+          </h1>
+
+          <p
+            style={{
+              color: "white",
+              fontSize: "20px",
+              maxWidth: "650px",
+            }}
+          >
+            Facilitating Sea and Air Freight Forwarding and Custom Clearance
+            Across the Globe.
+          </p>
+
+          <div style={{ marginTop: "30px", display: "flex", gap: "15px" }}>
+            <a
+              href="/contact"
+              style={{
+                padding: "12px 28px",
+                background: "#ff4d00",
+                color: "#fff",
+                borderRadius: "8px",
+                fontSize: "18px",
+                fontWeight: 600,
+                textDecoration: "none",
+              }}
+            >
+              Get a Quote
+            </a>
+
+            <a
+              href="/services"
+              style={{
+                padding: "12px 28px",
+                border: "2px solid white",
+                color: "#fff",
+                borderRadius: "8px",
+                fontSize: "18px",
+                fontWeight: 600,
+                textDecoration: "none",
+              }}
+            >
+              Explore Services
+            </a>
+          </div>
+        </div>
+
+        <svg
+          viewBox="0 0 1440 320"
+          style={{
+            position: "absolute",
+            bottom: 0,
+            width: "100%",
+            zIndex: 1,
+          }}
+        >
+          <path fill="#ff4d00" d="M0,288L1440,224L1440,320L0,320Z"></path>
+          <path fill="#ffffff" d="M0,320L1440,320L1440,280L0,320Z"></path>
+        </svg>
+
+        {/* RESPONSIVE CSS */}
+        <style>
+          {`
+            @keyframes slideInRight {
+              from { opacity: 0; transform: translateX(100px); }
+              to { opacity: 1; transform: translateX(0); }
+            }
+
+            /* Make hero background responsive */
+            @media (max-width: 1024px) {
+              section[style] {
+                background-size: cover !important;
+                background-position: center !important;
+              }
+            }
+
+            /* Responsive Hero Text */
+            @media (max-width: 768px) {
+              h1 { font-size: 32px !important; line-height: 1.3 !important; }
+              p { font-size: 16px !important; }
+              a { font-size: 16px !important; padding: 10px 20px !important; }
+            }
+
+            /* CTA Buttons Stack on Mobile */
+            @media (max-width: 500px) {
+              section div[style*="display: flex"] {
+                flex-direction: column !important;
+                align-items: center;
+              }
+
+              section a {
+                width: 100% !important;
+                text-align: center;
+              }
+            }
+          `}
+        </style>
+      </section>
       
       {/* ABOUT SECTION */}
       <section className="py-20 bg-white fade-in">
@@ -193,6 +210,28 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* SERVICE RESPONSIVE CSS */}
+        <style>
+          {`
+            @media (max-width: 640px) {
+              .service-card { padding: 20px !important; }
+              .service-card img { width: 60px !important; }
+              .service-card h3 { font-size: 18px !important; }
+              .service-card p { font-size: 14px !important; }
+            }
+
+            .fade-in {
+              opacity: 0;
+              animation: fadeIn 1s ease forwards;
+            }
+
+            @keyframes fadeIn {
+              from { opacity: 0; transform: translateY(20px); }
+              to   { opacity: 1; transform: translateY(0); }
+            }
+          `}
+        </style>
       </section>
 
       {/* BOTTOM ORANGE ANGLED SEPARATOR */}
