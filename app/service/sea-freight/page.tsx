@@ -71,7 +71,7 @@ export default function SeaFreight() {
               <div>
                 <h4 className="font-semibold text-lg">Consolidation Services</h4>
                 <p>
-                  FCL and LCL shipping solutions ensuring cost-effective and
+                  FCL and LCL shipping solutions ensuring cost-effective
                   reliable global transportation.
                 </p>
               </div>
