@@ -50,13 +50,15 @@ export default function About() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center" data-aos="fade-up">
 
-          <h2 className="text-4xl font-bold text-gray-800 mb-8">
-            Who We Are
+          <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            Providing World-Class
+          </h2> 
+          <h2 className="text-4xl font-bold text-orange-800 mb-8">
+            Logistics Solution
           </h2>
 
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            We are a professional web development company focused on delivering
-            high-quality digital solutions.
+           Era Marya Global Logistics Pvt. Ltd. is a privately owned Independent freight forwarder established with the concept of providing our customers with a comprehensive partnership, to enhance every aspect of their Forwarding requirement. This has been achieved through our sustained practice of adapting our services to meet the requirements of our clients and continuing confirm to their individual needs.
           </p>
 
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
@@ -73,7 +75,57 @@ export default function About() {
 
         </div>
       </section>
+   {/* MISSION SECTION */}
+      <section className="bg-gray-100 py-20 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 
+            className="text-3xl font-bold mb-12 text-gray-800"
+            data-aos="fade-up"
+          >
+            Our Mission & Vision
+          </h2>
 
+          <div className="grid md:grid-cols-3 gap-8">
+            
+            <div 
+              className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition"
+              data-aos="flip-left"
+            >
+              <h3 className="text-xl font-semibold mb-4 text-orange-600">
+                Our Mission
+              </h3>
+              <p className="text-gray-600">
+                To deliver innovative and reliable solutions.
+              </p>
+            </div>
+
+            <div 
+              className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition"
+              data-aos="flip-up"
+            >
+              <h3 className="text-xl font-semibold mb-4 text-orange-600">
+                Our Vision
+              </h3>
+              <p className="text-gray-600">
+                To become a trusted technology partner worldwide.
+              </p>
+            </div>
+
+            <div 
+              className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition"
+              data-aos="flip-right"
+            >
+              <h3 className="text-xl font-semibold mb-4 text-orange-600">
+                Our Values
+              </h3>
+              <p className="text-gray-600">
+                Integrity, innovation, and customer satisfaction.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* COMPANY DETAILS SECTION */}
       <section className="py-20 px-6 bg-white">
@@ -125,59 +177,6 @@ export default function About() {
             ></iframe>
           </div>
 
-        </div>
-      </section>
-
-
-      {/* MISSION SECTION */}
-      <section className="bg-gray-100 py-20 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 
-            className="text-3xl font-bold mb-12 text-gray-800"
-            data-aos="fade-up"
-          >
-            Our Mission & Vision
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            
-            <div 
-              className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition"
-              data-aos="flip-left"
-            >
-              <h3 className="text-xl font-semibold mb-4 text-orange-600">
-                Our Mission
-              </h3>
-              <p className="text-gray-600">
-                To deliver innovative and reliable solutions.
-              </p>
-            </div>
-
-            <div 
-              className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition"
-              data-aos="flip-up"
-            >
-              <h3 className="text-xl font-semibold mb-4 text-orange-600">
-                Our Vision
-              </h3>
-              <p className="text-gray-600">
-                To become a trusted technology partner worldwide.
-              </p>
-            </div>
-
-            <div 
-              className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition"
-              data-aos="flip-right"
-            >
-              <h3 className="text-xl font-semibold mb-4 text-orange-600">
-                Our Values
-              </h3>
-              <p className="text-gray-600">
-                Integrity, innovation, and customer satisfaction.
-              </p>
-            </div>
-
-          </div>
         </div>
       </section>
 

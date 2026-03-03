@@ -17,7 +17,7 @@ export default function SeaFreight() {
         <div className="relative z-10">
           <h1 className="text-4xl font-bold">Offered Solutions</h1>
           <p className="mt-3">
-            Home <span className="text-red-500">»</span> Sea Freight
+            Home <span className="text-red-500">»</span> Sea Freight Forwarding
           </p>
         </div>
       </section>
@@ -48,14 +48,14 @@ export default function SeaFreight() {
             <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
               <Image
                 src="/sff.jpg"
-                alt="Sea Freight"
+                alt="Sea Freight Forwarding"
                 fill
                 className="object-cover"
               />
             </div>
 
             <h2 className="text-2xl font-bold text-blue-900 mb-4">
-              Sea Freight
+              Sea Freight Forwaeding
             </h2>
 
             <div className="space-y-6 text-gray-700 leading-7">
