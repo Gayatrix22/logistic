@@ -1,115 +1,142 @@
 "use client";
 
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import Link from "next/link";
 
-export default function SeaFreightPage() {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
+export default function SeaFreight() {
   return (
     <main className="bg-gray-100">
-{/* HERO */}
-      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center text-white text-center px-4">
+
+      {/* HERO */}
+      <section className="relative w-full h-[50vh] flex items-center justify-center text-white text-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        ></div>
-
-        <div className="absolute inset-0 bg-black/60"></div>
-
-        <div 
-          className="relative z-10"
-          data-aos="fade-up"
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-            Offered Solutions
-          </h1>
-          <p className="mt-3 text-xs sm:text-sm md:text-base">
-            Home <span className="text-red-500">»</span> Offered Solutions
-            <span className="text-red-500">»</span> Sea-freight Forwarding
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10">
+          <h1 className="text-4xl font-bold">Offered Solutions</h1>
+          <p className="mt-3">
+            Home <span className="text-red-500">»</span> Sea Freight
           </p>
         </div>
       </section>
 
+      <div className="max-w-7xl mx-auto px-4 py-10">
 
-      {/* INTRO SECTION */}
-      <section className="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-blue-900 mb-6">Comprehensive Ocean Freight Solutions</h2>
-        <p className="text-gray-700 leading-7">
-          Our Sea Freight services provide reliable and economical solutions for international cargo transportation. 
-          We manage everything from documentation and customs clearance to final delivery, ensuring smooth and hassle-free shipping operations.
-        </p>
-      </section>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-      {/* SERVICES GRID */}
-      <section className="max-w-7xl mx-auto px-6 pb-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* SIDEBAR */}
+          <aside className="bg-white rounded-xl shadow-md p-6 h-fit">
+            <h3 className="text-xl font-bold text-blue-900 mb-6">
+              All Services
+            </h3>
 
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-500"
-            data-aos="fade-up"
-          >
-            <div className="relative h-52">
+            <div className="space-y-4">
+              <ServiceLink href="#" title="Sea Freight Forwarding" />
+              <ServiceLink href="#" title="Air Freight Forwarding" />
+              <ServiceLink href="#" title="Custom Clearance" />
+              <ServiceLink href="#" title="ODC Logistics Support" />
+              <ServiceLink href="#" title="Project Shipments" />
+              <ServiceLink href="#" title="Warehousing" />
+            </div>
+          </aside>
+
+          {/* RIGHT SIDE */}
+          <div className="lg:col-span-3">
+
+            <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
               <Image
-                src={service.image}
-                alt={service.title}
+                src="/sff.jpg"
+                alt="Sea Freight"
                 fill
                 className="object-cover"
               />
             </div>
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-blue-800 mb-3">{service.title}</h3>
-              <p className="text-gray-600 text-sm leading-6">{service.description}</p>
-            </div>
-          </div>
-        ))}
 
-      </section>
+            <h2 className="text-2xl font-bold text-blue-900 mb-4">
+              Sea Freight
+            </h2>
+
+            <div className="space-y-6 text-gray-700 leading-7">
+
+              <div>
+                <h4 className="font-semibold text-lg">CFS Loads</h4>
+                <p>
+                  We offer Container Freight Station (CFS) services to ensure
+                  efficient and secure loading and unloading of containers.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-lg">Consolidation Services</h4>
+                <p>
+                  FCL and LCL shipping solutions ensuring cost-effective and
+                  reliable global transportation.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-lg">Dry Bulk Shipments</h4>
+                <p>
+                  Handling grains, cement, fertilizers and industrial commodities
+                  with moisture-controlled protection.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-lg">ODC & Project Cargo</h4>
+                <p>
+                  Specialized solutions for oversized and heavy cargo including
+                  route planning and heavy lift coordination.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-lg">Refrigerated Services</h4>
+                <p>
+                  Temperature-controlled containers for pharmaceuticals,
+                  frozen foods and perishables.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-lg">
+                  Freight Insurance & Tracking
+                </h4>
+                <p>
+                  Cargo insurance coverage and real-time shipment tracking for
+                  full transparency.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </main>
   );
 }
 
-const services = [
-  {
-    title: "Container Freight Station (CFS) Loads",
-    image: "/cfs.jpg",
-    description:
-      "Efficient container loading and unloading services at designated CFS facilities including cargo stuffing, de-stuffing, palletization, and documentation support.",
-  },
-  {
-    title: "FCL & LCL Consolidation",
-    image: "/container.jpg",
-    description:
-      "Flexible Full Container Load (FCL) and Less than Container Load (LCL) shipping solutions designed for cost optimization and global coverage.",
-  },
-  {
-    title: "Dry Bulk Shipments",
-    image: "/bulk.jpg",
-    description:
-      "Specialized handling of dry bulk commodities such as grains, cement, and industrial materials with moisture protection and secure transit.",
-  },
-  {
-    title: "ODC & Project Cargo",
-    image: "/odc.jpg",
-    description:
-      "Expert management of over-dimensional cargo and heavy machinery shipments with route planning and heavy lift coordination.",
-  },
-  {
-    title: "Refrigerated (Reefer) Services",
-    image: "/reefer.jpg",
-    description:
-      "Temperature-controlled shipping solutions for perishable goods including pharmaceuticals, dairy products, and frozen foods.",
-  },
-  {
-    title: "Freight Insurance & Tracking",
-    image: "/tracking.jpg",
-    description:
-      "Comprehensive freight insurance and real-time cargo tracking system to ensure safety, transparency, and peace of mind.",
-  },
-];
+
+/* ServiceLink Component */
+function ServiceLink({
+  href,
+  title,
+}: {
+  href: string;
+  title: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="block border border-gray-200 rounded-lg px-4 py-3 hover:bg-blue-900 hover:text-white transition"
+    >
+      {title} →
+    </Link>
+  );
+}
