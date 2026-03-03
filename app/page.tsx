@@ -88,7 +88,7 @@ export default function Home() {
             </a>
 
             <a
-              href="/services"
+              href="/service"
               style={{
                 padding: "12px 28px",
                 border: "2px solid white",
