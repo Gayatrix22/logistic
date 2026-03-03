@@ -17,32 +17,26 @@ export default function About() {
     <main className="bg-gray-50">
 
       {/* HERO SECTION */}
-      <section className="relative flex items-center justify-center bg-black">
-
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center text-white text-center px-4">
         <div
-          className="absolute inset-0 bg-contain bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/Global-Logistics.jpg')",
-            backgroundSize: "130%",
-          }}  
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
         ></div>
 
         <div className="absolute inset-0 bg-black/60"></div>
 
         <div 
-          className="relative z-10 text-white text-center py-40 px-6"
+          className="relative z-10"
           data-aos="fade-up"
         >
-          <h1 className="text-4xl md:text-5xl font-bold">
-            About Our Company
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+           About Our Company
           </h1>
-
-          <p className="max-w-2xl mx-auto text-lg text-gray-200 mt-4">
+          <p className="mt-3 text-xs sm:text-sm md:text-base">
             We provide reliable and professional logistics solutions
             designed to help businesses grow efficiently.
           </p>
         </div>
-
       </section>
 
 
