@@ -40,6 +40,7 @@ export default function BlogPage() {
   const categories = ["All", "Logistics", "Transport", "Technology", "Shipping"];
 
   const filteredBlogs = blogs.filter((blog) => {
+    
     const matchSearch = blog.title
       ?.toLowerCase()
       .includes(search.toLowerCase());
