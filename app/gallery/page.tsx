@@ -48,6 +48,25 @@ export default function GalleryPage() {
 
   return (
     <>
+      {/* HERO */}
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center text-white text-center px-4">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+        ></div>
+
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="relative z-10" data-aos="fade-up">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+            Gallery
+          </h1>
+          <p className="mt-3 text-xs sm:text-sm md:text-base">
+            Home <span className="text-red-500">»</span> Gallery
+          </p>
+        </div>
+      </section>
+
       <main className="gallery-wrapper">
 
         {/* Heading */}
@@ -76,16 +95,16 @@ export default function GalleryPage() {
           ) : (
             filteredImages.map((img) => (
               <div
-  key={img.id}
-  className="overflow-hidden rounded-xl shadow hover:shadow-xl transition cursor-pointer h-[260px]"
-  onClick={() => setSelectedImage(img.src)}
->
-  <img
-    src={img.src}
-    alt="gallery"
-    className="w-full h-full object-cover hover:scale-110 transition duration-300"
-  />
-</div>
+                key={img.id}
+                className="overflow-hidden rounded-xl shadow hover:shadow-xl transition cursor-pointer h-[260px]"
+                onClick={() => setSelectedImage(img.src)}
+              >
+                <img
+                  src={img.src}
+                  alt="gallery"
+                  className="w-full h-full object-cover hover:scale-110 transition duration-300"
+                />
+              </div>
             ))
           )}
         </div>
