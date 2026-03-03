@@ -24,7 +24,7 @@ export default function About() {
           style={{
             backgroundImage: "url('/Global-Logistics.jpg')",
             backgroundSize: "130%",
-          }}
+          }}  
         ></div>
 
         <div className="absolute inset-0 bg-black/60"></div>

@@ -22,7 +22,7 @@ export default function Header() {
           width: "100%",
           background: "#ffffff",
           borderBottom: "1px solid #e5e5e5",
-          padding: "20px 0",
+          padding: "15px 0",
           position: "sticky",
           top: 0,
           zIndex: 999,
@@ -39,43 +39,43 @@ export default function Header() {
           }}
         >
           {/* LOGO */}
-          <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
             <img
               src="/logo.png"
               alt="Logo"
-              style={{ width: "70px", height: "70px", objectFit: "contain" }}
+              style={{ width: "80px", height: "80px", objectFit: "contain" }}
             />
-            <div style={{ lineHeight: "1.1" }}>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "20px",
-                  fontWeight: "700",
-                  color: "#d92c21",
-                  textTransform: "uppercase",
-                }}
-              >
-                ERA MARYA
-              </h2>
-              <h3
-                style={{
-                  margin: 0,
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  color: "#000",
-                  textTransform: "uppercase",
-                }}
-              >
-                GLOBAL LOGISTICS
-              </h3>
-              <span
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  color: "#555",
-                  textTransform: "uppercase",
-                }}
-              >
+              <div style={{ lineHeight: "1.1" }}>
+                <h2
+                  style={{
+                    margin: 0,
+                    fontSize: "20px",
+                    fontWeight: "700",
+                    color: "#d92c21",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  ERA MARYA
+                </h2>
+                <h3
+                  style={{
+                    margin: 0,
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    color: "#000",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  GLOBAL LOGISTICS
+                </h3>
+                <span
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    color: "#555",
+                    textTransform: "uppercase",
+                  }}
+                >
                 Private Limited
               </span>
             </div>
