@@ -5,17 +5,17 @@ export default function Home() {
  
       {/* HERO SECTION */}
       <section
-        style={{
-          position: "relative",
-          height: "111.10vh",
-          width: "100%",
-          backgroundImage: "url('/bg.jpg')",
-          backgroundSize: "contain",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
+  style={{
+    position: "relative",
+    minHeight: "100vh",
+    width: "100%",
+    backgroundImage: "url('/bg.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    display: "flex",
+    alignItems: "center",
+    overflow: "hidden",
         }}
       >
         <div
@@ -220,6 +220,11 @@ export default function Home() {
               .service-card h3 { font-size: 18px !important; }
               .service-card p { font-size: 14px !important; }
             }
+              @media (max-width:768px){
+              section{
+              background-position:center top;
+              }
+                }
 
             .fade-in {
               opacity: 0;
@@ -234,6 +239,101 @@ export default function Home() {
         </style>
       </section>
 
+
+      {/* >>>>>>>>>>>>>> FEATURE SECTION ADDED HERE <<<<<<<<<<<<<< */}
+    <section className="w-full grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4">
+  
+  {/* Card 1 */}
+  <div
+    className="feature-card relative h-[500px] flex flex-col justify-end p-6 text-white cursor-pointer"
+    style={{
+      backgroundImage: "url('/img1.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      animationDelay: "0.2s",
+    }}
+  >
+    <div className="absolute inset-0 bg-black/40 hover:bg-black/60 transition-all"></div>
+    <span className="relative text-2xl font-bold opacity-80">01</span>
+    <h3 className="relative text-lg font-semibold mt-2">
+      Global Coverage Local Presence
+    </h3>
+  </div>
+
+  {/* Card 2 */}
+  <div
+    className="feature-card relative h-[500px] flex flex-col justify-end p-6 text-white cursor-pointer"
+    style={{
+      backgroundImage: "url('/img2.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      animationDelay: "0.4s",
+    }}
+  >
+    <div className="absolute inset-0 bg-black/40 hover:bg-black/60 transition-all"></div>
+    <span className="relative text-2xl font-bold opacity-80">02</span>
+    <h3 className="relative text-lg font-semibold mt-2">
+      Safe & Secure Transportation
+    </h3>
+  </div>
+
+  {/* Card 3 */}
+  <div
+    className="feature-card relative h-[500px] flex flex-col justify-end p-6 text-white cursor-pointer"
+    style={{
+      backgroundImage: "url('/img3.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      animationDelay: "0.6s",
+    }}
+  >
+    <div className="absolute inset-0 bg-black/40 hover:bg-black/60 transition-all"></div>
+    <span className="relative text-2xl font-bold opacity-80">03</span>
+    <h3 className="relative text-lg font-semibold mt-2">
+      Extensive Network of Partners & Carriers
+    </h3>
+  </div>
+
+  {/* Card 4 */}
+  <div
+    className="feature-card relative h-[500px] flex flex-col justify-end p-6 text-white cursor-pointer"
+    style={{
+      backgroundImage: "url('/img4.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      animationDelay: "0.8s",
+    }}
+  >
+    <div className="absolute inset-0 bg-black/40 hover:bg-black/60 transition-all"></div>
+    <span className="relative text-2xl font-bold opacity-80">04</span>
+    <h3 className="relative text-lg font-semibold mt-2">
+      Expert Support & Customer Service
+    </h3>
+  </div>
+
+</section>
+
+{/* ANIMATION CSS */}
+<style>
+{`
+  .feature-card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlideUp 1s ease forwards;
+  }
+
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`}
+</style>
       {/* BOTTOM ORANGE ANGLED SEPARATOR */}
       <div className="w-full h-14 bg-gradient-to-r from-orange-600 to-orange-500 transform -skew-y-3"></div>
 
