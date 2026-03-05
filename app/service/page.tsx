@@ -80,12 +80,20 @@ export default function Services() {
                   {service.title}
                 </h3>
 
-                {/* Arrow Button */}
-               <Link href={service.link}>
-  <div className="w-10 h-10 md:w-12 md:h-12 border border-white rounded-full flex items-center justify-center hover:bg-white hover:text-teal-900 transition-all duration-300 cursor-pointer hover:rotate-45">
-    →
-  </div>
-</Link>
+            {/* Read More Button */}
+            <Link href={service.link}>
+             <div className="px-4 py-2 border border-white rounded-full flex items-center gap-2 w-fit hover:bg-white hover:text-teal-900 transition-all duration-300 cursor-pointer">
+
+            <span className="text-sm md:text-base font-medium">
+            Read More
+            </span>
+
+           <span className="transition-transform duration-300 hover:translate-x-1">
+           →
+          </span>
+
+          </div>
+           </Link>
 
                 {/* Number */}
                 <span className="absolute bottom-4 right-5 text-white/20 text-4xl md:text-5xl font-bold">

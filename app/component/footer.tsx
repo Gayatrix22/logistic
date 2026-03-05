@@ -51,8 +51,8 @@ export default function Footer() {
 
           <ul className="space-y-3 text-gray-700">
             <li><Link href="/">Home</Link></li>
-            <li><Link href="/about">About</Link></li>
-            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/about">About us</Link></li>
+            <li><Link href="/service">Service</Link></li>
             <li><Link href="/blog">Blog</Link></li>
             <li><Link href="/gallery">Gallery</Link></li>
             <li><Link href="/contact">Contact Us</Link></li>
@@ -66,12 +66,31 @@ export default function Footer() {
           </h3>
 
           <ul className="space-y-3 text-gray-700">
-            <li>Sea Freight Forwarding</li>
-            <li>Air Freight Forwarding</li>
-            <li>Custom Clearance</li>
-            <li>ODC Logistics Support</li>
-            <li>Project Shipments</li>
-            <li>Warehousing</li>
+            <ul className="space-y-3 text-gray-700">
+  <li>
+    <Link href="/service/sea-freight">Sea Freight Forwarding</Link>
+  </li>
+
+  <li>
+    <Link href="/service/air-freight">Air Freight Forwarding</Link>
+  </li>
+
+  <li>
+    <Link href="/service/custom-clearance">Custom Clearance</Link>
+  </li>
+
+  <li>
+    <Link href="/service/odc-logistics">ODC Logistics Support</Link>
+  </li>
+
+  <li>
+    <Link href="/service/project-shipments">Project Shipments</Link>
+  </li>
+
+  <li>
+    <Link href="/service/warehousing">Warehousing</Link>
+  </li>
+</ul>
           </ul>
         </div>
 

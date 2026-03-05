@@ -15,6 +15,8 @@ export default function Header() {
     { name: "Contact", link: "/contact" },
   ];
 
+  
+
   return (
     <>
       <header
@@ -179,6 +181,7 @@ export default function Header() {
           }}
         />
       )}
+
 
       {/* RESPONSIVE STYLES */}
       <style>{`

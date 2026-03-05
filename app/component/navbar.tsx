@@ -20,10 +20,10 @@ export default function Navbar() {
           style={styles.dropdown}
           onClick={() => setOpen(!open)}
         >
-          Services ▾
+          Service▾
 
           {open && (
-            <ul style={styles.dropdownMenu}>
+            <ul style={styles.dropdownMenu}>/
               <li>
                 <Link href="/services/sea-freight">Sea Freight</Link>
               </li>

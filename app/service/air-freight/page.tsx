@@ -15,9 +15,10 @@ export default function AirFreight() {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10">
-          <h1 className="text-4xl font-bold">Offered Solutions</h1>
+          <h1 className="text-4xl font-bold">Air Freight Forwarding</h1>
           <p className="mt-3">
-            Home <span className="text-red-500">»</span> Air Freight Forwarding
+            Home <span className="text-red-500">»</span> Offered Solution 
+              <span className="text-red-500">»</span> Air Freight Forwarding
           </p>
         </div>
       </section>

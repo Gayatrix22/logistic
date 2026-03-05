@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -19,7 +20,7 @@ export default function ContactPage() {
     message: "",
   });
 
-  const [errors, setErrors]: any = useState({});
+  const [errors, setErrors] = useState<any>({});
 
   // VALIDATION
   const validate = () => {
@@ -54,20 +55,46 @@ export default function ContactPage() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    if (validate()) {
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
 
-      setForm({
-        name: "",
-        company: "",
-        city: "",
-        state: "",
-        country: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
+    if (validate()) {
+      const templateParams = {
+        name: form.name,
+        company: form.company,
+        city: form.city,
+        state: form.state,
+        country: form.country,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+      };
+
+      emailjs
+        .send(
+          "service_4nyx5x7",
+          "template_d99gkxl",
+          templateParams,
+          "hpvAFyupAtcd8znIb"
+        )
+        .then(
+          () => {
+            setSubmitted(true);
+            setTimeout(() => setSubmitted(false), 3000);
+
+            setForm({
+              name: "",
+              company: "",
+              city: "",
+              state: "",
+              country: "",
+              email: "",
+              phone: "",
+              message: "",
+            });
+          },
+          (error) => {
+            console.log("FAILED...", error);
+          }
+        );
     }
   };
 
@@ -78,7 +105,7 @@ export default function ContactPage() {
         {popupText && <Popup text={popupText} clear={() => setPopupText("")} />}
       </AnimatePresence>
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -90,29 +117,24 @@ export default function ContactPage() {
           backgroundPosition: "center",
         }}
       >
-        <motion.div
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Contact Us
-          </h1>
+        <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-lg">
             Home <span className="text-red-500 mx-2">»</span> Contact Us
           </p>
         </motion.div>
       </motion.section>
 
-      {/* CONTACT SECTION */}
+      {/* CONTACT */}
       <section className="bg-gray-100 min-h-screen py-16 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-          {/* LEFT SIDE */}
+
+          {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-6"
           >
-            {/* UNDERLINE ANIMATION INLINE */}
             <h2 className="text-4xl font-bold text-blue-900 relative inline-block">
               Any Queries? Contact Us Now!
               <span className="absolute left-0 -bottom-2 h-[3px] bg-orange-600 animate-grow w-full"></span>
@@ -124,8 +146,10 @@ export default function ContactPage() {
               popup="Office address copied!"
               setPopup={setPopupText}
             >
-              ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED <br />
-              Signet Hub, Vadodara, Gujarat - 390020
+             <p> ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED </p>
+              <p>Signet Hub, 909, 9th Floor,</p>
+              <p>Akshar Chowk, Vadodara,</p>
+             <p> Gujarat, India - 390020</p>
             </InfoCard>
 
             <InfoCard
@@ -149,7 +173,7 @@ export default function ContactPage() {
             </InfoCard>
           </motion.div>
 
-          {/* RIGHT FORM */}
+          {/* FORM */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -172,6 +196,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-2 gap-4">
                 <Select label="City" name="city" value={form.city} onChange={handleChange}
                   options={["Vadodara", "Ahmedabad", "Surat", "Mumbai"]} error={errors.city} />
+
                 <Select label="State" name="state" value={form.state} onChange={handleChange}
                   options={["Gujarat", "Maharashtra", "Delhi", "Rajasthan"]} error={errors.state} />
               </div>
@@ -182,15 +207,12 @@ export default function ContactPage() {
               <Input label="Email Address" name="email" value={form.email} onChange={handleChange} error={errors.email} />
               <Input label="Contact Number" name="phone" value={form.phone} onChange={handleChange} error={errors.phone} />
 
-              {/* MESSAGE BOX */}
               <textarea
                 name="message"
                 placeholder="Your Message"
                 value={form.message}
                 onChange={handleChange}
-                className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
-                  errors.message ? "border-red-500" : ""
-                }`}
+                className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${errors.message ? "border-red-500" : ""}`}
               />
               {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
 
@@ -213,7 +235,6 @@ export default function ContactPage() {
         ></iframe>
       </div>
 
-      {/* INLINE ANIMATION KEYFRAMES */}
       <style>{`
         @keyframes grow {
           from { width: 0%; }
@@ -271,9 +292,7 @@ function Input({ label, name, value, onChange, error }: any) {
         placeholder={label}
         value={value}
         onChange={onChange}
-        className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
-          error ? "border-red-500" : ""
-        }`}
+        className={`w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 ${error ? "border-red-500" : ""}`}
       />
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>
@@ -288,9 +307,7 @@ function Select({ label, name, value, onChange, options, error }: any) {
         name={name}
         value={value}
         onChange={onChange}
-        className={`w-full p-3 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 ${
-          error ? "border-red-500" : ""
-        }`}
+        className={`w-full p-3 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 ${error ? "border-red-500" : ""}`}
       >
         <option value="">Select {label}</option>
         {options.map((opt: string, idx: number) => (
