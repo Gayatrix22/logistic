@@ -111,7 +111,7 @@ export default function BlogPage() {
               </h3>
 
               <p className="text-gray-500 text-sm mb-4">
-                {featuredBlog.author || "Admin"} • {featuredBlog.views} views
+                {featuredBlog.author || "Admin"} • {featuredBlog.views} view
               </p>
 
               <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
