@@ -1,86 +1,71 @@
-"use client";
+import { notFound } from 'next/navigation';
 
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
-import Link from "next/link";
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+export const revalidate = false;
 
-export default function BlogDetailPage() {
-  const { slug } = useParams();
-  const [blog, setBlog] = useState<any>(null);
-  const [relatedBlogs, setRelatedBlogs] = useState<any[]>([]);
+type Post = {
+  id: number;
+  title: string;
+  slug: string;
+  content: string;
+  image?: string | null;
+};
 
-  useEffect(() => {
-    fetch("https://happy.techstrota.com/api/blogs")
-      .then((res) => res.json())
-      .then((data) => {
-        const foundBlog = data.find((b: any) => b.slug === slug);
-        setBlog(foundBlog);
+export async function generateStaticParams() {
+  const res = await fetch(
+    'https://happy.techstrota.com/api/blogs',
+    { cache: 'force-cache' }
+  );
 
-        const related = data
-          .filter((b: any) => b.slug !== slug)
-          .slice(0, 3);
-
-        setRelatedBlogs(related);
-      });
-  }, [slug]);
-
-  if (!blog) {
-    return <div className="p-20 text-center">Loading...</div>;
+  if (!res.ok) {
+    throw new Error('Failed to fetch blog slugs');
   }
 
+  const posts = await res.json();
+
+  return posts.map((post: { slug: string }) => ({
+    slug: post.slug,
+  }));
+}
+
+async function getPost(slug: string): Promise<Post | null> {
+  const res = await fetch(
+    `https://happy.techstrota.com/api/blogs/${slug}`,
+    { cache: 'force-cache' }
+  );
+
+  if (!res.ok) return null;
+  return res.json();
+}
+
+export default async function BlogDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const post = await getPost(slug);
+
+  if (!post) notFound();
+
   return (
-    <>
-      {/* HERO */}
-      <section className="relative h-[45vh] flex items-center justify-center text-white text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${blog.image})` }}
-        ></div>
-        <div className="absolute inset-0 bg-black/60"></div>
+    <div className="max-w-4xl mx-auto p-8">
+      <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
 
-        <div className="relative z-10 max-w-2xl">
-          <h1 className="text-4xl font-bold">{blog.title}</h1>
-        </div>
-      </section>
-
-      {/* Blog Content */}
-      <div className="max-w-4xl mx-auto p-6 md:p-10">
+      {post.image && (
         <img
-          src={blog.image}
-          className="w-full rounded-xl mb-8"
-          alt={blog.title}
+          src={post.image}
+          alt={post.title}
+          className="w-full h-auto rounded mb-6"
         />
+      )}
 
-        <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
-
-        <p className="text-gray-600 leading-relaxed text-lg">
-          {blog.description || blog.content}
-        </p>
-      </div>
-
-      {/* Related Blogs */}
-      <div className="max-w-6xl mx-auto px-6 pb-20">
-        <h2 className="text-2xl font-bold mb-8">Related Blogs</h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {relatedBlogs.map((item: any) => (
-            <Link
-              key={item._id}
-              href={`/blog/${item.slug}`}
-              className="shadow-lg rounded-xl overflow-hidden bg-white"
-            >
-              <img
-                src={item.image}
-                className="h-40 w-full object-cover"
-              />
-
-              <div className="p-4">
-                <h3 className="font-semibold">{item.title}</h3>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </>
+      <div
+        className="prose max-w-none"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
+    </div>
   );
 }
