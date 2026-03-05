@@ -126,13 +126,11 @@ export default function Home() {
             }
 
             /* Make hero background responsive */
-            @media (max-width: 1024px) {
-              section[style] {
-                background-size: cover !important;
-                background-position: center !important;
-              }
-            }
-
+           @media (max-width:768px){
+        section[style*="backgroundImage"]{
+background-position: top center !important;
+}
+}
             /* Responsive Hero Text */
             @media (max-width: 768px) {
               h1 { font-size: 32px !important; line-height: 1.3 !important; }
@@ -220,11 +218,6 @@ export default function Home() {
               .service-card h3 { font-size: 18px !important; }
               .service-card p { font-size: 14px !important; }
             }
-              @media (max-width:768px){
-              section{
-              background-position:center top;
-              }
-                }
 
             .fade-in {
               opacity: 0;
