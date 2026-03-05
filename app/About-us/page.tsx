@@ -33,8 +33,7 @@ export default function About() {
            About Our Company
           </h1>
           <p className="mt-3 text-xs sm:text-sm md:text-base">
-            We provide reliable and professional logistics solutions
-            designed to help businesses grow efficiently.
+             Home <span className="text-red-500">»</span> About Us
           </p>
         </div>
       </section>

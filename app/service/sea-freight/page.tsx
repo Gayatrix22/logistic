@@ -33,12 +33,12 @@ export default function SeaFreight() {
             </h3>
 
             <div className="space-y-4">
-              <ServiceLink href="#" title="Sea Freight Forwarding" />
-              <ServiceLink href="#" title="Air Freight Forwarding" />
-              <ServiceLink href="#" title="Custom Clearance" />
-              <ServiceLink href="#" title="ODC Logistics Support" />
-              <ServiceLink href="#" title="Project Shipments" />
-              <ServiceLink href="#" title="Warehousing" />
+              <ServiceLink href="/service/sea-freight" title="Sea Freight Forwarding" />
+             <ServiceLink href="/service/air-freight" title="Air Freight Forwarding" />
+             <ServiceLink href="/service/custom-clearance" title="Custom Clearance" />
+             <ServiceLink href="/service/odc-logistics" title="ODC Logistics Support" />
+             <ServiceLink href="/service/project-shipments" title="Project Shipments" />
+             <ServiceLink href="/service/warehousing" title="Warehousing" />
             </div>
           </aside>
 
