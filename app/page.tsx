@@ -5,17 +5,17 @@ export default function Home() {
  
       {/* HERO SECTION */}
       <section
-        style={{
-          position: "relative",
-          height: "111.10vh",
-          width: "100%",
-          backgroundImage: "url('/bg.jpg')",
-          backgroundSize: "contain",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
+  style={{
+    position: "relative",
+    minHeight: "100vh",
+    width: "100%",
+    backgroundImage: "url('/bg.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    display: "flex",
+    alignItems: "center",
+    overflow: "hidden",
         }}
       >
         <div
@@ -220,6 +220,11 @@ export default function Home() {
               .service-card h3 { font-size: 18px !important; }
               .service-card p { font-size: 14px !important; }
             }
+              @media (max-width:768px){
+              section{
+              background-position:center top;
+              }
+                }
 
             .fade-in {
               opacity: 0;
@@ -236,7 +241,7 @@ export default function Home() {
 
 
       {/* >>>>>>>>>>>>>> FEATURE SECTION ADDED HERE <<<<<<<<<<<<<< */}
-    <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="w-full grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4">
   
   {/* Card 1 */}
   <div
