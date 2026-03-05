@@ -48,7 +48,7 @@ export default function ODCLogistics() {
             {/* IMAGE */}
             <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
               <Image
-                src="/odc2.jpg"
+                src="/odc-logistics-services.jpg"
                 alt="ODC Logistics Support"
                 fill
                 className="object-cover"

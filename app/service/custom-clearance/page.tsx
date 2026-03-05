@@ -48,7 +48,7 @@ export default function CustomClearance() {
             {/* IMAGE */}
             <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
               <Image
-                src="/custom-clearance.jpg"
+                src="/custom.jpg"
                 alt="Custom Clearance"
                 fill
                 className="object-cover"
