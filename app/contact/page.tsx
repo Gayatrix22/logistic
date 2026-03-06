@@ -105,25 +105,7 @@ export default function ContactPage() {
         {popupText && <Popup text={popupText} clear={() => setPopupText("")} />}
       </AnimatePresence>
 
-      {/* HERO */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="relative h-[400px] flex items-center justify-center text-white"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/Global-Logistics.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg">
-            Home <span className="text-red-500 mx-2">»</span> Contact Us
-          </p>
-        </motion.div>
-      </motion.section>
+
 
       {/* CONTACT */}
       <section className="bg-gray-100 min-h-screen py-16 px-6">
