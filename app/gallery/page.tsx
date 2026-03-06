@@ -32,7 +32,6 @@ export default function GalleryPage() {
   const [filter, setFilter] = useState<string>("All");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Category validation
   const handleFilter = (cat: string) => {
     if (!categories.includes(cat)) {
       console.error("Invalid category");
@@ -96,14 +95,17 @@ export default function GalleryPage() {
             filteredImages.map((img) => (
               <div
                 key={img.id}
-                className="overflow-hidden rounded-xl shadow hover:shadow-xl transition cursor-pointer h-[260px]"
+                className="card"
                 onClick={() => setSelectedImage(img.src)}
               >
-                <img
-                  src={img.src}
-                  alt="gallery"
-                  className="w-full h-full object-cover hover:scale-110 transition duration-300"
-                />
+
+                <img src={img.src} alt="gallery" />
+
+                {/* Hover Overlay */}
+                <div className="overlay">
+                  <span>{img.category}</span>
+                </div>
+
               </div>
             ))
           )}
@@ -122,6 +124,7 @@ export default function GalleryPage() {
 
       {/* CSS */}
       <style jsx>{`
+
         .gallery-wrapper {
           min-height: 100vh;
           background: #f5f7fb;
@@ -131,7 +134,6 @@ export default function GalleryPage() {
         .heading {
           text-align: center;
           margin-bottom: 40px;
-          animation: fadeDown 0.8s ease;
         }
 
         .heading h1 {
@@ -175,10 +177,10 @@ export default function GalleryPage() {
         }
 
         .card {
+          position: relative;
           overflow: hidden;
           border-radius: 12px;
           cursor: pointer;
-          animation: fadeUp 0.6s ease;
         }
 
         .card img {
@@ -192,6 +194,30 @@ export default function GalleryPage() {
           transform: scale(1.12);
         }
 
+        /* Overlay Hover Effect */
+
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0,0,0,0.55);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: 0.4s;
+        }
+
+        .overlay span {
+          color: white;
+          font-size: 22px;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+
+        .card:hover .overlay {
+          opacity: 1;
+        }
+
         .lightbox {
           position: fixed;
           inset: 0;
@@ -199,7 +225,6 @@ export default function GalleryPage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          animation: fadeIn 0.4s ease;
           z-index: 1000;
         }
 
@@ -207,7 +232,6 @@ export default function GalleryPage() {
           max-width: 90%;
           max-height: 90%;
           border-radius: 10px;
-          animation: zoomIn 0.4s ease;
         }
 
         .no-data {
@@ -217,45 +241,6 @@ export default function GalleryPage() {
           color: gray;
         }
 
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes zoomIn {
-          from {
-            transform: scale(0.7);
-          }
-          to {
-            transform: scale(1);
-          }
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
       `}</style>
     </>
   );

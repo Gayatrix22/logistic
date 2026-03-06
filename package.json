@@ -9,7 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+
+
+  
+
     "@emailjs/browser": "^4.4.1",
+
     "@tailwindcss/typography": "^0.5.19",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.8",
