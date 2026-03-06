@@ -257,23 +257,45 @@ export default function BlogPage() {
 
         {/* SIDEBAR */}
         <aside>
-          {/* RECENT POSTS */}
-          <div className="bg-white shadow-lg rounded-xl p-6 mb-8">
-            <h3 className="font-bold text-lg mb-4">
-              Recent Posts
-            </h3>
+         <div className="bg-white p-6 rounded-xl shadow-lg">
+  <h3 className="text-xl font-bold mb-4 border-b pb-2">
+    Recent Posts
+  </h3>
 
-            {blogs.slice(0, 5).map((blog, index) => (
-              <Link
-                key={index}
-                href={`/blog/${blog.slug}`}
-                className="block mb-3 hover:text-orange-500"
-              >
-                {blog.title}
-              </Link>
-            ))}
-          </div>
+  <div className="space-y-4">
 
+    <div className="p-3 rounded-lg border hover:bg-gray-50 transition">
+      <p className="font-semibold text-gray-800 hover:text-blue-600 cursor-pointer">
+        Laravel Framework: Powering Modern Web Applications
+      </p>
+    </div>
+
+    <div className="p-3 rounded-lg border hover:bg-gray-50 transition">
+      <p className="font-semibold text-gray-800 hover:text-blue-600 cursor-pointer">
+        Empowering Interns at Techstrota: Mastering Modern Web Development
+      </p>
+    </div>
+
+    <div className="p-3 rounded-lg border hover:bg-gray-50 transition">
+      <p className="font-semibold text-gray-800 hover:text-blue-600 cursor-pointer">
+        Cybersecurity Best Practices for IT Businesses
+      </p>
+    </div>
+
+    <div className="p-3 rounded-lg border hover:bg-gray-50 transition">
+      <p className="font-semibold text-gray-800 hover:text-blue-600 cursor-pointer">
+        Future of AI in Software Development
+      </p>
+    </div>
+
+    <div className="p-3 rounded-lg border hover:bg-gray-50 transition">
+      <p className="font-semibold text-gray-800 hover:text-blue-600 cursor-pointer">
+        Cloud Computing Trends: What Businesses Need to Know in 2025
+      </p>
+    </div>
+
+  </div>
+</div>
           {/* NEWSLETTER */}
           <div className="bg-orange-500 text-white rounded-xl p-6">
             <h3 className="font-bold text-lg mb-3">

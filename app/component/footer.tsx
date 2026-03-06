@@ -5,13 +5,13 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f3f6f7] pt-16">
-      <footer
-  className="pt-16 bg-cover bg-center bg-no-repeat relative"
-  style={{ backgroundImage: "url('/footer-bg.jpg')" }}
-></footer>
+  <footer
+  className="pt-16 bg-cover bg-center"
+  style={{ backgroundImage: "url('/footer image.jpg')" }}
+>
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        
 
         {/* Company Info */}
         <div>
@@ -52,7 +52,6 @@ export default function Footer() {
           <ul className="space-y-3 text-gray-700">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/about">About us</Link></li>
-            <li><Link href="/about">About</Link></li>
             <li><Link href="/service">Service</Link></li>
             <li><Link href="/blog">Blog</Link></li>
             <li><Link href="/gallery">Gallery</Link></li>
@@ -67,31 +66,24 @@ export default function Footer() {
           </h3>
 
           <ul className="space-y-3 text-gray-700">
-            <ul className="space-y-3 text-gray-700">
-  <li>
-    <Link href="/service/sea-freight">Sea Freight Forwarding</Link>
-  </li>
-
-  <li>
-    <Link href="/service/air-freight">Air Freight Forwarding</Link>
-  </li>
-
-  <li>
-    <Link href="/service/custom-clearance">Custom Clearance</Link>
-  </li>
-
-  <li>
-    <Link href="/service/odc-logistics">ODC Logistics Support</Link>
-  </li>
-
-  <li>
-    <Link href="/service/project-shipments">Project Shipments</Link>
-  </li>
-
-  <li>
-    <Link href="/service/warehousing">Warehousing</Link>
-  </li>
-</ul>
+            <li>
+              <Link href="/service/sea-freight">Sea Freight Forwarding</Link>
+            </li>
+            <li>
+              <Link href="/service/air-freight">Air Freight Forwarding</Link>
+            </li>
+            <li>
+              <Link href="/service/custom-clearance">Custom Clearance</Link>
+            </li>
+            <li>
+              <Link href="/service/odc-logistics">ODC Logistics Support</Link>
+            </li>
+            <li>
+              <Link href="/service/project-shipments">Project Shipments</Link>
+            </li>
+            <li>
+              <Link href="/service/warehousing">Warehousing</Link>
+            </li>
           </ul>
         </div>
 
@@ -123,13 +115,13 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-     <div className="bg-[#083a3f] text-center text-white mt-12 py-4 text-sm">
-  Copyright © 2026{" "}
-  <span className="text-[#ff6a00] font-medium">
-    Era Marya Global Logistics Pvt. Ltd.
-  </span>{" "}
-  Designed by <span className="text-white">TechStrota</span>
-</div>
+      <div className="bg-[#083a3f] text-center text-white mt-12 py-4 text-sm">
+        Copyright © 2026{" "}
+        <span className="text-[#ff6a00] font-medium">
+          Era Marya Global Logistics Pvt. Ltd.
+        </span>{" "}
+        Designed by <span className="text-white">TechStrota</span>
+      </div>
 
     </footer>
   );
