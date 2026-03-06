@@ -180,7 +180,7 @@ background-position: top center !important;
 
             {/* Service 1 */}
             <div className="p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 service-card">
-              <img src="/icons/air.png" className="w-20 mx-auto mb-4" />
+              <img src="/air.png" className="w-20 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-center">Air Freight</h3>
               <p className="text-gray-500 text-center mt-3">
                 Fast & reliable air cargo services ensuring timely deliveries
@@ -190,7 +190,7 @@ background-position: top center !important;
 
             {/* Service 2 */}
             <div className="p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 service-card">
-              <img src="/icons/ship.png" className="w-20 mx-auto mb-4" />
+              <img src="/ship.png" className="w-20 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-center">Ocean Freight</h3>
               <p className="text-gray-500 text-center mt-3">
                 Cost-effective sea freight services connecting worldwide ports
@@ -200,7 +200,7 @@ background-position: top center !important;
 
             {/* Service 3 */}
             <div className="p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2 service-card">
-              <img src="/icons/truck.png" className="w-20 mx-auto mb-4" />
+              <img src="/truck.png" className="w-20 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-center">Road Transport</h3>
               <p className="text-gray-500 text-center mt-3">
                 Safe & efficient road cargo movement with real-time tracking
