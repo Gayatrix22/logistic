@@ -1,3 +1,4 @@
+"use client";
 export default function Home() {
 
   return (
@@ -233,7 +234,7 @@ background-position: top center !important;
       </section>
 
 
-      {/* >>>>>>>>>>>>>> FEATURE SECTION ADDED HERE <<<<<<<<<<<<<< */}
+      {/* FEATURE SECTION ADDED HERE  */}
     <section className="w-full grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4">
   
   {/* Card 1 */}

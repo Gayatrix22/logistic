@@ -59,12 +59,12 @@ export default function About() {
             and achieve long-term success.
           </p>
 
-          <a
-            href="/contact"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-orange-500 transition duration-300"
-          >
-            Contact Us
-          </a>
+          <Link
+  href="/contact"
+  className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg shadow-md hover:bg-orange-500 transition duration-300"
+>
+  Contact Us
+</Link>
 
         </div>
       </section>
