@@ -266,7 +266,7 @@ export default function BlogPage() {
 
     <div className="p-3 rounded-lg border hover:bg-gray-50 transition">
       <p className="font-semibold text-gray-800 hover:text-blue-600 cursor-pointer">
-        Laravel Framework: Powering Modern Web Applications
+        Laravel Framework: Powering Modern Web Application
       </p>
     </div>
 
