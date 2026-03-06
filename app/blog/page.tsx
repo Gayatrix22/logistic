@@ -278,7 +278,7 @@ export default function BlogPage() {
 
     <div className="p-3 rounded-lg border hover:bg-gray-50 transition">
       <p className="font-semibold text-gray-800 hover:text-blue-600 cursor-pointer">
-        Cybersecurity Best Practices for IT Businesses
+        Cybersecurity Best Practices for IT Businesse
       </p>
     </div>
 
