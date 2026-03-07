@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 export default function BlogPage() {
 
   const [blogs, setBlogs] = useState<any[]>([]);
-  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,32 +35,22 @@ export default function BlogPage() {
 
   }, []);
 
-  const filteredBlogs = blogs.filter((blog) => {
-    return blog.title?.toLowerCase().includes(search.toLowerCase());
-  });
-
-  const featuredBlog = blogs[0];
-
   return (
     <>
 
 {/* HERO SECTION */}
-<section className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden">
 
-  {/* Background Image */}
+<section className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden mb-16">
+
   <div
     className="absolute inset-0 bg-cover bg-center"
     style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
   ></div>
 
-  {/* Overlay */}
   <div className="absolute inset-0 bg-black/60"></div>
 
-  {/* Content */}
-  <div 
-    className="relative z-10 px-4"
-    data-aos="fade-up"
-  >
+  <div className="relative z-10 px-4" data-aos="fade-up">
+
     <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
       Blog
     </h1>
@@ -69,84 +58,20 @@ export default function BlogPage() {
     <p className="mt-2 text-xs sm:text-sm md:text-base">
       Home <span className="text-red-500">»</span> Blog
     </p>
+
   </div>
 
 </section>
-
-{/* FEATURED BLOG */}
-
-{featuredBlog && !loading && (
-
-<section className="p-10">
-
-<motion.div
-initial={{opacity:0,y:40}}
-animate={{opacity:1,y:0}}
-transition={{duration:0.6}}
-className="grid md:grid-cols-2 gap-8 bg-gray-100 p-6 rounded-xl"
->
-
-<img
-src={featuredBlog.image}
-className="rounded-xl h-72 w-full object-cover"
-/>
-
-<div>
-
-<h2 className="text-3xl font-bold mb-4">
-Featured Blog
-</h2>
-
-<h3 className="text-xl font-semibold mb-3">
-{featuredBlog.title}
-</h3>
-
-<p className="text-gray-500 text-sm mb-4">
-{featuredBlog.author || "Admin"} • 👁 {featuredBlog.views}
-</p>
-
-<motion.div whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
-
-<Link
-href={`/blog/${featuredBlog.slug}`}
-className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg"
->
-Read Full Article →
-</Link>
-
-</motion.div>
-
-</div>
-
-</motion.div>
-
-</section>
-
-)}
-
 
 
 {/* MAIN SECTION */}
 
 <section className="max-w-7xl mx-auto px-6 pb-20 grid lg:grid-cols-4 gap-10">
 
+
 {/* BLOG LIST */}
 
 <div className="lg:col-span-3">
-
-{/* SEARCH */}
-
-<div className="mb-10">
-
-<input
-type="text"
-placeholder="Search blogs..."
-value={search}
-onChange={(e)=>setSearch(e.target.value)}
-className="border p-3 rounded-lg w-full md:w-1/3"
-/>
-
-</div>
 
 
 {/* LOADING */}
@@ -171,7 +96,7 @@ className="h-64 bg-gray-200 animate-pulse rounded-xl"
 
 <div className="grid md:grid-cols-2 gap-8">
 
-{filteredBlogs.map((blog,index)=>(
+{blogs.map((blog,index)=>(
 
 <motion.div
 key={blog._id || index}
@@ -191,12 +116,10 @@ src={blog.image}
 className="h-48 w-full object-cover transition duration-700 group-hover:scale-110"
 />
 
-{/* OVERLAY */}
-
 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 flex items-center justify-center transition duration-500">
 
 <Link
-href={`/blog/${blog.slug}`}
+href={`/blog-details/${blog.slug}`}
 className="opacity-0 group-hover:opacity-100 bg-orange-500 text-white px-5 py-2 rounded-lg font-semibold transition duration-500"
 >
 Read Article →
@@ -205,6 +128,7 @@ Read Article →
 </div>
 
 </div>
+
 
 {/* CONTENT */}
 
@@ -229,7 +153,7 @@ className="inline-block mt-4"
 >
 
 <Link
-href={`/blog/${blog.slug}`}
+href={`/blog-details/${blog.slug}`}
 className="text-blue-600 font-semibold"
 >
 Read More →
@@ -251,6 +175,7 @@ Read More →
 {/* SIDEBAR */}
 
 <aside className="space-y-8">
+
 
 {/* RECENT POSTS */}
 
@@ -281,7 +206,7 @@ className="w-16 h-16 object-cover rounded-md"
 />
 
 <Link
-href={`/blog/${post.slug}`}
+href={`/blog-details/${post.slug}`}
 className="text-sm font-semibold text-gray-800 hover:text-blue-600"
 >
 {post.title}
@@ -336,6 +261,5 @@ Subscribe
 </section>
 
 </>
-
   );
 }
