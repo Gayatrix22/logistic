@@ -258,7 +258,9 @@ function InfoCard({ icon, title, children, popup, setPopup }: any) {
       <div className="text-orange-600">{icon}</div>
       <div>
         <h4 className="font-semibold text-lg">{title}</h4>
-        <p className="text-gray-600 mt-2 text-sm">{children}</p>
+       <div className="text-gray-600 mt-2 text-sm">
+  <p>{popup}</p>
+</div>
       </div>
     </motion.div>
   );

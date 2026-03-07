@@ -47,7 +47,6 @@ export default function Home() {
 
           {/* Title */}
           <h1 className="title">
-         <h1 className="title">
   {title.map((line, index) => (
     <div key={index}>
       {line.split("").map((letter, i) => (
@@ -58,13 +57,15 @@ export default function Home() {
     </div>
   ))}
 </h1>
-</h1>
+
+
 
           {/* Description */}
-          <p className="desc">
-            Facilitating Sea and Air Freight Forwarding and Custom Clearance
-            Across the Globe.
-          </p>
+<p className="desc text-animate">
+  Facilitating Sea and Air Freight Forwarding and Custom Clearance
+  Across the Globe.
+</p>
+
 
           {/* Buttons */}
           <div className="buttons">
@@ -178,131 +179,252 @@ export default function Home() {
       {/* CSS */}
       <style jsx>{`
 
-        .hero-content{
-          position:relative;
-          z-index:2;
-          max-width:700px;
-          margin-left:8%;
-        }
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:700px;
+  margin-left:8%;
+}
 
-        .company{
-          color:#ff4d00;
-          font-size:20px;
-          font-weight:700;
-        }
+/* HERO TEXT */
 
-        .title{
-          font-size:48px;
-          font-weight:800;
-          color:white;
-          margin:20px 0;
-        }
+.company{
+  color:#ff4d00;
+  font-size:20px;
+  font-weight:700;
+}
 
-        .desc{
-          color:white;
-          font-size:20px;
-          max-width:650px;
-        }
+.title{
+  font-size:48px;
+  font-weight:800;
+  color:white;
+  margin:20px 0;
+  line-height:1.2;
+}
 
-        .buttons{
-          margin-top:30px;
-          display:flex;
-          gap:15px;
-        }
+.desc{
+  color:white;
+  font-size:20px;
+  max-width:650px;
+}
 
-        .btn-primary{
-          padding:12px 28px;
-          background:#ff4d00;
-          color:white;
-          border-radius:8px;
-          font-weight:600;
-          text-decoration:none;
-        }
+/* BUTTONS */
 
-        .btn-outline{
-          padding:12px 28px;
-          border:2px solid white;
-          color:white;
-          border-radius:8px;
-          text-decoration:none;
-        }
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
 
-        .wave{
-          position:absolute;
-          bottom:-40px;
-          width:100%;
-        }
+.btn-primary{
+  padding:12px 28px;
+  background:#ff4d00;
+  color:white;
+  border-radius:8px;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-block;
+}
 
-        .title span,
-        .company span{
-          opacity:0;
-          display:inline-block;
-          transform:translateY(20px);
-          animation:letterReveal .5s forwards;
-        }
+.btn-outline{
+  padding:12px 28px;
+  border:2px solid white;
+  color:white;
+  border-radius:8px;
+  text-decoration:none;
+  display:inline-block;
+}
 
-        @keyframes letterReveal{
-          to{
-            opacity:1;
-            transform:translateY(0);
-          }
-        }
+/* HERO WAVE */
 
-        .service-card{
-          background:white;
-          padding:30px;
-          border-radius:10px;
-          text-align:center;
-          box-shadow:0 10px 20px rgba(0,0,0,.08);
-        }
+.wave{
+  position:absolute;
+  bottom:-40px;
+  width:100%;
+}
 
-        .service-card h3{
-          font-weight:700;
-          margin-top:10px;
-        }
+/* TEXT ANIMATION */
 
-        .service-card p{
-          color:#666;
-          margin-top:10px;
-        }
+.title span,
+.company span{
+  opacity:0;
+  display:inline-block;
+  transform:translateY(20px);
+  animation:letterReveal .5s forwards;
+}
 
-        .feature-card{
-          height:500px;
-          background-size:cover;
-          background-position:center;
-          position:relative;
-          display:flex;
-          flex-direction:column;
-          justify-content:flex-end;
-          padding:30px;
-          color:white;
-        }
+@keyframes letterReveal{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
-        .feature-card span{
-          font-size:28px;
-          font-weight:700;
-        }
+/* SERVICE CARDS */
 
-        .feature-card h3{
-          font-size:18px;
-          margin-top:10px;
-        }
+.service-card{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
 
-        .overlay{
-          position:absolute;
-          inset:0;
-          background:rgba(0,0,0,.4);
-        }
+.service-card h3{
+  font-weight:700;
+  margin-top:10px;
+}
 
-        .bottom-strip{
-          width:100%;
-          height:60px;
-          background:linear-gradient(90deg,#ea580c,#f97316);
-          transform:skewY(-3deg);
-        }
+.service-card p{
+  color:#666;
+  margin-top:10px;
+}
 
-      `}</style>
+/* FEATURE CARDS */
 
+.feature-card{
+  height:500px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:30px;
+  color:white;
+}
+
+.feature-card span{
+  font-size:28px;
+  font-weight:700;
+}
+
+.feature-card h3{
+  font-size:18px;
+  margin-top:10px;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.4);
+}
+
+.bottom-strip{
+  width:100%;
+  height:60px;
+  background:linear-gradient(90deg,#ea580c,#f97316);
+  transform:skewY(-3deg);
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN */
+/* ========================= */
+
+/* Tablet */
+
+@media(max-width:1024px){
+
+.hero-content{
+  margin-left:5%;
+  max-width:600px;
+}
+
+.title{
+  font-size:40px;
+}
+
+.desc{
+  font-size:18px;
+}
+
+.feature-card{
+  height:420px;
+}
+
+}
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-animate {
+  animation: fadeSlideUp 1.5s ease forwards;
+}
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero-content{
+  margin-left:5%;
+  margin-right:5%;
+  max-width:100%;
+}
+
+.title{
+  font-size:32px;
+}
+
+.company{
+  font-size:16px;
+}
+
+.desc{
+  font-size:16px;
+}
+
+.buttons{
+  flex-direction:column;
+  width:220px;
+}
+
+.btn-primary,
+.btn-outline{
+  width:100%;
+  text-align:center;
+}
+
+.feature-card{
+  height:350px;
+}
+
+}
+
+/* Small Mobile */
+
+@media(max-width:480px){
+
+.title{
+  font-size:26px;
+}
+
+.company{
+  font-size:14px;
+}
+
+.desc{
+  font-size:15px;
+}
+
+.service-card{
+  padding:20px;
+}
+
+.feature-card{
+  height:300px;
+  padding:20px;
+}
+
+}
+
+`}</style>
     </main>
   );
 }
