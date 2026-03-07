@@ -75,56 +75,6 @@ Home <span className="text-orange-400">»</span> Blog
 </section>
 
 
-{/* FEATURED BLOG */}
-
-{featuredBlog && !loading && (
-
-<section className="p-10">
-
-<motion.div
-initial={{opacity:0,y:40}}
-animate={{opacity:1,y:0}}
-transition={{duration:0.6}}
-className="grid md:grid-cols-2 gap-8 bg-gray-100 p-6 rounded-xl"
->
-
-<img
-src={featuredBlog.image}
-className="rounded-xl h-72 w-full object-cover"
-/>
-
-<div>
-
-<h2 className="text-3xl font-bold mb-4">
-Featured Blog
-</h2>
-
-<h3 className="text-xl font-semibold mb-3">
-{featuredBlog.title}
-</h3>
-
-<p className="text-gray-500 text-sm mb-4">
-{featuredBlog.author || "Admin"} • 👁 {featuredBlog.views}
-</p>
-
-<motion.div whileHover={{scale:1.1}} whileTap={{scale:0.9}}>
-
-<Link
-href={`/blog/${featuredBlog.slug}`}
-className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg"
->
-Read Full Article →
-</Link>
-
-</motion.div>
-
-</div>
-
-</motion.div>
-
-</section>
-
-)}
 
 
 {/* MAIN SECTION */}
@@ -135,19 +85,7 @@ Read Full Article →
 
 <div className="lg:col-span-3">
 
-{/* SEARCH */}
 
-<div className="mb-10">
-
-<input
-type="text"
-placeholder="Search blogs..."
-value={search}
-onChange={(e)=>setSearch(e.target.value)}
-className="border p-3 rounded-lg w-full md:w-1/3"
-/>
-
-</div>
 
 
 {/* LOADING */}

@@ -16,27 +16,30 @@ export default function About() {
   return (
     <main className="bg-gray-50">
 
-      {/* HERO SECTION */}
-      <section className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-white text-center px-4">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        ></div>
+    {/* HERO SECTION */}
+<section className="relative w-screen h-[32vh] sm:h-[38vh] md:h-[42vh] flex items-center justify-center text-white text-center left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
 
-        <div className="absolute inset-0 bg-black/60"></div>
+  {/* Background */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  ></div>
 
-        <div 
-          className="relative z-10"
-          data-aos="fade-up"
-        >
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold">
-           About Our Company
-          </h1>
-          <p className="mt-3 text-xs sm:text-sm md:text-base">
-             Home <span className="text-red-500">»</span> About Us
-          </p>
-        </div>
-      </section>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10 px-4">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+      About Our Company
+    </h1>
+
+    <p className="mt-2 text-sm sm:text-base">
+      Home <span className="text-red-500">»</span> About Us
+    </p>
+  </div>
+
+</section>
 
 
       {/* ABOUT SECTION */}
