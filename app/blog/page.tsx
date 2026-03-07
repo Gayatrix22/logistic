@@ -51,7 +51,7 @@ export default function BlogPage() {
 
 {/* HERO */}
 
-<section className="relative h-[50vh] flex items-center justify-center text-white text-center">
+<section className="relative w-screen h-[32vh] sm:h-[38vh] md:h-[42vh] flex items-center justify-center text-white text-center left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
 
 <div
 className="absolute inset-0 bg-cover bg-center"
@@ -214,40 +214,7 @@ className="text-sm font-semibold text-gray-800 hover:text-blue-600"
 </motion.div>
 
 
-{/* NEWSLETTER */}
 
-<motion.div
-initial={{opacity:0,y:40}}
-animate={{opacity:1,y:0}}
-transition={{duration:0.6,delay:0.2}}
-className="bg-orange-500 text-white rounded-xl p-6"
->
-
-<h3 className="font-bold text-lg mb-3">
-Subscribe Newsletter
-</h3>
-
-<p className="text-sm mb-4">
-Get latest logistics updates.
-</p>
-
-<input
-type="email"
-placeholder="Enter email"
-className="w-full p-2 rounded text-black mb-3"
-/>
-
-<motion.button
-whileHover={{scale:1.05}}
-whileTap={{scale:0.95}}
-className="w-full bg-black py-2 rounded"
->
-
-Subscribe
-
-</motion.button>
-
-</motion.div>
 
 </aside>
 
