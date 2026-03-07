@@ -8,7 +8,6 @@ export default function BlogPage() {
 
   const [blogs, setBlogs] = useState<any[]>([]);
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("All");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,19 +36,8 @@ export default function BlogPage() {
 
   }, []);
 
-  const categories = ["All","Logistics","Transport","Technology","Shipping"];
-
   const filteredBlogs = blogs.filter((blog) => {
-
-    const matchSearch = blog.title
-      ?.toLowerCase()
-      .includes(search.toLowerCase());
-
-    const matchCategory =
-      category === "All" || blog.category === category;
-
-    return matchSearch && matchCategory;
-
+    return blog.title?.toLowerCase().includes(search.toLowerCase());
   });
 
   const featuredBlog = blogs[0];
@@ -135,6 +123,7 @@ Read Full Article →
 )}
 
 
+
 {/* MAIN SECTION */}
 
 <section className="max-w-7xl mx-auto px-6 pb-20 grid lg:grid-cols-4 gap-10">
@@ -145,7 +134,7 @@ Read Full Article →
 
 {/* SEARCH */}
 
-<div className="flex flex-col md:flex-row justify-between gap-5 mb-10">
+<div className="mb-10">
 
 <input
 type="text"
@@ -154,24 +143,6 @@ value={search}
 onChange={(e)=>setSearch(e.target.value)}
 className="border p-3 rounded-lg w-full md:w-1/3"
 />
-
-<div className="flex gap-3 flex-wrap">
-
-{categories.map((cat)=>(
-<button
-key={cat}
-onClick={()=>setCategory(cat)}
-className={`px-4 py-2 rounded-lg border ${
-category===cat
-? "bg-orange-500 text-white"
-: "bg-white"
-}`}
->
-{cat}
-</button>
-))}
-
-</div>
 
 </div>
 
@@ -204,25 +175,44 @@ className="h-64 bg-gray-200 animate-pulse rounded-xl"
 key={blog._id || index}
 initial={{opacity:0,y:40}}
 animate={{opacity:1,y:0}}
-whileHover={{y:-8}}
+whileHover={{y:-10}}
 transition={{duration:0.4}}
-className="shadow-lg rounded-xl p-5 bg-white"
+className="group rounded-xl overflow-hidden shadow-lg bg-white"
 >
 
-<div className="overflow-hidden rounded-lg">
+{/* IMAGE */}
+
+<div className="relative overflow-hidden">
 
 <img
 src={blog.image}
-className="h-48 w-full object-cover hover:scale-110 transition duration-500"
+className="h-48 w-full object-cover transition duration-700 group-hover:scale-110"
 />
+
+{/* OVERLAY */}
+
+<div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 flex items-center justify-center transition duration-500">
+
+<Link
+href={`/blog/${blog.slug}`}
+className="opacity-0 group-hover:opacity-100 bg-orange-500 text-white px-5 py-2 rounded-lg font-semibold transition duration-500"
+>
+Read Article →
+</Link>
 
 </div>
 
-<span className="text-xs bg-orange-500 text-white px-2 py-1 rounded mt-3 inline-block">
+</div>
+
+{/* CONTENT */}
+
+<div className="p-5">
+
+<span className="text-xs bg-orange-500 text-white px-2 py-1 rounded inline-block">
 {blog.category || "Logistics"}
 </span>
 
-<h2 className="mt-3 font-semibold text-lg">
+<h2 className="mt-3 font-semibold text-lg group-hover:text-orange-500 transition">
 {blog.title}
 </h2>
 
@@ -231,8 +221,8 @@ className="h-48 w-full object-cover hover:scale-110 transition duration-500"
 </p>
 
 <motion.div
-whileHover={{scale:1.1}}
-whileTap={{scale:0.9}}
+whileHover={{scale:1.05}}
+whileTap={{scale:0.95}}
 className="inline-block mt-4"
 >
 
@@ -244,6 +234,8 @@ Read More →
 </Link>
 
 </motion.div>
+
+</div>
 
 </motion.div>
 
