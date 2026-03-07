@@ -24,7 +24,7 @@ export default function Services() {
     <main className="bg-gray-100 overflow-hidden">
 
       {/* HERO */}
-      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center text-white text-center px-4">
+      <section className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}

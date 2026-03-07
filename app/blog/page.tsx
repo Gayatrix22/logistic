@@ -45,31 +45,33 @@ export default function BlogPage() {
   return (
     <>
 
-{/* HERO */}
+{/* HERO SECTION */}
+<section className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden">
 
-<section className="relative h-[50vh] flex items-center justify-center text-white text-center">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  ></div>
 
-<div
-className="absolute inset-0 bg-cover bg-center"
-style={{backgroundImage:"url('/Global-Logistics.jpg')"}}
-/>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
 
-<div className="absolute inset-0 bg-black/60"></div>
+  {/* Content */}
+  <div 
+    className="relative z-10 px-4"
+    data-aos="fade-up"
+  >
+    <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
+      Blog
+    </h1>
 
-<div className="relative z-10">
-
-<h1 className="text-4xl md:text-5xl font-bold">
-Blog
-</h1>
-
-<p className="mt-2">
-Home <span className="text-orange-400">»</span> Blog
-</p>
-
-</div>
+    <p className="mt-2 text-xs sm:text-sm md:text-base">
+      Home <span className="text-red-500">»</span> Blog
+    </p>
+  </div>
 
 </section>
-
 
 {/* FEATURED BLOG */}
 
