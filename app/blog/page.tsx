@@ -57,30 +57,27 @@ export default function BlogPage() {
   return (
     <>
 
-{/* HERO */}
+{/* HERO SECTION */}
+      <section className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] flex items-center justify-center text-white text-center px-4">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+        ></div>
 
-<section className="relative h-[50vh] flex items-center justify-center text-white text-center">
+        <div className="absolute inset-0 bg-black/60"></div>
 
-<div
-className="absolute inset-0 bg-cover bg-center"
-style={{backgroundImage:"url('/Global-Logistics.jpg')"}}
-/>
-
-<div className="absolute inset-0 bg-black/60"></div>
-
-<div className="relative z-10">
-
-<h1 className="text-4xl md:text-5xl font-bold">
-Blog
-</h1>
-
-<p className="mt-2">
-Home <span className="text-orange-400">»</span> Blog
-</p>
-
-</div>
-
-</section>
+        <div 
+          className="relative z-10"
+          data-aos="fade-up"
+        >
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold">
+           Blog
+          </h1>
+          <p className="mt-3 text-xs sm:text-sm md:text-base">
+             Home <span className="text-red-500">»</span> Blog
+          </p>
+        </div>
+      </section>
 
 
 {/* FEATURED BLOG */}
