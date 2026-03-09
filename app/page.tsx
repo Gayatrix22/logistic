@@ -90,63 +90,224 @@ export default function Home() {
 
       </section>
 
+{/* SERVICES */}
+<section className="py-20 bg-gray-100 px-6">
 
-      {/* ABOUT */}
-      <section className="py-20 bg-white text-center px-6">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
-          Global Logistics, Delivered With Excellence
-        </h2>
+  <h2 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800">
+    Our Core Services
+  </h2>
 
-        <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
-          We are a leading logistics and supply chain company committed to
-          delivering seamless, safe, and cost-effective transport solutions
-          across the world.
+  <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+    
+    {/* CARD */}
+<div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
+
+<img
+src="/ship1.jpg"
+className="w-full h-48 object-cover"
+/>
+
+<div className="p-8 text-center">
+
+<h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+Sea Freight Forwarding
+</h3>
+
+<p className="text-gray-600 mt-3 group-hover:text-white transition">
+Offering seamless and efficient sea freight forwarding solutions for all your import and export needs.
+</p>
+
+<a
+href="/service/sea-freight"
+className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+>
+Read More →
+</a>
+
+</div>
+
+</div>
+
+  {/* CARD */}
+<div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
+
+<img
+src="/air.jpg"
+className="w-full h-48 object-cover"
+/>
+
+<div className="p-8 text-center">
+
+<h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+Air Freight Forwarding
+</h3>
+
+<p className="text-gray-600 mt-3 group-hover:text-white transition">
+Speed, reliability, and affordability – our air freight forwarding service guarantees a seamless experience.
+</p>
+
+<a
+href="/service/air-freight"
+className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+>
+Read More →
+</a>
+
+</div>
+
+</div>
+   
+{/* CARD */}
+<div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
+
+<img
+src="/c2.jpg"
+className="w-full h-48 object-cover"
+/>
+
+<div className="p-8 text-center">
+
+<h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+Custom Clearance
+</h3>
+
+<p className="text-gray-600 mt-3 group-hover:text-white transition">
+Effortlessly navigate the customs clearance process with Era Marya Global Logistics Pvt. Ltd.
+</p>
+
+<a
+href="/service/custom-clearance"
+className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+>
+Read More →
+</a>
+</div>
+</div>
+
+
+    {/* CARD */}
+    <div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
+
+      <img
+        src="/odc.jpg"
+        className="w-full h-48 object-cover"
+      />
+
+      <div className="p-6 text-center">
+
+        <h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+          ODC Logistics Support
+        </h3>
+
+        <p className="text-gray-600 mt-3 group-hover:text-white transition">
+          From heavy machinery to delicate equipment, our ODC logistics service ensures secure delivery.
         </p>
-      </section>
+
+        <a
+          href="/service/odc-logistics"
+          className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+        >
+          Read More →
+        </a>
+
+      </div>
+    </div>
 
 
-      {/* SERVICES */}
-      <section className="py-20 bg-gray-100 px-6">
+    {/* CARD */}
+    <div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
 
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800">
-          Our Core Services
-        </h2>
+      <img
+        src="/project.jpg"
+        className="w-full h-48 object-cover"
+      />
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div className="p-6 text-center">
 
-          <div className="service-card">
-            <img src="/air.png" className="w-20 mx-auto mb-4" />
-            <h3>Air Freight</h3>
-            <p>
-              Fast & reliable air cargo services ensuring timely deliveries
-              across global destinations.
-            </p>
-          </div>
+        <h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+          Project Shipments
+        </h3>
 
-          <div className="service-card">
-            <img src="/ship.png" className="w-20 mx-auto mb-4" />
-            <h3>Ocean Freight</h3>
-            <p>
-              Cost-effective sea freight services connecting worldwide ports
-              with reliability.
-            </p>
-          </div>
+        <p className="text-gray-600 mt-3 group-hover:text-white transition">
+          Expert project shipment services providing customized solutions for challenging cargo.
+        </p>
 
-          <div className="service-card">
-            <img src="/truck.png" className="w-20 mx-auto mb-4" />
-            <h3>Road Transport</h3>
-            <p>
-              Safe & efficient road cargo movement with real-time tracking.
-            </p>
-          </div>
+        <a
+          href="/service/project-shipments"
+          className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+        >
+          Read More →
+        </a>
 
-        </div>
+      </div>
+    </div>
 
-      </section>
 
+    {/* CARD */}
+    <div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
+
+      <img
+        src="/warehouse.jpg"
+        className="w-full h-48 object-cover"
+      />
+
+      <div className="p-6 text-center">
+
+        <h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+          Warehousing
+        </h3>
+
+        <p className="text-gray-600 mt-3 group-hover:text-white transition">
+          Secure and scalable warehousing services designed for modern supply chains.
+        </p>
+
+        <a
+          href="/service/warehousing"
+          className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+        >
+          Read More →
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+{/* ABOUT */}
+<section className="py-20 bg-white px-4">
+  <div className="max-w-14xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    
+    {/* LEFT SIDE IMAGE */}
+    <div className="md:w-1/2">
+      <img
+        src="/global-delivery-model.jpg"
+        alt="Global Delivery Model"
+        className="w-full rounded-lg "
+      />
+    </div>
+
+    {/* RIGHT SIDE TEXT */}
+    <div className="md:w-1/2 text-center md:text-left">
+      <h2 className="text-5xl md:text-6xl font-extrabold text-gray-800">
+        Global Logistics, Delivered With Excellence
+      </h2>
+
+      <p className="mt-4 text-2xl md:text-2xl text-gray-800">
+        We are a leading logistics and supply chain company committed to
+        delivering seamless, safe, and cost-effective transport solutions
+        across the world. Our global delivery model ensures efficiency,
+        innovation, and operational excellence for every shipment.
+      </p>
+    </div>
+
+  </div>
+</section>
 
       {/* FEATURE SECTION */}
-      <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-20 bg-white mb-10 gap-1">
 
         {[
           { img: "/img1.jpg", title: "Global Coverage Local Presence" },
@@ -170,11 +331,6 @@ export default function Home() {
         ))}
 
       </section>
-
-
-      {/* BOTTOM STRIP */}
-      <div className="bottom-strip"></div>
-
 
       {/* CSS */}
       <style jsx>{`
