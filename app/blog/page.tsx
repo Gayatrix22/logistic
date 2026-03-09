@@ -51,30 +51,21 @@ export default function BlogPage() {
 
 {/* HERO */}
 
-<section className="relative h-[50vh] flex items-center justify-center text-white text-center">
+<section className="h-[30vh] flex items-center justify-center text-center bg-gray-100">
 
-<div
-className="absolute inset-0 bg-cover bg-center"
-style={{backgroundImage:"url('/Global-Logistics.jpg')"}}
-/>
+<div>
 
-<div className="absolute inset-0 bg-black/60"></div>
-
-<div className="relative z-10">
-
-<h1 className="text-4xl md:text-5xl font-bold">
+<h1 className="text-4xl md:text-5xl font-bold text-gray-800">
 Blog
 </h1>
 
-<p className="mt-2">
-Home <span className="text-orange-400">»</span> Blog
+<p className="mt-2 text-gray-600">
+Home <span className="text-orange-500">»</span> Blog
 </p>
 
 </div>
 
 </section>
-
-
 
 
 {/* MAIN SECTION */}
@@ -84,9 +75,6 @@ Home <span className="text-orange-400">»</span> Blog
 {/* BLOG LIST */}
 
 <div className="lg:col-span-3">
-
-
-
 
 {/* LOADING */}
 
@@ -214,40 +202,7 @@ className="text-sm font-semibold text-gray-800 hover:text-blue-600"
 </motion.div>
 
 
-{/* NEWSLETTER */}
 
-<motion.div
-initial={{opacity:0,y:40}}
-animate={{opacity:1,y:0}}
-transition={{duration:0.6,delay:0.2}}
-className="bg-orange-500 text-white rounded-xl p-6"
->
-
-<h3 className="font-bold text-lg mb-3">
-Subscribe Newsletter
-</h3>
-
-<p className="text-sm mb-4">
-Get latest logistics updates.
-</p>
-
-<input
-type="email"
-placeholder="Enter email"
-className="w-full p-2 rounded text-black mb-3"
-/>
-
-<motion.button
-whileHover={{scale:1.05}}
-whileTap={{scale:0.95}}
-className="w-full bg-black py-2 rounded"
->
-
-Subscribe
-
-</motion.button>
-
-</motion.div>
 
 </aside>
 
