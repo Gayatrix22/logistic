@@ -577,6 +577,7 @@ Read More →
 }
 /* Mobile */
 
+
 @media(max-width:768px){
 
 .hero-content{
@@ -615,7 +616,19 @@ Read More →
 }
 
 /* Small Mobile */
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
 
+@media(max-width:768px){
+.buttons{
+  flex-direction:column;
+  width:220px;
+}
+}
 @media(max-width:480px){
 
 .title{

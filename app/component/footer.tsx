@@ -7,11 +7,11 @@ export default function Footer() {
   return (
     <footer
       className="pt-16 bg-cover bg-center relative"
-      style={{ backgroundImage: "url('/img1.jpg')" }}
+      style={{ backgroundImage: "url('/footer-bg.jpg')" }}
     >
 
       {/* Light Overlay */}
-      <div className="absolute inset-0 bg-black/80"></div>
+     
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-30 relative z-10">
         
