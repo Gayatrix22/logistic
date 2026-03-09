@@ -71,7 +71,7 @@ export default function GalleryPage() {
         {/* Heading */}
         <div className="heading">
           <h1>Logistics Gallery</h1>
-          <p>Explore our trucks, warehouses and logistics operations</p>
+          <p>Explore our trucks, warehouses and logistics operation</p>
         </div>
 
         {/* Filters */}
