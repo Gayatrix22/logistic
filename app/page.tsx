@@ -307,7 +307,7 @@ Read More →
 </section>
 
       {/* FEATURE SECTION */}
-      <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-20 bg-white mb-10 gap-1">
+      <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-5 bg-white mb-10 gap-1">
 
         {[
           { img: "/img1.jpg", title: "Global Coverage Local Presence" },
@@ -331,7 +331,36 @@ Read More →
         ))}
 
       </section>
+      {/* ABOUT SECTION */}
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center" data-aos="fade-up">
 
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
+            Providing World-Class
+          </h2> 
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-6 sm:mb-8">
+            Logistics Solution
+          </h2>
+
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
+           Era Marya Global Logistics Pvt. Ltd. is a privately owned Independent freight forwarder established with the concept of providing our customers with a comprehensive partnership, to enhance every aspect of their Forwarding requirement. This has been achieved through our sustained practice of adapting our services to meet the requirements of our clients and continuing confirm to their individual needs.
+          </p>
+
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
+            Our goal is to help businesses establish a strong online presence
+            and achieve long-term success.
+          </p>
+
+          <a
+            href="/contact"
+            className="inline-block bg-blue-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg shadow-md hover:bg-orange-500 transition duration-300 text-sm sm:text-base"
+          >
+            Contact Us
+          </a>
+
+        </div>
+      </section>
+      
       {/* CSS */}
       <style jsx>{`
 
@@ -449,31 +478,63 @@ Read More →
   justify-content:flex-end;
   padding:30px;
   color:white;
+  overflow:hidden;
+  transition:transform 0.5s ease;
 }
 
-.feature-card span{
-  font-size:28px;
-  font-weight:700;
+/* Image zoom effect */
+.feature-card:hover{
+  transform:scale(1.05);
 }
 
-.feature-card h3{
-  font-size:18px;
-  margin-top:10px;
-}
-
+/* Overlay */
 .overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.4);
+  background:rgba(0,0,0,0.4);
+  transition:background 0.4s ease;
 }
 
+.feature-card:hover .overlay{
+  background:rgba(0,0,0,0.6);
+}
+
+/* Number */
+.feature-card span{
+  font-size:32px;
+  font-weight:700;
+  position:relative;
+  z-index:2;
+  transition:all 0.4s ease;
+}
+
+/* Title */
+.feature-card h3{
+  font-size:18px;
+  margin-top:10px;
+  position:relative;
+  z-index:2;
+  transition:all 0.4s ease;
+}
+
+/* Hover text animation */
+.feature-card:hover span{
+  color:#facc15;
+  transform:scale(1.2);
+}
+
+.feature-card:hover h3{
+  color:#38bdf8;
+  transform:translateY(-6px);
+}
+
+/* Bottom strip */
 .bottom-strip{
   width:100%;
   height:60px;
   background:linear-gradient(90deg,#ea580c,#f97316);
   transform:skewY(-3deg);
 }
-
 /* ========================= */
 /* RESPONSIVE DESIGN */
 /* ========================= */
