@@ -22,7 +22,7 @@ export default function Header() {
           width: "100%",
           background: "#ffffff",
           borderBottom: "1px solid #e5e5e5",
-          padding: "15px 0",
+          padding: "12px 0",
           position: "sticky",
           top: 0,
           zIndex: 999,
@@ -110,7 +110,7 @@ export default function Header() {
                 listStyle: "none",
                 margin: 0,
                 padding: 0,
-                fontSize: "16px",
+                fontSize: "18px",
                 fontWeight: "600",
               }}
             >
