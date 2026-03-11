@@ -41,7 +41,7 @@ export default function Footer() {
             positive impact in the industry with innovative logistics
             solutions. we are determined to build strong relationships
             with our clients and work tirelessly to support and grow
-            with them
+            with them.
           </p>
         </div>
 
