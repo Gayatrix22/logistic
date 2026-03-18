@@ -11,8 +11,8 @@ export default function Footer() {
     >
 
       {/* Light Overlay */}
-     
-
+      {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-30 relative z-10">
         
         {/* Company Info */}

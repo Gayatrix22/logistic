@@ -89,6 +89,7 @@ export default function Home() {
         </svg>
 
       </section>
+      
 
 {/* SERVICES */}
 <section className="py-20 bg-gray-100 px-6">
@@ -539,119 +540,46 @@ Read More →
 /* RESPONSIVE DESIGN */
 /* ========================= */
 
+/* Desktop */
+.hero-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .hero-img {
+    height: 450px;
+  }
+}
+
 /* Tablet */
-
-@media(max-width:1024px){
-
-.hero-content{
-  margin-left:5%;
-  max-width:600px;
-}
-
-.title{
-  font-size:40px;
-}
-
-.desc{
-  font-size:18px;
-}
-
-.feature-card{
-  height:420px;
-}
-
-}
-@keyframes fadeSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 992px) {
+  .hero-img {
+    height: 400px;
   }
 }
 
-.text-animate {
-  animation: fadeSlideUp 1.5s ease forwards;
-}
 /* Mobile */
-
-
-@media(max-width:768px){
-
-.hero-content{
-  margin-left:5%;
-  margin-right:5%;
-  max-width:100%;
-}
-
-.title{
-  font-size:32px;
-}
-
-.company{
-  font-size:16px;
-}
-
-.desc{
-  font-size:16px;
-}
-
-.buttons{
-  flex-direction:column;
-  width:220px;
-}
-
-.btn-primary,
-.btn-outline{
-  width:100%;
-  text-align:center;
-}
-
-.feature-card{
-  height:350px;
-}
-
+@media (max-width: 768px) {
+  .hero-img {
+    height: 300px;
+  }
 }
 
 /* Small Mobile */
-.buttons{
-  margin-top:30px;
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
+@media (max-width: 576px) {
+  .hero-img {
+    height: 250px;
+  }
 }
 
-@media(max-width:768px){
-.buttons{
-  flex-direction:column;
-  width:220px;
-}
-}
-@media(max-width:480px){
-
-.title{
-  font-size:26px;
-}
-
-.company{
-  font-size:14px;
-}
-
-.desc{
-  font-size:15px;
-}
-
-.service-card{
-  padding:20px;
-}
-
-.feature-card{
-  height:300px;
-  padding:20px;
-}
-
+/* Extra Small */
+@media (max-width: 400px) {
+  .hero-img {
+    height: 200px;
+  }
 }
 
 `}</style>
