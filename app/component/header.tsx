@@ -15,7 +15,7 @@ export default function Header() {
     { name: "Contact", link: "/contact" },
   ];
 
-const createRipple = (e) => {
+const createRipple = (e: any) => {
   const button = e.currentTarget;
   const circle = document.createElement("span");
 
