@@ -22,7 +22,6 @@ export default function ContactPage() {
 
   const [errors, setErrors] = useState<any>({});
 
-  // ✅ VALIDATION
   const validate = () => {
     let newErrors: any = {};
 
@@ -42,7 +41,6 @@ export default function ContactPage() {
   const handleChange = (e: any) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  // ✅ SUBMIT (BACKEND)
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -98,42 +96,29 @@ export default function ContactPage() {
           {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h2 className="text-4xl font-bold text-blue-900 relative inline-block">
+            <h2 className="text-4xl sm:text-3xl md:text-4xl font-bold text-blue-900 relative inline-block">
               Any Queries? Contact Us Now!
-              <span className="absolute left-0 -bottom-2 h-[3px] bg-orange-600 w-full"></span>
+              <span className="absolute left-0 -bottom-2 h-[3px] bg-orange-600 animate-grow w-full"></span>
             </h2>
 
-            <InfoCard
-              icon={<MapPin size={32} />}
-              title="Office Address"
-              popup="Office address copied!"
-              setPopup={setPopupText}
-            >
+            <InfoCard icon={<MapPin size={32} />} title="Office Address" popup="Office address copied!" setPopup={setPopupText}>
               <p>ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED</p>
               <p>Signet Hub, 909, 9th Floor,</p>
               <p>Akshar Chowk, Vadodara,</p>
               <p>Gujarat, India - 390020</p>
             </InfoCard>
 
-            <InfoCard
-              icon={<Phone size={32} />}
-              title="Phone Numbers"
-              popup="Phone numbers copied!"
-              setPopup={setPopupText}
-            >
+            <InfoCard icon={<Phone size={32} />} title="Phone Numbers" popup="Phone numbers copied!" setPopup={setPopupText}>
               +91 9909928018 <br />
               +91 8866841444
             </InfoCard>
 
-            <InfoCard
-              icon={<Mail size={32} />}
-              title="Email"
-              popup="Email copied!"
-              setPopup={setPopupText}
-            >
+            <InfoCard icon={<Mail size={32} />} title="Email" popup="Email copied!" setPopup={setPopupText}>
               info@eramarya.com <br />
               sales@eramarya.com
             </InfoCard>
@@ -142,7 +127,9 @@ export default function ContactPage() {
           {/* FORM */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="bg-white p-8 rounded-2xl shadow-xl"
           >
             <h3 className="text-3xl font-bold text-blue-900 mb-6">
@@ -176,9 +163,13 @@ export default function ContactPage() {
               />
               {errors.message && <p className="text-red-500">{errors.message}</p>}
 
-              <button className="w-full bg-blue-800 text-white py-3 rounded">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full bg-blue-800 text-white py-3 rounded"
+              >
                 Send Message
-              </button>
+              </motion.button>
 
             </form>
           </motion.div>
@@ -190,13 +181,15 @@ export default function ContactPage() {
 
 /* POPUP */
 function Popup({ text, clear }: any) {
+  setTimeout(clear, 2000);
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 40 }}
-      className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full"
-      onAnimationEnd={() => setTimeout(clear, 2000)}
+      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 50, scale: 0.9 }}
+      transition={{ duration: 0.4 }}
+      className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full shadow-lg"
     >
       {text}
     </motion.div>
@@ -206,7 +199,9 @@ function Popup({ text, clear }: any) {
 /* INFO CARD */
 function InfoCard({ icon, title, children, popup, setPopup }: any) {
   return (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       onClick={() => setPopup(popup)}
       className="bg-white p-6 rounded-xl shadow-md flex gap-4 cursor-pointer"
     >
@@ -215,7 +210,7 @@ function InfoCard({ icon, title, children, popup, setPopup }: any) {
         <h4 className="font-semibold">{title}</h4>
         <div className="text-gray-600 text-sm">{children}</div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -223,7 +218,9 @@ function InfoCard({ icon, title, children, popup, setPopup }: any) {
 function Input({ name, value, onChange, placeholder, error }: any) {
   return (
     <div>
-      <input
+      <motion.input
+        whileFocus={{ scale: 1.02 }}
+        transition={{ duration: 0.2 }}
         name={name}
         value={value}
         onChange={onChange}
