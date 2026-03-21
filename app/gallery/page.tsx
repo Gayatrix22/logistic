@@ -1,45 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type ImageType = {
   id: number;
-  src: string;
+  image: string;
   category: string;
 };
 
-const images: ImageType[] = [
-  { id: 1, src: "/gallry2.jpg", category: "Truck" },
-  { id: 2, src: "/gallery2.jpg", category: "Truck" },
-  { id: 3, src: "/gallery3.jpg", category: "Truck" },
-
-  { id: 4, src: "/gallery4.jpg", category: "Shipping" },
-  { id: 5, src: "/gallery5.jpg", category: "Shipping" },
-  { id: 6, src: "/gallery6.jpg", category: "Shipping" },
-
-  { id: 7, src: "/gallery7.jpg", category: "Warehouse" },
-  { id: 8, src: "/gallery8.jpg", category: "Warehouse" },
-  { id: 9, src: "/gallery9.jpg", category: "Warehouse" },
-
-  { id: 10, src: "/gallery10.jpg", category: "Delivery" },
-  { id: 11, src: "/gallery11.jpg", category: "Delivery" },
-  { id: 12, src: "/gallery12.jpg", category: "Delivery" },
-];
-
-const categories = ["All", "Truck", "Warehouse", "Shipping", "Delivery"];
-
 export default function GalleryPage() {
-  const [filter, setFilter] = useState<string>("All");
+  const [images, setImages] = useState<ImageType[]>([]);
+  const [filter, setFilter] = useState("All");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+  // ✅ Categories
+  const categories = ["All", "Truck", "Warehouse", "Shipping", "Delivery"];
+
   const handleFilter = (cat: string) => {
-    if (!categories.includes(cat)) {
-      console.error("Invalid category");
-      return;
-    }
     setFilter(cat);
   };
 
+  // ✅ FIXED API CALL
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/gallery") // 👈 your Laravel API
+      .then((res) => res.json())
+      .then((data) => setImages(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  // ✅ Filter logic
   const filteredImages =
     filter === "All"
       ? images
@@ -48,7 +37,7 @@ export default function GalleryPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden">
+      <section className="relative h-[35vh] flex items-center justify-center text-white text-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
@@ -56,11 +45,9 @@ export default function GalleryPage() {
 
         <div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="relative z-10" data-aos="fade-up">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-            Gallery
-          </h1>
-          <p className="mt-3 text-xs sm:text-sm md:text-base">
+        <div className="relative z-10">
+          <h1 className="text-4xl font-bold">Gallery</h1>
+          <p className="mt-2">
             Home <span className="text-red-500">»</span> Gallery
           </p>
         </div>
@@ -96,16 +83,19 @@ export default function GalleryPage() {
               <div
                 key={img.id}
                 className="card"
-                onClick={() => setSelectedImage(img.src)}
+                onClick={() =>
+                  setSelectedImage(`http://127.0.0.1:8000/storage/${img.image}`)
+                }
               >
-
-                <img src={img.src} alt="gallery" />
+                <img
+                  src={`http://127.0.0.1:8000/storage/${img.image}`}
+                  alt="Gallery"
+                />
 
                 {/* Hover Overlay */}
                 <div className="overlay">
                   <span>{img.category}</span>
                 </div>
-
               </div>
             ))
           )}
@@ -124,7 +114,6 @@ export default function GalleryPage() {
 
       {/* CSS */}
       <style jsx>{`
-
         .gallery-wrapper {
           min-height: 100vh;
           background: #f5f7fb;
@@ -194,8 +183,6 @@ export default function GalleryPage() {
           transform: scale(1.12);
         }
 
-        /* Overlay Hover Effect */
-
         .overlay {
           position: absolute;
           inset: 0;
@@ -211,7 +198,6 @@ export default function GalleryPage() {
           color: white;
           font-size: 22px;
           font-weight: bold;
-          letter-spacing: 1px;
         }
 
         .card:hover .overlay {
@@ -240,7 +226,6 @@ export default function GalleryPage() {
           font-size: 18px;
           color: gray;
         }
-
       `}</style>
     </>
   );
