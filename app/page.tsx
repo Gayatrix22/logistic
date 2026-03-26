@@ -88,6 +88,8 @@ export default function Home() {
           <path fill="#ffffff" d="M0,320L1440,320L1440,280L0,320Z"></path>
         </svg>
 
+        
+
       </section>
       
 
@@ -540,45 +542,24 @@ Read More →
 /* RESPONSIVE DESIGN */
 /* ========================= */
 
-/* Desktop */
-.hero-img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
+.hero-line{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:#ff4d00;
+
+  /* slanted shape */
+  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+  z-index:2;
 }
 
-/* Laptop */
-@media (max-width: 1200px) {
-  .hero-img {
-    height: 450px;
-  }
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-  .hero-img {
-    height: 400px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .hero-img {
-    height: 300px;
-  }
-}
-
-/* Small Mobile */
-@media (max-width: 576px) {
-  .hero-img {
-    height: 250px;
-  }
-}
-
-/* Extra Small */
-@media (max-width: 400px) {
-  .hero-img {
-    height: 200px;
+/* Mobile fix */
+@media (max-width:768px){
+  .hero-line{
+    height:50px;
+    clip-path: polygon(0 65%, 100% 20%, 100% 100%, 0% 100%);
   }
 }
 

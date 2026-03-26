@@ -6,6 +6,17 @@ import { useState } from "react";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  {/* Hamburger */}
+  <div 
+    className={`menu-toggle ${menuOpen ? "active" : ""}`} 
+    onClick={() => setMenuOpen(!menuOpen)}
+
+    >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
   const menuLinks = [
     { name: "Home", link: "/" },
     { name: "About us", link: "/about" },

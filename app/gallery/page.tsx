@@ -20,15 +20,17 @@ export default function GalleryPage() {
     setFilter(cat);
   };
 
-  // ✅ FIXED API CALL
+  // ✅ API CALL
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/gallery") // 👈 your Laravel API
+    fetch("http://127.0.0.1:8000/api/galleries")
       .then((res) => res.json())
-      .then((data) => setImages(data))
-      .catch((err) => console.log(err));
+      .then((data) => {
+        console.log(data); // debug
+        setImages(data);
+      });
   }, []);
 
-  // ✅ Filter logic
+  // ✅ Filter
   const filteredImages =
     filter === "All"
       ? images
@@ -54,7 +56,6 @@ export default function GalleryPage() {
       </section>
 
       <main className="gallery-wrapper">
-
         {/* Heading */}
         <div className="heading">
           <h1>Logistics Gallery</h1>
@@ -79,25 +80,29 @@ export default function GalleryPage() {
           {filteredImages.length === 0 ? (
             <p className="no-data">No images available</p>
           ) : (
-            filteredImages.map((img) => (
-              <div
-                key={img.id}
-                className="card"
-                onClick={() =>
-                  setSelectedImage(`http://127.0.0.1:8000/storage/${img.image}`)
-                }
-              >
-                <img
-                  src={`http://127.0.0.1:8000/storage/${img.image}`}
-                  alt="Gallery"
-                />
+            filteredImages.map((img) => {
+              console.log(img.image); // ✅ debug
 
-                {/* Hover Overlay */}
-                <div className="overlay">
-                  <span>{img.category}</span>
+              return (
+                <div
+                  key={img.id}
+                  className="card"
+                  onClick={() => setSelectedImage(img.image)} // ✅ FIXED
+                >
+                  <img
+                    src={img.image} // ✅ USE API IMAGE
+                    alt={img.category}
+                    onError={() =>
+                      console.log("Image failed:", img.image)
+                    }
+                  />
+
+                  <div className="overlay">
+                    <span>{img.category}</span>
+                  </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           )}
         </div>
 
@@ -186,7 +191,7 @@ export default function GalleryPage() {
         .overlay {
           position: absolute;
           inset: 0;
-          background: rgba(0,0,0,0.55);
+          background: rgba(0, 0, 0, 0.55);
           display: flex;
           align-items: center;
           justify-content: center;
