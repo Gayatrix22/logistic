@@ -542,25 +542,35 @@ Read More →
 /* RESPONSIVE DESIGN */
 /* ========================= */
 
-.hero-line{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:70px;
-  background:#ff4d00;
 
-  /* slanted shape */
-  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
-  z-index:2;
+/* TABLET */
+@media (max-width: 1024px) {
+
+  .grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
 }
 
-/* Mobile fix */
-@media (max-width:768px){
-  .hero-line{
-    height:50px;
-    clip-path: polygon(0 65%, 100% 20%, 100% 100%, 0% 100%);
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .hero-content {
+    margin: 0 20px;
   }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 `}</style>
