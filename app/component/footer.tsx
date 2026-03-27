@@ -6,14 +6,13 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer
-      className="pt-16 bg-cover bg-center relative"
+      className="relative pt-16 bg-cover bg-center"
       style={{ backgroundImage: "url('/img1.jpg')" }}
     >
-
       {/* Light Overlay */}
       <div className="absolute inset-0 bg-black/80"></div>
 
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-30 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-10 relative z-10">
         
         {/* Company Info */}
         <div>
@@ -26,14 +25,14 @@ export default function Footer() {
               className="object-contain"
             />
 
-              <h2 className="font-bold text-[20px] leading-5 text-white">
-  <span className="text-[#e53935]">ERA MARYA</span>
-  <br />
-  <span className="whitespace-nowrap">GLOBAL LOGISTICS</span>
-  <br />
-  PRIVATE LIMITED
-</h2>
-            </div>
+            <h2 className="font-bold text-[20px] leading-5 text-white">
+              <span className="text-[#e53935]">ERA MARYA</span>
+              <br />
+              <span className="whitespace-nowrap">GLOBAL LOGISTICS</span>
+              <br />
+              PRIVATE LIMITED
+            </h2>
+          </div>
 
           <p className="text-white text-[14px] leading-6">
             Era Marya Global Logistics Pvt. Ltd. is ambitious freight
@@ -41,13 +40,13 @@ export default function Footer() {
             positive impact in the industry with innovative logistics
             solutions. we are determined to build strong relationships
             with our clients and work tirelessly to support and grow
-            with them
+            with them.
           </p>
         </div>
 
         {/* Sitemap */}
         <div>
-          <h3 className="font-semibold text-[25px] mb-4 text-[#ffff] gap-20">
+          <h3 className="font-semibold text-[25px] mb-4 text-white">
             Sitemap
           </h3>
 
@@ -63,7 +62,7 @@ export default function Footer() {
 
         {/* Industry */}
         <div>
-          <h3 className="font-semibold text-[25px] mb-4 text-[#ffff]">
+          <h3 className="font-semibold text-[25px] mb-4 text-white">
             Industry Sectors
           </h3>
 
@@ -79,7 +78,7 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="font-semibold text-[25px] mb-4 text-[#ffff]">
+          <h3 className="font-semibold text-[25px] mb-4 text-white">
             Get In Touch
           </h3>
 
@@ -101,7 +100,6 @@ export default function Footer() {
             Website: www.eramarya.com
           </div>
         </div>
-
       </div>
 
       {/* Bottom Bar */}
@@ -112,7 +110,6 @@ export default function Footer() {
         </span>{" "}
         Designed by <span className="text-white">TechStrota</span>
       </div>
-
     </footer>
   );
 }

@@ -1,71 +1,67 @@
-import { notFound } from 'next/navigation';
+"use client";
 
-export const dynamic = 'force-static';
-export const dynamicParams = false;
-export const revalidate = false;
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
-type Post = {
+const BASE_URL = "http://127.0.0.1:8000";
+
+type Blog = {
   id: number;
   title: string;
   slug: string;
   content: string;
-  image?: string | null;
+  main_image?: string;
 };
 
-export async function generateStaticParams() {
-  const res = await fetch(
-    'https://happy.techstrota.com/api/blogs',
-    { cache: 'force-cache' }
-  );
+export default function BlogDetailPage() {
+  const params = useParams();
+  const slug = params.slug as string;
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch blog slugs');
-  }
+  const [blog, setBlog] = useState<Blog | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const posts = await res.json();
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const res = await fetch(`${BASE_URL}/api/blogs/${slug}`);
+        const data = await res.json();
 
-  return posts.map((post: { slug: string }) => ({
-    slug: post.slug,
-  }));
-}
+        console.log("BLOG DATA:", data);
+        setBlog(data);
+      } catch (error) {
+        console.error("Error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-async function getPost(slug: string): Promise<Post | null> {
-  const res = await fetch(
-    `https://happy.techstrota.com/api/blogs/${slug}`,
-    { cache: 'force-cache' }
-  );
+    if (slug) fetchBlog();
+  }, [slug]);
 
-  if (!res.ok) return null;
-  return res.json();
-}
+  if (loading) return <p className="p-6">Loading...</p>;
 
-export default async function BlogDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-
-  const post = await getPost(slug);
-
-  if (!post) notFound();
+  if (!blog) return <p className="p-6">Blog not found</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
-
-      {post.image && (
+    <div className="max-w-4xl mx-auto p-6">
+      
+      {/* IMAGE */}
+      {blog.main_image && (
         <img
-          src={post.image}
-          alt={post.title}
-          className="w-full h-auto rounded mb-6"
+          src={`${BASE_URL}/storage/${blog.main_image}`}
+          alt={blog.title}
+          className="w-full h-80 object-cover mb-6 rounded"
         />
       )}
 
-      <div
-        className="prose max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+      {/* TITLE */}
+      <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+
+     <div
+  className="text-black-700 leading-relaxed"
+  dangerouslySetInnerHTML={{ __html: blog.content }}
+/>
+
     </div>
   );
 }
