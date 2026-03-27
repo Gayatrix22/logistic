@@ -38,22 +38,29 @@ export default function GalleryPage() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative h-[35vh] flex items-center justify-center text-white text-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        ></div>
+     <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
 
-        <div className="absolute inset-0 bg-black/60"></div>
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  />
 
-        <div className="relative z-10">
-          <h1 className="text-4xl font-bold">Gallery</h1>
-          <p className="mt-2">
-            Home <span className="text-red-500">»</span> Gallery
-          </p>
-        </div>
-      </section>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold">
+      Gallery
+    </h1>
+
+    <p className="mt-2">
+      Home <span className="text-orange-500">»</span> Gallery
+    </p>
+  </div>
+
+</section>
 
       <main className="gallery-wrapper">
         {/* Heading */}

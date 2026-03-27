@@ -37,18 +37,29 @@ export default function BlogPage() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative w-full h-[32vh] sm:h-[38vh] md:h-[42vh] flex items-center justify-center text-center bg-gray-100">
-        <div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-            Blog
-          </h1>
+     <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
 
-          <p className="mt-2 text-gray-600">
-            Home <span className="text-orange-500">»</span> Blog
-          </p>
-        </div>
-      </section>
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold">
+      Blog
+    </h1>
+
+    <p className="mt-2">
+      Home <span className="text-orange-500">»</span> Blog
+    </p>
+  </div>
+
+</section>
 
       {/* MAIN SECTION */}
 

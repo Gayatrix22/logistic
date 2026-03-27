@@ -23,7 +23,7 @@ export default function Services() {
   return (
     <main className="bg-gray-100 overflow-hidden">
 
-     <section className="relative w-full h-[32vh] sm:h-[38vh] md:h-[42vh] flex items-center justify-center text-center text-white overflow-hidden">
+    <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
 
   {/* Background Image */}
   <div

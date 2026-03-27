@@ -30,10 +30,25 @@ export default function ContactPage() {
     if (!form.state) newErrors.state = "State is required";
     if (!form.country) newErrors.country = "Country is required";
 
-    if (!form.email.trim()) newErrors.email = "Email is required";
-    if (!form.phone.trim()) newErrors.phone = "Contact is required";
-    if (!form.message.trim()) newErrors.message = "Message is required";
+     if (!form.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!form.email.match(/^\S+@\S+\.\S+$/)) {
+      newErrors.email = "Invalid email (/^\S+@\S+\.\S+$/)";
+    } 
 
+     if (!form.phone.trim()) {
+      newErrors.phone = "Contact is required";
+    } else if (!/^[0-9]{10}$/.test(form.phone)) {
+      newErrors.phone = "Enter valid 10 digit number";
+    }
+
+    if (!form.message.trim())
+       if (!form.message.trim()) {
+      newErrors.message = "message is required";
+    } else if (!/^[0-9]{10}$/.test(form.message)) {
+       newErrors.message = "Message is required up to 10 words";
+    }
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
