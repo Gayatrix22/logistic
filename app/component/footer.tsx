@@ -7,10 +7,10 @@ export default function Footer() {
   return (
     <footer
       className="relative pt-16 bg-cover bg-center"
-      style={{ backgroundImage: "url('/img1.jpg')" }}
+      style={{ backgroundImage: "url('/footer-bg.jpg')" }}
     >
-      {/* Light Overlay */}
-      <div className="absolute inset-0 bg-black/80"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/70"></div>
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-10 relative z-10">
         
@@ -38,9 +38,7 @@ export default function Footer() {
             Era Marya Global Logistics Pvt. Ltd. is ambitious freight
             forwarding and Logistics Company in India, eager to make a
             positive impact in the industry with innovative logistics
-            solutions. we are determined to build strong relationships
-            with our clients and work tirelessly to support and grow
-            with them.
+            solutions.
           </p>
         </div>
 

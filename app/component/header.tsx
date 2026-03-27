@@ -6,6 +6,17 @@ import { useState } from "react";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  {/* Hamburger */}
+  <div 
+    className={`menu-toggle ${menuOpen ? "active" : ""}`} 
+    onClick={() => setMenuOpen(!menuOpen)}
+
+    >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
   const menuLinks = [
     { name: "Home", link: "/" },
     { name: "About us", link: "/about" },
@@ -14,6 +25,24 @@ export default function Header() {
     { name: "Gallery", link: "/gallery" },
     { name: "Contact", link: "/contact" },
   ];
+
+const createRipple = (e: any) => {
+  const button = e.currentTarget;
+  const circle = document.createElement("span");
+
+  const diameter = Math.max(button.clientWidth, button.clientHeight);
+
+  circle.style.width = circle.style.height = `${diameter}px`;
+  circle.style.left = `${e.clientX - button.offsetLeft - diameter / 2}px`;
+  circle.style.top = `${e.clientY - button.offsetTop - diameter / 2}px`;
+
+  circle.classList.add("ripple");
+
+  const ripple = button.getElementsByClassName("ripple")[0];
+  if (ripple) ripple.remove();
+
+  button.appendChild(circle);
+};
 
   return (
     <>
@@ -116,9 +145,9 @@ export default function Header() {
             >
               {menuLinks.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.link} style={{ color: "#000", textDecoration: "none" }}>
-                    {item.name}
-                  </Link>
+                 <Link href={item.link} className="nav-link">
+  <span onClick={createRipple}>{item.name}</span>
+</Link>
                 </li>
               ))}
             </ul>
@@ -183,6 +212,51 @@ export default function Header() {
 
       {/* RESPONSIVE STYLES */}
       <style>{`
+      /* NAV LINK ANIMATION */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+/* Underline */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #d92c21;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+/* Glow */
+.nav-link:hover {
+  color: #d92c21 !important;
+  text-shadow: 0 0 8px rgba(217,44,33,0.4);
+}
+
+/* Ripple */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 600ms linear;
+  background: rgba(217,44,33,0.3);
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
         @media (max-width: 900px) {
           .mobile-menu-btn {
             display: flex !important;
