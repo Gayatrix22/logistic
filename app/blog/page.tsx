@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const BASE_URL = "http://127.0.0.1:8000";
 
@@ -11,6 +12,25 @@ type Blog = {
   slug: string;
   short_description: string;
   main_image?: string;
+};
+
+// 🔥 animation variants
+const containerVariant = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
 };
 
 export default function BlogPage() {
@@ -37,9 +57,13 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-
-      {/* HERO (remove duplicate if not needed) */}
+    <motion.div
+      className="bg-gray-50 min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* HERO */}
       <section className="relative w-full h-[35vh] flex items-center justify-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -47,12 +71,17 @@ export default function BlogPage() {
         />
         <div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="relative z-10 text-center">
+        <motion.div
+          className="relative z-10 text-center"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           <h1 className="text-4xl md:text-5xl font-bold">Blog</h1>
           <p className="mt-2">
             Home <span className="text-orange-500">»</span> Blog
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* BLOG GRID */}
@@ -60,17 +89,28 @@ export default function BlogPage() {
         {loading ? (
           <p>Loading...</p>
         ) : blogs.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariant}
+            initial="hidden"
+            animate="show"
+          >
             {blogs.map((blog) => (
-              <div key={blog.id} className="bg-white shadow rounded overflow-hidden">
-
+              <motion.div
+                key={blog.id}
+                variants={cardVariant}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white shadow rounded overflow-hidden"
+              >
                 {/* IMAGE */}
-                <div className="h-52 bg-gray-200">
+                <div className="h-52 bg-gray-200 overflow-hidden">
                   {blog.main_image ? (
-                    <img
+                    <motion.img
                       src={`${BASE_URL}/storage/${blog.main_image}`}
                       alt={blog.title}
                       className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.4 }}
                     />
                   ) : (
                     <div className="flex items-center justify-center h-full text-gray-400">
@@ -87,21 +127,22 @@ export default function BlogPage() {
                     {blog.short_description}
                   </p>
 
-                  <Link
-                    href={`/blog/${blog.slug}`}
-                    className="text-red-500 font-semibold"
-                  >
-                    Read More →
-                  </Link>
+                  <motion.div whileHover={{ x: 5 }}>
+                    <Link
+                      href={`/blog/${blog.slug}`}
+                      className="text-red-500 font-semibold"
+                    >
+                      Read More →
+                    </Link>
+                  </motion.div>
                 </div>
-
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         ) : (
           <p>No blogs found</p>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
