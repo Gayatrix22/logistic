@@ -1,94 +1,45 @@
 "use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
 
-  const title = ["Innovating logistics", "for a better tomorrow"];
-  const company = "ERA MARYA GLOBAL LOGISTICS PVT. LTD.";
+export default function HomePage() {
+  const [showText, setShowText] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setShowText(true), 1000);
+  }, []);
 
   return (
-    <main className="w-full">
+    <main>
 
-      {/* HERO SECTION */}
-      <section
-        className="hero-section"
-        style={{
-          position: "relative",
-          minHeight: "100vh",
-          width: "100%",
-          backgroundImage: "url('/bg.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
-        }}
-      >
+      {/* HERO */}
+      <section className="hero">
 
-        {/* Dark Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(0,0,0,0.55)",
-          }}
-        ></div>
+        <video autoPlay muted loop playsInline className="video-bg">
+          <source src="/video/logistics.mp4" type="video/mp4" />
+        </video>
 
-        {/* HERO CONTENT */}
-        <div className="hero-content">
+        <div className="overlay"></div>
 
-          {/* Company */}
-          <p className="company">
-            {company.split("").map((letter, i) => (
-              <span key={i} style={{ animationDelay: `${i * 0.02}s` }}>
-                {letter === " " ? "\u00A0" : letter}
-              </span>
-            ))}
+        <div className={`hero-content ${showText ? "show" : ""}`}>
+          <h4 className="company">
+            ERA MARYA GLOBAL LOGISTIC PVT. LTD.
+          </h4>
+
+          <h1 className="title">
+            Innovating logistics for a better tomorrow
+          </h1>
+
+          <p className="desc">
+            Facilitating Sea and Air Freight Forwarding and Custom Clearance
+            Across the Globe.
           </p>
 
-          {/* Title */}
-          <h1 className="title">
-  {title.map((line, index) => (
-    <div key={index}>
-      {line.split("").map((letter, i) => (
-        <span key={i} style={{ animationDelay: `${i * 0.05}s` }}>
-          {letter === " " ? "\u00A0" : letter}
-        </span>
-      ))}
-    </div>
-  ))}
-</h1>
-
-
-
-          {/* Description */}
-<p className="desc text-animate">
-  Facilitating Sea and Air Freight Forwarding and Custom Clearance
-  Across the Globe.
-</p>
-
-
-          {/* Buttons */}
           <div className="buttons">
-
-            <a href="/contact" className="btn-primary">
-              Get a Quote
-            </a>
-
-            <a href="/service" className="btn-outline">
-              Explore Services
-            </a>
-
+            <button className="btn primary">Contact</button>
+            <button className="btn secondary">Services</button>
           </div>
-
         </div>
-
-        {/* WAVE */}
-        <svg viewBox="0 0 1440 320" className="wave">
-          <path fill="#ff4d00" d="M0,288L1440,224L1440,320L0,320Z"></path>
-          <path fill="#ffffff" d="M0,320L1440,320L1440,280L0,320Z"></path>
-        </svg>
-
-        
 
       </section>
       
@@ -366,89 +317,115 @@ Read More →
       
       {/* CSS */}
       <style jsx>{`
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:700px;
-  margin-left:8%;
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* HERO TEXT */
-
-.company{
-  color:#ff4d00;
-  font-size:20px;
-  font-weight:700;
+/* VIDEO */
+.video-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.title{
-  font-size:48px;
-  font-weight:800;
-  color:white;
-  margin:20px 0;
-  line-height:1.2;
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
 }
 
-.desc{
-  color:white;
-  font-size:20px;
-  max-width:650px;
+/* CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 700px;
+  padding-left: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+/* SHOW ANIMATION */
+.hero-content.show {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.company {
+  color: #ff4d00;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 56px;  
+  font-weight: 800; 
+  line-height: 1.2;
+  color: white;
+}
+
+.desc {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #ddd;
+  max-width: 600px;
 }
 
 /* BUTTONS */
-
-.buttons{
-  margin-top:30px;
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
+.buttons {
+  display: flex;
+  gap: 15px;
 }
 
-.btn-primary{
-  padding:12px 28px;
-  background:#ff4d00;
-  color:white;
-  border-radius:8px;
-  font-weight:600;
-  text-decoration:none;
-  display:inline-block;
+.btn {
+  padding: 12px 28px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.btn-outline{
-  padding:12px 28px;
-  border:2px solid white;
-  color:white;
-  border-radius:8px;
-  text-decoration:none;
-  display:inline-block;
+.primary {
+  background: #ff3c00;
+  color: #fff;
+  border: none;
 }
 
-/* HERO WAVE */
-
-.wave{
-  position:absolute;
-  bottom:-40px;
-  width:100%;
+.secondary {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
 }
 
-/* TEXT ANIMATION */
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 20px;
+    text-align: center;
+  }
 
-.title span,
-.company span{
-  opacity:0;
-  display:inline-block;
-  transform:translateY(20px);
-  animation:letterReveal .5s forwards;
-}
+  .title {
+    font-size: 28px;
+  }
 
-@keyframes letterReveal{
-  to{
-    opacity:1;
-    transform:translateY(0);
+  .desc {
+    font-size: 14px;
+  }
+
+  .buttons {
+    justify-content: center;
+    flex-direction: column;
   }
 }
-
 /* SERVICE CARDS */
 
 .service-card{
@@ -537,40 +514,6 @@ Read More →
   height:60px;
   background:linear-gradient(90deg,#ea580c,#f97316);
   transform:skewY(-3deg);
-}
-/* ========================= */
-/* RESPONSIVE DESIGN */
-/* ========================= */
-
-
-/* TABLET */
-@media (max-width: 1024px) {
-
-  .grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  .about-container {
-    flex-direction: column;
-  }
-
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-  .hero-content {
-    margin: 0 20px;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
 }
 
 `}</style>
