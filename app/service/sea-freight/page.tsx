@@ -62,7 +62,7 @@ export default function SeaFreight() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">CFS Loads</h4>
+                <h5 className="font-bold text-lg">CFS Loads</h5>
                 <p>
                   We offer Container Freight Station (CFS) services to ensure
                   efficient and secure loading and unloading of containers.
@@ -70,7 +70,7 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Consolidation Services</h4>
+                <h5 className="font-bold text-lg">Consolidation Services</h5>
                 <p>
                   FCL and LCL shipping solutions ensuring cost-effective
                   reliable global transportation.
@@ -78,7 +78,7 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Dry Bulk Shipments</h4>
+                <h5 className="font-bold text-lg">Dry Bulk Shipments</h5>
                 <p>
                   Handling grains, cement, fertilizers and industrial commodities
                   with moisture-controlled protection.
@@ -86,7 +86,7 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">ODC & Project Cargo</h4>
+                <h5 className="font-bold text-lg">ODC & Project Cargo</h5>
                 <p>
                   Specialized solutions for oversized and heavy cargo including
                   route planning and heavy lift coordination.
@@ -94,7 +94,7 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Refrigerated Services</h4>
+                <h5 className="font-bold text-lg">Refrigerated Services</h5>
                 <p>
                   Temperature-controlled containers for pharmaceuticals,
                   frozen foods and perishables.
@@ -102,9 +102,9 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   Freight Insurance & Tracking
-                </h4>
+                </h5>
                 <p>
                   Cargo insurance coverage and real-time shipment tracking for
                   full transparency.

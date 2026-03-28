@@ -65,7 +65,9 @@ export default function ODCLogistics() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">Over Dimensional Cargo Handling</h4>
+               <h5 className="font-bold text-lg">
+                  Over Dimensional Cargo Handling
+                                               </h5>
                 <p>
                   Specialized logistics solutions for transporting oversized and
                   heavy cargo that exceeds standard container dimensions.
@@ -73,7 +75,7 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Route Survey & Planning</h4>
+                <h5 className="font-bold text-lg">Route Survey & Planning</h5>
                 <p>
                   Detailed route surveys and transport planning to ensure safe
                   movement of heavy and oversized cargo through complex routes.
@@ -81,7 +83,7 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Heavy Equipment Transport</h4>
+                <h5 className="font-bold text-lg">Heavy Equipment Transport</h5>
                 <p>
                   Efficient handling and transportation of heavy industrial
                   equipment, machinery, and project cargo with specialized vehicles.
@@ -89,7 +91,7 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Permit & Documentation</h4>
+                <h5 className="font-bold text-lg">Permit & Documentation</h5>
                 <p>
                   Complete assistance with permits, clearances, and documentation
                   required for transporting ODC cargo across different regions.
@@ -97,7 +99,7 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Safe Loading & Unloading</h4>
+                <h5 className="font-bold text-lg">Safe Loading & Unloading</h5>
                 <p>
                   Professional handling using cranes, trailers, and specialized
                   equipment to ensure safe loading and unloading of heavy cargo.
@@ -105,9 +107,9 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   End-to-End Project Coordination
-                </h4>
+                </h5>
                 <p>
                   Dedicated logistics experts coordinate every stage of the
                   transportation process to ensure timely and safe delivery.

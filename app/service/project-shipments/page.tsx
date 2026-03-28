@@ -65,7 +65,7 @@ export default function ProjectShipments() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">Large Scale Cargo Handling</h4>
+                <h5 className="font-bold text-lg">Large Scale Cargo Handling</h5>
                 <p>
                   Comprehensive logistics solutions for transporting large and
                   complex cargo required for infrastructure and industrial projects.
@@ -73,7 +73,7 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Project Planning & Coordination</h4>
+                <h5 className="font-bold text-lg">Project Planning & Coordination</h5>
                 <p>
                   Detailed logistics planning and coordination to ensure smooth
                   handling of multi-stage project cargo movements.
@@ -81,7 +81,7 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Heavy Lift Transportation</h4>
+                <h5 className="font-bold text-lg">Heavy Lift Transportation</h5>
                 <p>
                   Specialized equipment and handling for lifting and transporting
                   oversized and heavy cargo safely and efficiently.
@@ -89,7 +89,7 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Global Freight Management</h4>
+                <h5 className="font-bold text-lg">Global Freight Management</h5>
                 <p>
                   Seamless coordination of international freight including sea,
                   air, and land transportation for project shipments.
@@ -97,7 +97,7 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Customs & Regulatory Support</h4>
+                <h5 className="font-bold text-lg">Customs & Regulatory Support</h5>
                 <p>
                   Assistance with documentation, customs clearance, and regulatory
                   compliance for project cargo shipments.
@@ -105,9 +105,9 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   End-to-End Project Logistics
-                </h4>
+                </h5>
                 <p>
                   Complete logistics management from origin to destination ensuring
                   safe and timely delivery of project cargo.

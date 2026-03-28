@@ -65,7 +65,7 @@ export default function CustomClearance() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">Import & Export Clearance</h4>
+                <h5 className="font-bold text-lg">Import & Export Clearance</h5>
                 <p>
                   Smooth and efficient customs clearance services for both
                   import and export shipments ensuring compliance with all
@@ -74,7 +74,7 @@ export default function CustomClearance() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Documentation Handling</h4>
+                <h5 className="font-bold text-lg">Documentation Handling</h5>
                 <p>
                   Complete preparation and management of customs documentation
                   including invoices, packing lists, bills of lading, and other
@@ -83,7 +83,7 @@ export default function CustomClearance() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Duty & Tax Consultation</h4>
+                <h5 className="font-bold text-lg">Duty & Tax Consultation</h5>
                 <p>
                   Professional guidance on customs duties, taxes, and applicable
                   regulations to help businesses reduce delays and unexpected costs.
@@ -91,7 +91,7 @@ export default function CustomClearance() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Regulatory Compliance</h4>
+                <h5 className="font-bold text-lg">Regulatory Compliance</h5>
                 <p>
                   Ensuring that shipments meet all customs laws, trade policies,
                   and compliance standards for smooth cargo movement across borders.
@@ -99,7 +99,7 @@ export default function CustomClearance() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Fast Processing</h4>
+                <h5 className="font-bold text-lg">Fast Processing</h5>
                 <p>
                   Experienced customs specialists coordinate with authorities
                   to speed up clearance and minimize shipment delays.
@@ -107,9 +107,9 @@ export default function CustomClearance() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   End-to-End Customs Support
-                </h4>
+                </h5>
                 <p>
                   From documentation to final cargo release, we provide
                   complete customs clearance assistance for hassle-free logistics.
