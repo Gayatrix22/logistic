@@ -39,21 +39,29 @@ export default function BlogPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
 
-      {/* HERO (remove duplicate if not needed) */}
-      <section className="relative w-full h-[35vh] flex items-center justify-center text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-black/60"></div>
+      <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
 
-        <div className="relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold">Blog</h1>
-          <p className="mt-2">
-            Home <span className="text-orange-500">»</span> Blog
-          </p>
-        </div>
-      </section>
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold">
+      Blog
+    </h1>
+
+    <p className="mt-2">
+      Home <span className="text-orange-500">»</span> Blog
+    </p>
+  </div>
+
+</section>
 
       {/* BLOG GRID */}
       <div className="max-w-7xl mx-auto p-6">
