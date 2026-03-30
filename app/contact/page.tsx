@@ -42,12 +42,11 @@ export default function ContactPage() {
       newErrors.phone = "Enter valid 10 digit number";
     }
 
-    if (!form.message.trim())
-       if (!form.message.trim()) {
-      newErrors.message = "message is required";
-    } else if (!/^[0-9]{10}$/.test(form.message)) {
-       newErrors.message = "Message is required up to 10 words";
-    }
+     if (!form.message.trim()) {
+  newErrors.message = "Message is required";
+} else if (form.message.length < 10) {
+  newErrors.message = "Message must be at least 10 characters";
+}
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
