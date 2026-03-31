@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
   const [showText, setShowText] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setTimeout(() => setShowText(true), 1000);
@@ -35,11 +37,22 @@ export default function HomePage() {
             Across the Globe.
           </p>
 
-          <div className="buttons">
-            <button className="btn primary">Contact</button>
-            <button className="btn secondary">Services</button>
-          </div>
-        </div>
+         <div className="buttons">
+  <button
+    className="btn primary"
+    onClick={() => router.push("/contact")}
+  >
+    Contact
+  </button>
+
+  <button
+    className="btn secondary"
+    onClick={() => router.push("/service")}
+  >
+    Services
+  </button>
+</div>
+</div>
 
       </section>
       
