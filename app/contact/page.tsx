@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function ContactPage() {
-
   const [submitted, setSubmitted] = useState(false);
   const [popupText, setPopupText] = useState("");
 
@@ -22,38 +21,71 @@ export default function ContactPage() {
 
   const [errors, setErrors] = useState<any>({});
 
+  // ✅ VALIDATION (FIXED)
   const validate = () => {
     let newErrors: any = {};
 
-    if (!form.name.trim()) newErrors.name = "Name is required";
-    if (!form.city) newErrors.city = "City is required";
-    if (!form.state) newErrors.state = "State is required";
-    if (!form.country) newErrors.country = "Country is required";
+    // Name
+    const name = form.name.trim();
+    if (!name) {
+      newErrors.name = "Name is required";
+    } else if (name.length < 3) {
+      newErrors.name = "Name must be at least 3 characters";
+    } else if (!/^[a-zA-Z\s]+$/.test(name)) {
+      newErrors.name = "Name can only contain letters and spaces";
+    }  
 
-     if (!form.email.trim()) {
+      // Company
+    if (!form.company.trim()) {
+      newErrors.company = "Company is required";
+    }
+
+    // City
+    if (!form.city.trim()) {
+      newErrors.city = "City is required";
+    }
+
+    // State
+    if (!form.state.trim()) {
+      newErrors.state = "State is required";
+    }
+
+    // Country
+    if (!form.country.trim()) {
+      newErrors.country = "Country is required";
+    }
+
+    // Email
+    const email = form.email.trim();
+    if (!email) {
       newErrors.email = "Email is required";
-    } else if (!form.email.match(/^\S+@\S+\.\S+$/)) {
-      newErrors.email = "Invalid email (/^\S+@\S+\.\S+$/)";
-    } 
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      newErrors.email = "Enter valid email";
+    }
 
-     if (!form.phone.trim()) {
+    // Phone
+    const phone = form.phone.trim();
+    if (!phone) {
       newErrors.phone = "Contact is required";
-    } else if (!/^[0-9]{10}$/.test(form.phone)) {
+    } else if (!/^[0-9]{10}$/.test(phone)) {
       newErrors.phone = "Enter valid 10 digit number";
     }
 
-     if (!form.message.trim()) {
-  newErrors.message = "Message is required";
-} else if (form.message.length < 10) {
-  newErrors.message = "Message must be at least 10 characters";
-}
-    
+    // Message
+    const message = form.message.trim();
+    if (!message) {
+      newErrors.message = "Message is required";
+    } else if (message.length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: any) =>
+  const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -96,56 +128,40 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* POPUP */}
       <AnimatePresence>
         {popupText && (
           <Popup text={popupText} clear={() => setPopupText("")} />
         )}
       </AnimatePresence>
 
-      {/* CONTACT */}
       <section className="bg-gray-100 min-h-screen py-16 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
 
-          {/* LEFT SIDE */}
+          {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h2 className="text-4xl sm:text-3xl md:text-4xl font-bold text-blue-900 relative inline-block">
+            <h2 className="text-4xl font-bold text-blue-900">
               Any Queries? Contact Us Now!
-              <span className="absolute left-0 -bottom-2 h-[3px] bg-orange-600 animate-grow w-full"></span>
             </h2>
 
-            <InfoCard icon={<MapPin size={32} />} title="Office Address" popup="Office address copied!" setPopup={setPopupText}>
-              <p>ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED</p>
-              <p>Signet Hub, 909, 9th Floor,</p>
-              <p>Akshar Chowk, Vadodara,</p>
-              <p>Gujarat, India - 390020</p>
+            <InfoCard icon={<MapPin size={32} />} title="Office Address" popup="Copied!" setPopup={setPopupText}>
+              ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED
             </InfoCard>
 
-            <InfoCard icon={<Phone size={32} />} title="Phone Numbers" popup="Phone numbers copied!" setPopup={setPopupText}>
-              +91 9909928018 <br />
-              +91 8866841444
+            <InfoCard icon={<Phone size={32} />} title="Phone" popup="Copied!" setPopup={setPopupText}>
+              +91 9909928018
             </InfoCard>
 
-            <InfoCard icon={<Mail size={32} />} title="Email" popup="Email copied!" setPopup={setPopupText}>
-              info@eramarya.com <br />
-              sales@eramarya.com
+            <InfoCard icon={<Mail size={32} />} title="Email" popup="Copied!" setPopup={setPopupText}>
+              info@eramarya.com
             </InfoCard>
           </motion.div>
 
           {/* FORM */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-8 rounded-2xl shadow-xl"
-          >
+          <motion.div className="bg-white p-8 rounded-2xl shadow-xl">
             <h3 className="text-3xl font-bold text-blue-900 mb-6">
               Enter Inquiry
             </h3>
@@ -173,17 +189,13 @@ export default function ContactPage() {
                 value={form.message}
                 onChange={handleChange}
                 placeholder="Message"
-                className={`w-full p-3 border rounded-lg ${errors.message ? "border-red-500" : ""}`}
+                className={`w-full p-3 border rounded ${errors.message ? "border-red-500" : ""}`}
               />
               {errors.message && <p className="text-red-500">{errors.message}</p>}
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full bg-blue-800 text-white py-3 rounded"
-              >
+              <button className="w-full bg-blue-800 text-white py-3 rounded">
                 Send Message
-              </motion.button>
+              </button>
 
             </form>
           </motion.div>
@@ -193,48 +205,11 @@ export default function ContactPage() {
   );
 }
 
-/* POPUP */
-function Popup({ text, clear }: any) {
-  setTimeout(clear, 2000);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.9 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 50, scale: 0.9 }}
-      transition={{ duration: 0.4 }}
-      className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full shadow-lg"
-    >
-      {text}
-    </motion.div>
-  );
-}
-
-/* INFO CARD */
-function InfoCard({ icon, title, children, popup, setPopup }: any) {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      onClick={() => setPopup(popup)}
-      className="bg-white p-6 rounded-xl shadow-md flex gap-4 cursor-pointer"
-    >
-      <div className="text-orange-600">{icon}</div>
-      <div>
-        <h4 className="font-semibold">{title}</h4>
-        <div className="text-gray-600 text-sm">{children}</div>
-      </div>
-    </motion.div>
-  );
-}
-
 /* INPUT */
 function Input({ name, value, onChange, placeholder, error }: any) {
   return (
     <div>
-      <motion.input
-        whileFocus={{ scale: 1.02 }}
-        transition={{ duration: 0.2 }}
+      <input
         name={name}
         value={value}
         onChange={onChange}
@@ -242,6 +217,29 @@ function Input({ name, value, onChange, placeholder, error }: any) {
         className={`w-full p-3 border rounded ${error ? "border-red-500" : ""}`}
       />
       {error && <p className="text-red-500">{error}</p>}
+    </div>
+  );
+}
+
+/* POPUP */
+function Popup({ text, clear }: any) {
+  setTimeout(clear, 2000);
+  return (
+    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full">
+      {text}
+    </div>
+  );
+}
+
+/* INFO CARD */
+function InfoCard({ icon, title, children, popup, setPopup }: any) {
+  return (
+    <div onClick={() => setPopup(popup)} className="bg-white p-6 rounded-xl shadow-md flex gap-4 cursor-pointer">
+      <div className="text-orange-600">{icon}</div>
+      <div>
+        <h4 className="font-semibold">{title}</h4>
+        <div className="text-gray-600 text-sm">{children}</div>
+      </div>
     </div>
   );
 }
