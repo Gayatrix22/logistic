@@ -58,7 +58,7 @@ export default function SeaFreight() {
 
             <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
               <Image
-                src="/sff.jpg"
+                src="/sff.jpeg"
                 alt="Sea Freight Forwarding"
                 fill
                 className="object-cover"

@@ -1,166 +1,243 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 export default function HomePage() {
   const [showText, setShowText] = useState(false);
+  const router = useRouter();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
   useEffect(() => {
-    setTimeout(() => setShowText(true), 1000);
-  }, []);
+  if (videoRef.current) {
+    videoRef.current.playbackRate = 2;
+  }
+}, []);
 
   return (
     <main>
 
       {/* HERO */}
-      <section className="hero">
+      <section className="relative h-[70vh] md:h-[90vh] w-full overflow-hidden">
 
-        <video autoPlay muted loop playsInline className="video-bg">
-          <source src="/video/logistics.mp4" type="video/mp4" />
-        </video>
+  {/* VIDEO */}
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/video/logistics.mp4" type="video/mp4" />
+  </video>
 
-        <div className="overlay"></div>
+  {/* OVERLAY */}
+  <div className="absolute inset-0 bg-black/50"></div>
 
-        <div className={`hero-content ${showText ? "show" : ""}`}>
-          <h4 className="company">
-            ERA MARYA GLOBAL LOGISTIC PVT. LTD.
-          </h4>
+  {/* CONTENT */}
+  <motion.div
+    className="
+      relative z-10 h-full w-full
+      flex items-end md:items-center
+      justify-center md:justify-end
+      px-4 sm:px-6 md:px-16
+      pb-8 md:pb-0
+      text-center md:text-right
+      bg-gradient-to-t from-black/70 via-black/30 to-transparent md:bg-none
+    "
+    variants={container}
+    initial="hidden"
+    animate="show"
+  >
+    <div className="max-w-xl text-white">
 
-          <h1 className="title">
-            Innovating logistics for a better tomorrow
-          </h1>
+      {/* COMPANY */}
+      <motion.h4
+        variants={item}
+        className="text-orange-500 text-[12px] sm:text-sm md:text-lg font-extrabold tracking-wider mb-2"
+      >
+        ERA MARYA GLOBAL LOGISTIC PVT. LTD.
+      </motion.h4>
 
-          <p className="desc">
-            Facilitating Sea and Air Freight Forwarding and Custom Clearance
-            Across the Globe.
-          </p>
+      {/* TITLE */}
+      <motion.h1
+        variants={item}
+        className="text-[22px] sm:text-3xl md:text-5xl font-bold leading-tight"
+      >
+        Innovating logistics <br />
+        for a better tomorrow
+      </motion.h1>
 
-          <div className="buttons">
-            <button className="btn primary">Contact</button>
-            <button className="btn secondary">Services</button>
-          </div>
-        </div>
+      {/* DESCRIPTION */}
+      <motion.p
+        variants={item}
+        className="mt-3 text-[13px] sm:text-sm md:text-base text-gray-200"
+      >
+        Facilitating Sea and Air Freight Forwarding and Custom Clearance Across the Globe.
+      </motion.p>
 
-      </section>
-      
+      {/* BUTTONS */}
+      <motion.div
+        variants={item}
+        className="
+          mt-5 flex flex-col gap-3 items-center
+          md:flex-row md:justify-end md:gap-4
+        "
+      >
+        <motion.a
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          href="/contact"
+          className="
+            w-full max-w-[220px] md:w-auto
+            bg-orange-500 px-5 py-2 rounded-md
+            text-sm md:text-base
+            shadow-lg hover:bg-orange-600 transition
+          "
+        >
+          Contact
+        </motion.a>
+
+        <motion.a
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          href="/service"
+          className="
+            w-full max-w-[220px] md:w-auto
+            border border-white px-5 py-2 rounded-md
+            text-sm md:text-base
+            shadow-lg hover:bg-white hover:text-black transition
+          "
+        >
+          Service
+        </motion.a>
+      </motion.div>
+
+    </div>
+  </motion.div>
+
+</section>
 
 {/* SERVICES */}
-<section className="py-20 bg-gray-100 px-6">
+<section className="py-20 bg-gray-100 px-4 sm:px-6 md:px-10">
 
+  {/* TITLE */}
   <h2 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800">
     Our Core Services
   </h2>
 
-  <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-
-    
-    {/* CARD */}
-<div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
-
-<img
-src="/ship1.jpg"
-className="w-full h-48 object-cover"
-/>
-
-<div className="p-8 text-center">
-
-<h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
-Sea Freight Forwarding
-</h3>
-
-<p className="text-gray-600 mt-3 group-hover:text-white transition">
-Offering seamless and efficient sea freight forwarding solutions for all your import and export needs.
-</p>
-
-<a
-href="/service/sea-freight"
-className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
->
-Read More →
-</a>
-
-</div>
-
-</div>
-
-  {/* CARD */}
-<div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
-
-<img
-src="/air.jpg"
-className="w-full h-48 object-cover"
-/>
-
-<div className="p-8 text-center">
-
-<h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
-Air Freight Forwarding
-</h3>
-
-<p className="text-gray-600 mt-3 group-hover:text-white transition">
-Speed, reliability, and affordability – our air freight forwarding service guarantees a seamless experience.
-</p>
-
-<a
-href="/service/air-freight"
-className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
->
-Read More →
-</a>
-
-</div>
-
-</div>
-   
-{/* CARD */}
-<div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
-
-<img
-src="/c2.jpg"
-className="w-full h-48 object-cover"
-/>
-
-<div className="p-8 text-center">
-
-<h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
-Custom Clearance
-</h3>
-
-<p className="text-gray-600 mt-3 group-hover:text-white transition">
-Effortlessly navigate the customs clearance process with Era Marya Global Logistics Pvt. Ltd.
-</p>
-
-<a
-href="/service/custom-clearance"
-className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
->
-Read More →
-</a>
-</div>
-</div>
-
+  {/* GRID */}
+  <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
     {/* CARD */}
-    <div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
-
-      <img
-        src="/odc.jpg"
-        className="w-full h-48 object-cover"
-      />
+    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+      
+      <img src="/ship1.jpg" className="w-full h-48 object-cover" />
 
       <div className="p-6 text-center">
 
-        <h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
+          Sea Freight Forwarding
+        </h3>
+
+        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
+          Offering seamless and efficient sea freight forwarding solutions for all your import and export needs.
+        </p>
+
+        <a
+          href="/service/sea-freight"
+          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
+        >
+          Read More →
+        </a>
+
+      </div>
+    </div>
+
+    {/* CARD */}
+    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+      
+      <img src="/air.jpg" className="w-full h-48 object-cover" />
+
+      <div className="p-6 text-center">
+
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
+          Air Freight Forwarding
+        </h3>
+
+        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
+          Speed, reliability, and affordability – our air freight forwarding service guarantees a seamless experience.
+        </p>
+
+        <a
+          href="/service/air-freight"
+          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
+        >
+          Read More →
+        </a>
+
+      </div>
+    </div>
+
+    {/* CARD */}
+    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+      
+      <img src="/c2.jpg" className="w-full h-48 object-cover" />
+
+      <div className="p-6 text-center">
+
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
+          Custom Clearance
+        </h3>
+
+        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
+          Effortlessly navigate the customs clearance process with Era Marya Global Logistics Pvt. Ltd.
+        </p>
+
+        <a
+          href="/service/custom-clearance"
+          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
+        >
+          Read More →
+        </a>
+
+      </div>
+    </div>
+
+    {/* CARD */}
+    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+      
+      <img src="/odc.jpg" className="w-full h-48 object-cover" />
+
+      <div className="p-6 text-center">
+
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
           ODC Logistics Support
         </h3>
 
-        <p className="text-gray-600 mt-3 group-hover:text-white transition">
+        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
           From heavy machinery to delicate equipment, our ODC logistics service ensures secure delivery.
         </p>
 
         <a
           href="/service/odc-logistics"
-          className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
         >
           Read More →
         </a>
@@ -168,28 +245,24 @@ Read More →
       </div>
     </div>
 
-
     {/* CARD */}
-    <div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
-
-      <img
-        src="/project.jpg"
-        className="w-full h-48 object-cover"
-      />
+    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+      
+      <img src="/project.jpg" className="w-full h-48 object-cover" />
 
       <div className="p-6 text-center">
 
-        <h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
           Project Shipments
         </h3>
 
-        <p className="text-gray-600 mt-3 group-hover:text-white transition">
+        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
           Expert project shipment services providing customized solutions for challenging cargo.
         </p>
 
         <a
           href="/service/project-shipments"
-          className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
         >
           Read More →
         </a>
@@ -197,28 +270,24 @@ Read More →
       </div>
     </div>
 
-
     {/* CARD */}
-    <div className="group bg-white rounded-lg overflow-hidden shadow-md transition-all duration-500 hover:bg-blue-600">
-
-      <img
-        src="/warehouse.jpg"
-        className="w-full h-48 object-cover"
-      />
+    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+      
+      <img src="/warehouse.jpg" className="w-full h-48 object-cover" />
 
       <div className="p-6 text-center">
 
-        <h3 className="text-xl font-bold text-gray-800 group-hover:text-white transition">
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
           Warehousing
         </h3>
 
-        <p className="text-gray-600 mt-3 group-hover:text-white transition">
+        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
           Secure and scalable warehousing services designed for modern supply chains.
         </p>
 
         <a
           href="/service/warehousing"
-          className="inline-block mt-6 px-5 py-2 border border-blue-600 text-blue-600 rounded-full group-hover:bg-white group-hover:text-blue-600 transition"
+          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
         >
           Read More →
         </a>
@@ -227,7 +296,6 @@ Read More →
     </div>
 
   </div>
-
 </section>
 
 {/* ABOUT */}
@@ -317,134 +385,7 @@ Read More →
       
       {/* CSS */}
       <style jsx>{`
-/* HERO SECTION */
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
 
-/* VIDEO */
-.video-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* OVERLAY */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-/* CONTENT */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  max-width: 700px;
-  padding-left: 80px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s ease;
-}
-
-/* SHOW ANIMATION */
-.hero-content.show {
-  opacity: 1;
-  transform: translateY(-50%);
-}
-
-.company {
-  color: #ff4d00;
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 15px;
-}
-
-.title {
-  font-size: 56px;  
-  font-weight: 800; 
-  line-height: 1.2;
-  color: white;
-}
-
-.desc {
-  font-size: 20px;
-  margin-top: 20px;
-  color: #ddd;
-  max-width: 600px;
-}
-
-/* BUTTONS */
-.buttons {
-  display: flex;
-  gap: 15px;
-}
-
-.btn {
-  padding: 12px 28px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.primary {
-  background: #ff3c00;
-  color: #fff;
-  border: none;
-}
-
-.secondary {
-  background: transparent;
-  border: 1px solid #fff;
-  color: #fff;
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .title {
-    font-size: 28px;
-  }
-
-  .desc {
-    font-size: 14px;
-  }
-
-  .buttons {
-    justify-content: center;
-    flex-direction: column;
-  }
-}
-/* SERVICE CARDS */
-
-.service-card{
-  background:white;
-  padding:30px;
-  border-radius:10px;
-  text-align:center;
-  box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
-
-.service-card h3{
-  font-weight:700;
-  margin-top:10px;
-}
-
-.service-card p{
-  color:#666;
-  margin-top:10px;
-}
 
 /* FEATURE CARDS */
 
