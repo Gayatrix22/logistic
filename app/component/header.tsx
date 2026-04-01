@@ -2,21 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  {/* Hamburger */}
-  <div 
-    className={`menu-toggle ${menuOpen ? "active" : ""}`} 
-    onClick={() => setMenuOpen(!menuOpen)}
-
-    >
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  
   const menuLinks = [
     { name: "Home", link: "/" },
     { name: "About us", link: "/about" },
@@ -26,269 +16,112 @@ export default function Header() {
     { name: "Contact", link: "/contact" },
   ];
 
-const createRipple = (e: any) => {
-  const button = e.currentTarget;
-  const circle = document.createElement("span");
-
-  const diameter = Math.max(button.clientWidth, button.clientHeight);
-
-  circle.style.width = circle.style.height = `${diameter}px`;
-  circle.style.left = `${e.clientX - button.offsetLeft - diameter / 2}px`;
-  circle.style.top = `${e.clientY - button.offsetTop - diameter / 2}px`;
-
-  circle.classList.add("ripple");
-
-  const ripple = button.getElementsByClassName("ripple")[0];
-  if (ripple) ripple.remove();
-
-  button.appendChild(circle);
-};
-
   return (
     <>
-      <header
-        style={{
-          width: "100%",
-          background: "#ffffff",
-          borderBottom: "1px solid #e5e5e5",
-          padding: "12px 0",
-          position: "sticky",
-          top: 0,
-          zIndex: 999,
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 20px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          {/* LOGO */}
-          <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-            <img
-              src="/logo.png"
-              alt="Logo"
-              style={{ width: "80px", height: "80px", objectFit: "contain" }}
-            />
-              <div style={{ lineHeight: "1.1" }}>
-                <h2
-                  style={{
-                    margin: 0,
-                    fontSize: "20px",
-                    fontWeight: "700",
-                    color: "#d92c21",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  ERA MARYA
-                </h2>
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    color: "#000",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  GLOBAL LOGISTICS
-                </h3>
-                <span
-                  style={{
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    color: "#555",
-                    textTransform: "uppercase",
-                  }}
-                >
-                Private Limited
-              </span>
-            </div>
-          </div>
+      {/* HEADER */}
+      <header className="w-full bg-white border-b border-gray-200 py-3 sticky top-0 z-50">
+        <div className="max-w-[1200px] mx-auto px-5 flex items-center justify-between">
 
-          {/* HAMBURGER BUTTON */}
-          <div
-            className="mobile-menu-btn"
-            onClick={() => setMenuOpen(true)}
-            style={{
-              width: "35px",
-              height: "35px",
-              display: "none",
-              flexDirection: "column",
-              justifyContent: "center",
-              gap: "6px",
-              cursor: "pointer",
-            }}
-          >
-            <span style={{ width: "100%", height: "4px", background: "#000", borderRadius: "5px" }} />
-            <span style={{ width: "100%", height: "4px", background: "#000", borderRadius: "5px" }} />
-            <span style={{ width: "100%", height: "4px", background: "#000", borderRadius: "5px" }} />
-          </div>
+  {/* LOGO */}
+  <div className="flex items-center gap-2">
+    <img src="/logo.png" alt="Logo" className="w-[70px] h-[70px] object-contain" />
+    <div className="leading-tight">
+      <h2 className="text-[18px] md:text-[20px] font-bold text-red-600 uppercase">
+        ERA MARYA
+      </h2>
+      <h3 className="text-[14px] md:text-[16px] font-semibold uppercase">
+        GLOBAL LOGISTICS
+      </h3>
+      <span className="text-[12px] md:text-[14px] text-gray-500 uppercase">
+        Private Limited
+      </span>
+    </div>
+  </div>
 
-          {/* DESKTOP NAV */}
-          <nav>
-            <ul
-              className="menu-desktop"
-              style={{
-                display: "flex",
-                gap: "30px",
-                listStyle: "none",
-                margin: 0,
-                padding: 0,
-                fontSize: "18px",
-                fontWeight: "600",
-              }}
-            >
-              {menuLinks.map((item) => (
-                <li key={item.name}>
-                 <Link href={item.link} className="nav-link">
-  <span onClick={createRipple}>{item.name}</span>
-</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </header>
+  {/* RIGHT SIDE */}
+  <div className="flex items-center gap-4">
 
-      {/* LEFT SIDE SLIDE MENU */}
-      <div className={`mobile-drawer ${menuOpen ? "open" : ""}`}>
-        <div className="drawer-content">
-          <button
-            onClick={() => setMenuOpen(false)}
-            style={{
-              background: "none",
-              border: "none",
-              fontSize: "28px",
-              cursor: "pointer",
-              textAlign: "right",
-              width: "100%",
-            }}
-          >
-            ✕
-          </button>
-
-          {menuLinks.map((item) => (
+    {/* DESKTOP MENU */}
+    <nav className="hidden lg:block">
+      <ul className="flex gap-8 text-[16px] md:text-[18px] font-semibold text-gray-700">
+        {menuLinks.map((item) => (
+          <li key={item.name}>
             <Link
-              key={item.name}
               href={item.link}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                padding: "15px 10px",
-                display: "block",
-                textDecoration: "none",
-                color: "#000",
-                fontWeight: "600",
-                borderBottom: "1px solid #eee",
-              }}
+              className="relative group hover:text-red-600 transition"
             >
               {item.name}
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-red-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
-          ))}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    {/* WHATSAPP BUTTON */}
+    <a
+      href="https://wa.me/919909928018"
+      target="_blank"
+      className="hidden sm:flex items-center justify-center w-20 h-10 bg-green-500 text-white rounded-full shadow-md hover:scale-110 transition"
+    >
+      <FaWhatsapp size={20} />
+    </a>
+
+    {/* HAMBURGER */}
+    <div
+      onClick={() => setMenuOpen(true)}
+      className="w-8 h-8 flex flex-col justify-center gap-[5px] cursor-pointer lg:hidden"
+    >
+      <span className="w-full h-[3px] bg-black rounded"></span>
+      <span className="w-full h-[3px] bg-black rounded"></span>
+      <span className="w-full h-[3px] bg-black rounded"></span>
+    </div>
+
+  </div>
+</div>
+      </header>
+
+      {/* MOBILE DRAWER */}
+      <div
+        className={`fixed top-0 left-0 h-screen w-[260px] bg-white shadow-xl transform transition-transform duration-300 z-50 ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="p-5">
+
+          {/* CLOSE BUTTON */}
+          <div className="flex justify-end">
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="text-2xl"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* MENU LINKS */}
+          <div className="mt-6 flex flex-col">
+            {menuLinks.map((item) => (
+              <Link
+                key={item.name}
+                href={item.link}
+                onClick={() => setMenuOpen(false)}
+                className="py-3 px-2 font-semibold border-b border-gray-200 hover:text-red-600 transition"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* BACKDROP OVERLAY */}
+      {/* OVERLAY */}
       {menuOpen && (
         <div
-          className="menu-overlay"
           onClick={() => setMenuOpen(false)}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(0,0,0,0.4)",
-            zIndex: 998,
-          }}
-        />
+          className="fixed inset-0 bg-black/40 z-40"
+        ></div>
       )}
-
-
-      {/* RESPONSIVE STYLES */}
-      <style>{`
-      /* NAV LINK ANIMATION */
-.nav-link {
-  position: relative;
-  overflow: hidden;
-  transition: color 0.3s ease;
-}
-
-/* Underline */
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #d92c21;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover::after {
-  left: 0;
-  width: 100%;
-}
-
-/* Glow */
-.nav-link:hover {
-  color: #d92c21 !important;
-  text-shadow: 0 0 8px rgba(217,44,33,0.4);
-}
-
-/* Ripple */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple-effect 600ms linear;
-  background: rgba(217,44,33,0.3);
-}
-
-@keyframes ripple-effect {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-        @media (max-width: 900px) {
-          .mobile-menu-btn {
-            display: flex !important;
-          }
-          .menu-desktop {
-            display: none !important;
-          }
-        }
-
-        /* DRAWER BASE */
-        .mobile-drawer {
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100vh;
-          width: 260px;
-          background: #fff;
-          box-shadow: 4px 0 12px rgba(0,0,0,0.15);
-          transform: translateX(-260px);
-          transition: transform 0.3s ease;
-          z-index: 999;
-        }
-
-        /* OPEN STATE */
-        .mobile-drawer.open {
-          transform: translateX(0);
-        }
-
-        .drawer-content {
-          padding: 20px;
-        }
-      `}</style>
     </>
   );
 }
