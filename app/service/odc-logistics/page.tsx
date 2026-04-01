@@ -7,21 +7,30 @@ export default function ODCLogistics() {
   return (
     <main className="bg-gray-100">
 
-      {/* HERO */}
-      <section className="relative w-full h-[50vh] flex items-center justify-center text-white text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10">
-          <h1 className="text-4xl font-bold">ODC Logistics Support</h1>
-          <p className="mt-3">
-            Home <span className="text-red-500">»</span> Offered Solutions
-           <span className="text-red-500">»</span> ODC Logistics Support
-          </p>
-        </div>
-      </section>
+       <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold">
+     Odc-Logistics Support
+    </h1>
+
+    <p className="mt-2">
+      Home <span className="text-orange-500">»</span> Offered Solution
+       <span className="text-red-500">»</span>  Odc-Logistics Support
+    </p>
+  </div>
+
+</section>
 
       <div className="max-w-7xl mx-auto px-4 py-10">
 
@@ -65,7 +74,9 @@ export default function ODCLogistics() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">Over Dimensional Cargo Handling</h4>
+               <h5 className="font-bold text-lg">
+                  Over Dimensional Cargo Handling
+                                               </h5>
                 <p>
                   Specialized logistics solutions for transporting oversized and
                   heavy cargo that exceeds standard container dimensions.
@@ -73,7 +84,7 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Route Survey & Planning</h4>
+                <h5 className="font-bold text-lg">Route Survey & Planning</h5>
                 <p>
                   Detailed route surveys and transport planning to ensure safe
                   movement of heavy and oversized cargo through complex routes.
@@ -81,7 +92,7 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Heavy Equipment Transport</h4>
+                <h5 className="font-bold text-lg">Heavy Equipment Transport</h5>
                 <p>
                   Efficient handling and transportation of heavy industrial
                   equipment, machinery, and project cargo with specialized vehicles.
@@ -89,7 +100,7 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Permit & Documentation</h4>
+                <h5 className="font-bold text-lg">Permit & Documentation</h5>
                 <p>
                   Complete assistance with permits, clearances, and documentation
                   required for transporting ODC cargo across different regions.
@@ -97,7 +108,7 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Safe Loading & Unloading</h4>
+                <h5 className="font-bold text-lg">Safe Loading & Unloading</h5>
                 <p>
                   Professional handling using cranes, trailers, and specialized
                   equipment to ensure safe loading and unloading of heavy cargo.
@@ -105,9 +116,9 @@ export default function ODCLogistics() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   End-to-End Project Coordination
-                </h4>
+                </h5>
                 <p>
                   Dedicated logistics experts coordinate every stage of the
                   transportation process to ensure timely and safe delivery.

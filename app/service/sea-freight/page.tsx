@@ -7,21 +7,31 @@ export default function SeaFreight() {
   return (
     <main className="bg-gray-100">
 
-      {/* HERO */}
-      <section className="relative w-full h-[50vh] flex items-center justify-center text-white text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10">
-          <h1 className="text-4xl font-bold">Sea Freight Forwarding</h1>
-          <p className="mt-3">
-            Home <span className="text-red-500">»</span> Offered Solution 
-            <span className="text-red-500">»</span> Sea Freight Forwarding
-          </p>
-        </div>
-      </section>
+       <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold">
+     Sea Freight Forwarding
+    </h1>
+
+    <p className="mt-2">
+      Home <span className="text-orange-500">»</span> Offered Solution
+       <span className="text-red-500">»</span> Sea Freight Forwarding
+    </p>
+  </div>
+
+</section>
+
 
       <div className="max-w-7xl mx-auto px-4 py-10">
 
@@ -62,7 +72,7 @@ export default function SeaFreight() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">CFS Loads</h4>
+                <h5 className="font-bold text-lg">CFS Loads</h5>
                 <p>
                   We offer Container Freight Station (CFS) services to ensure
                   efficient and secure loading and unloading of containers.
@@ -70,7 +80,7 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Consolidation Services</h4>
+                <h5 className="font-bold text-lg">Consolidation Services</h5>
                 <p>
                   FCL and LCL shipping solutions ensuring cost-effective
                   reliable global transportation.
@@ -78,7 +88,7 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Dry Bulk Shipments</h4>
+                <h5 className="font-bold text-lg">Dry Bulk Shipments</h5>
                 <p>
                   Handling grains, cement, fertilizers and industrial commodities
                   with moisture-controlled protection.
@@ -86,7 +96,7 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">ODC & Project Cargo</h4>
+                <h5 className="font-bold text-lg">ODC & Project Cargo</h5>
                 <p>
                   Specialized solutions for oversized and heavy cargo including
                   route planning and heavy lift coordination.
@@ -94,7 +104,7 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Refrigerated Services</h4>
+                <h5 className="font-bold text-lg">Refrigerated Services</h5>
                 <p>
                   Temperature-controlled containers for pharmaceuticals,
                   frozen foods and perishables.
@@ -102,9 +112,9 @@ export default function SeaFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   Freight Insurance & Tracking
-                </h4>
+                </h5>
                 <p>
                   Cargo insurance coverage and real-time shipment tracking for
                   full transparency.

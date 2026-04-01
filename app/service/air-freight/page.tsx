@@ -7,21 +7,30 @@ export default function AirFreight() {
   return (
     <main className="bg-gray-100">
 
-      {/* HERO */}
-      <section className="relative w-full h-[50vh] flex items-center justify-center text-white text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10">
-          <h1 className="text-4xl font-bold">Air Freight Forwarding</h1>
-          <p className="mt-3">
-            Home <span className="text-red-500">»</span> Offered Solution 
-              <span className="text-red-500">»</span> Air Freight Forwarding
-          </p>
-        </div>
-      </section>
+     <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold">
+     Air Freight Forwarding
+    </h1>
+
+    <p className="mt-2">
+      Home <span className="text-orange-500">»</span> Offered Solution
+       <span className="text-red-500">»</span> Air Freight Forwarding
+    </p>
+  </div>
+
+</section>
 
       <div className="max-w-7xl mx-auto px-4 py-10">
 
@@ -65,7 +74,7 @@ export default function AirFreight() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">Express Air Shipments</h4>
+                <h5 className="font-bold text-lg">Express Air Shipments</h5>
                 <p>
                   Fast and reliable air cargo solutions for urgent and
                   time-sensitive consignments across domestic and international destinations.
@@ -73,7 +82,7 @@ export default function AirFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Airport-to-Airport Services</h4>
+                <h5 className="font-bold text-lg">Airport-to-Airport Services</h5>
                 <p>
                   Efficient airport handling with secure cargo movement ensuring
                   smooth coordination between origin and destination terminals.
@@ -81,7 +90,7 @@ export default function AirFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Door-to-Door Delivery</h4>
+                <h5 className="font-bold text-lg">Door-to-Door Delivery</h5>
                 <p>
                   Complete logistics management including pickup, customs clearance,
                   air freight movement, and final delivery at consignee location.
@@ -89,7 +98,7 @@ export default function AirFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Perishable & Pharma Cargo</h4>
+                <h5 className="font-bold text-lg">Perishable & Pharma Cargo</h5>
                 <p>
                   Temperature-controlled air freight solutions for pharmaceuticals,
                   medical supplies, food products and other sensitive goods.
@@ -97,7 +106,7 @@ export default function AirFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Heavy & Project Cargo</h4>
+                <h5 className="font-bold text-lg">Heavy & Project Cargo</h5>
                 <p>
                   Specialized air charter and heavy cargo solutions for oversized,
                   high-value and critical project shipments.
@@ -105,9 +114,9 @@ export default function AirFreight() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   Cargo Insurance & Real-Time Tracking
-                </h4>
+                </h5>
                 <p>
                   Comprehensive insurance coverage and advanced tracking systems
                   provide complete shipment visibility and maximum security.

@@ -7,21 +7,30 @@ export default function Warehousing() {
   return (
     <main className="bg-gray-100">
 
-      {/* HERO */}
-      <section className="relative w-full h-[50vh] flex items-center justify-center text-white text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10">
-          <h1 className="text-4xl font-bold">Warehousing</h1>
-          <p className="mt-3">
-            Home <span className="text-red-500">»</span> Offered Solutions
-            <span className="text-red-500">»</span> Warehousing
-          </p>
-        </div>
-      </section>
+      <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold">
+      Warehousing
+    </h1>
+
+    <p className="mt-2">
+      Home <span className="text-orange-500">»</span> Offered Solution
+       <span className="text-red-500">»</span>  Warehousing
+    </p>
+  </div>
+
+</section>
 
       <div className="max-w-7xl mx-auto px-4 py-10">
 
@@ -65,7 +74,7 @@ export default function Warehousing() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">Secure Storage Facilities</h4>
+                <h5 className="font-bold text-lg">Secure Storage Facilities</h5>
                 <p>
                   Modern warehousing facilities with advanced security systems
                   ensuring safe storage of goods for short-term and long-term needs.
@@ -73,7 +82,7 @@ export default function Warehousing() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Inventory Management</h4>
+                <h5 className="font-bold text-lg">Inventory Management</h5>
                 <p>
                   Efficient inventory control systems that help businesses track
                   stock levels, manage orders, and streamline warehouse operations.
@@ -81,7 +90,7 @@ export default function Warehousing() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Distribution & Fulfillment</h4>
+                <h5 className="font-bold text-lg">Distribution & Fulfillment</h5>
                 <p>
                   Complete distribution solutions including order processing,
                   packaging, and delivery to customers or retail locations.
@@ -89,7 +98,7 @@ export default function Warehousing() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Temperature Controlled Storage</h4>
+                <h5 className="font-bold text-lg">Temperature Controlled Storage</h5>
                 <p>
                   Specialized storage facilities for sensitive goods such as
                   pharmaceuticals, food products, and other temperature-sensitive items.
@@ -97,7 +106,7 @@ export default function Warehousing() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Cargo Handling & Packaging</h4>
+                <h5 className="font-bold text-lg">Cargo Handling & Packaging</h5>
                 <p>
                   Professional handling, packaging, and labeling services to ensure
                   goods remain protected during storage and transportation.
@@ -105,9 +114,9 @@ export default function Warehousing() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   Flexible Storage Solutions
-                </h4>
+                </h5>
                 <p>
                   Scalable warehousing services tailored to meet the changing
                   logistics needs of businesses across different industries.

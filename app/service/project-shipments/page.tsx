@@ -7,21 +7,33 @@ export default function ProjectShipments() {
   return (
     <main className="bg-gray-100">
 
-      {/* HERO */}
-      <section className="relative w-full h-[50vh] flex items-center justify-center text-white text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10">
-          <h1 className="text-4xl font-bold">Project Shipments</h1>
-          <p className="mt-3">
-            Home <span className="text-red-500">»</span> Offered Solutions
-            <span className="text-red-500">»</span> Project Shipments
-          </p>
-        </div>
-      </section>
+     
+
+        <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold">
+     Project-Shipments
+    </h1>
+
+    <p className="mt-2">
+      Home <span className="text-orange-500">»</span> Offered Solution
+       <span className="text-red-500">»</span>  Project-Shipments
+    </p>
+  </div>   
+  </section>
+
+
 
       <div className="max-w-7xl mx-auto px-4 py-10">
 
@@ -65,7 +77,7 @@ export default function ProjectShipments() {
             <div className="space-y-6 text-gray-700 leading-7">
 
               <div>
-                <h4 className="font-semibold text-lg">Large Scale Cargo Handling</h4>
+                <h5 className="font-bold text-lg">Large Scale Cargo Handling</h5>
                 <p>
                   Comprehensive logistics solutions for transporting large and
                   complex cargo required for infrastructure and industrial projects.
@@ -73,7 +85,7 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Project Planning & Coordination</h4>
+                <h5 className="font-bold text-lg">Project Planning & Coordination</h5>
                 <p>
                   Detailed logistics planning and coordination to ensure smooth
                   handling of multi-stage project cargo movements.
@@ -81,7 +93,7 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Heavy Lift Transportation</h4>
+                <h5 className="font-bold text-lg">Heavy Lift Transportation</h5>
                 <p>
                   Specialized equipment and handling for lifting and transporting
                   oversized and heavy cargo safely and efficiently.
@@ -89,7 +101,7 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Global Freight Management</h4>
+                <h5 className="font-bold text-lg">Global Freight Management</h5>
                 <p>
                   Seamless coordination of international freight including sea,
                   air, and land transportation for project shipments.
@@ -97,7 +109,7 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">Customs & Regulatory Support</h4>
+                <h5 className="font-bold text-lg">Customs & Regulatory Support</h5>
                 <p>
                   Assistance with documentation, customs clearance, and regulatory
                   compliance for project cargo shipments.
@@ -105,9 +117,9 @@ export default function ProjectShipments() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-lg">
+                <h5 className="font-bold text-lg">
                   End-to-End Project Logistics
-                </h4>
+                </h5>
                 <p>
                   Complete logistics management from origin to destination ensuring
                   safe and timely delivery of project cargo.
