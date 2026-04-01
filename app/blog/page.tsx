@@ -124,7 +124,7 @@ export default function BlogPage() {
             ))}
           </div>
         ) : (
-          <p>No blogs found</p>
+          <p>No blog found</p>
         )}
       </div>
     </div>
