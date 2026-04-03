@@ -32,21 +32,31 @@ export default function GalleryPage() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative w-full h-[40vh] flex items-center justify-center text-white text-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
+     <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[50vh] lg:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden">
 
-        <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold">Gallery</h1>
-          <p className="mt-2">
-            Home <span className="text-orange-500">»</span> Gallery
-          </p>
-        </div>
-      </section>
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+  ></div>
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div className="relative z-10 px-4">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+      Gallery
+    </h1>
+
+    <p className="mt-2 text-sm sm:text-base md:text-lg">
+      Home <span className="text-red-500">»</span> Gallery
+    </p>
+  </div>
+
+</section>
+
+
 
       {/* MAIN */}
       <main className="min-h-screen bg-gray-100 py-16 px-5">
