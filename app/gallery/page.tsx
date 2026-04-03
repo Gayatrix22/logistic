@@ -13,24 +13,18 @@ export default function GalleryPage() {
   const [filter, setFilter] = useState("All");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // ✅ Categories
   const categories = ["All", "Truck", "Warehouse", "Shipping", "Delivery"];
 
   const handleFilter = (cat: string) => {
     setFilter(cat);
   };
 
-  // ✅ API CALL
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/galleries")
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data); // debug
-        setImages(data);
-      });
+      .then((data) => setImages(data));
   }, []);
 
-  // ✅ Filter
   const filteredImages =
     filter === "All"
       ? images
@@ -38,207 +32,94 @@ export default function GalleryPage() {
 
   return (
     <>
-     <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+      {/* HERO */}
+      <section className="relative w-full h-[40vh] flex items-center justify-center text-white text-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
 
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-  />
+        <div className="relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold">Gallery</h1>
+          <p className="mt-2">
+            Home <span className="text-orange-500">»</span> Gallery
+          </p>
+        </div>
+      </section>
 
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
-
-  {/* Content */}
-  <div className="relative z-10">
-    <h1 className="text-4xl md:text-5xl font-bold">
-      Gallery
-    </h1>
-
-    <p className="mt-2">
-      Home <span className="text-orange-500">»</span> Gallery
-    </p>
-  </div>
-
-</section>
-
-      <main className="gallery-wrapper">
+      {/* MAIN */}
+      <main className="min-h-screen bg-gray-100 py-16 px-5">
         {/* Heading */}
-        <div className="heading">
-          <h1>Logistics Gallery</h1>
-          <p>Explore our trucks, warehouses and logistics operation</p>
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold">Logistics Gallery</h1>
+          <p className="text-gray-600 mt-2">
+            Explore our trucks, warehouses and logistics operation
+          </p>
         </div>
 
         {/* Filters */}
-        <div className="filters">
+        <div className="flex flex-wrap justify-center gap-4 mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => handleFilter(cat)}
-              className={filter === cat ? "active" : ""}
+              className={`px-5 py-2 rounded-full border transition-all duration-300 
+              ${
+                filter === cat
+                  ? "bg-blue-600 text-white"
+                  : "bg-white hover:bg-blue-50 hover:-translate-y-1"
+              }`}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        {/* Gallery */}
-        <div className="grid">
+        {/* Gallery Grid */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredImages.length === 0 ? (
-            <p className="no-data">No images available</p>
+            <p className="col-span-3 text-center text-gray-500">
+              No images available
+            </p>
           ) : (
-            filteredImages.map((img) => {
-              console.log(img.image); // ✅ debug
+            filteredImages.map((img) => (
+              <div
+                key={img.id}
+                onClick={() => setSelectedImage(img.image)}
+                className="relative rounded-xl overflow-hidden cursor-pointer group"
+              >
+                <img
+                  src={img.image}
+                  alt={img.category}
+                  className="w-full h-60 object-cover transform transition duration-500 group-hover:scale-110"
+                />
 
-              return (
-                <div
-                  key={img.id}
-                  className="card"
-                  onClick={() => setSelectedImage(img.image)} // ✅ FIXED
-                >
-                  <img
-                    src={img.image} // ✅ USE API IMAGE
-                    alt={img.category}
-                    onError={() =>
-                      console.log("Image failed:", img.image)
-                    }
-                  />
-
-                  <div className="overlay">
-                    <span>{img.category}</span>
-                  </div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                  <span className="text-white text-xl font-semibold">
+                    {img.category}
+                  </span>
                 </div>
-              );
-            })
+              </div>
+            ))
           )}
         </div>
 
         {/* Lightbox */}
         {selectedImage && (
           <div
-            className="lightbox"
             onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 bg-black/90 flex items-center justify-center z-[1000]"
           >
-            <img src={selectedImage} alt="preview" />
+            <img
+              src={selectedImage}
+              alt="preview"
+              className="max-w-[90%] max-h-[90%] rounded-lg"
+            />
           </div>
         )}
       </main>
-
-      {/* CSS */}
-      <style jsx>{`
-        .gallery-wrapper {
-          min-height: 100vh;
-          background: #f5f7fb;
-          padding: 60px 20px;
-        }
-
-        .heading {
-          text-align: center;
-          margin-bottom: 40px;
-        }
-
-        .heading h1 {
-          font-size: 40px;
-          font-weight: bold;
-        }
-
-        .filters {
-          display: flex;
-          justify-content: center;
-          gap: 15px;
-          margin-bottom: 40px;
-          flex-wrap: wrap;
-        }
-
-        .filters button {
-          padding: 10px 20px;
-          border-radius: 25px;
-          border: 1px solid #ddd;
-          background: white;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .filters button:hover {
-          transform: translateY(-3px);
-          background: #e8f0ff;
-        }
-
-        .filters .active {
-          background: #2563eb;
-          color: white;
-        }
-
-        .grid {
-          max-width: 1100px;
-          margin: auto;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 25px;
-        }
-
-        .card {
-          position: relative;
-          overflow: hidden;
-          border-radius: 12px;
-          cursor: pointer;
-        }
-
-        .card img {
-          width: 100%;
-          height: 240px;
-          object-fit: cover;
-          transition: transform 0.5s ease;
-        }
-
-        .card:hover img {
-          transform: scale(1.12);
-        }
-
-        .overlay {
-          position: absolute;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.55);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          opacity: 0;
-          transition: 0.4s;
-        }
-
-        .overlay span {
-          color: white;
-          font-size: 22px;
-          font-weight: bold;
-        }
-
-        .card:hover .overlay {
-          opacity: 1;
-        }
-
-        .lightbox {
-          position: fixed;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.85);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1000;
-        }
-
-        .lightbox img {
-          max-width: 90%;
-          max-height: 90%;
-          border-radius: 10px;
-        }
-
-        .no-data {
-          text-align: center;
-          grid-column: span 3;
-          font-size: 18px;
-          color: gray;
-        }
-      `}</style>
     </>
   );
 }

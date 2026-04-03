@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-// IMPORT HEADER + FOOTER
+// COMPONENTS
 import Header from "./component/header";
 import Footer from "./component/footer";
 
@@ -27,20 +27,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden bg-white`}
       >
+        {/* MAIN WRAPPER */}
+        <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
 
-        {/* ✅ HEADER HERE */}
-        <Header />
+          {/* HEADER */}
+          <header className="w-full overflow-x-hidden">
+            <Header />
+          </header>
 
-        {/* PAGE CONTENT */}
-        {children}
+          {/* PAGE CONTENT */}
+          <main className="flex-1 w-full overflow-x-hidden">
+            {children}
+          </main>
 
-        {/* FOOTER */}
-        <Footer />
+          {/* FOOTER */}
+          <footer className="w-full overflow-x-hidden">
+            <Footer />
+          </footer>
 
+        </div>
       </body>
     </html>
   );
