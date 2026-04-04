@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaWhatsapp } from "react-icons/fa";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,15 +56,6 @@ export default function Header() {
         ))}
       </ul>
     </nav>
-
-    {/* WHATSAPP BUTTON */}
-    <a
-      href="https://wa.me/918866841444"
-      target="_blank"
-      className="hidden sm:flex items-center justify-center w-20 h-10 bg-green-500 text-white rounded-full shadow-md hover:scale-110 transition"
-    >
-      <FaWhatsapp size={20} />
-    </a>
 
     {/* HAMBURGER */}
     <div

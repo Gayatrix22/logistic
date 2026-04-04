@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "http://192.168.1.11:8000";
 
 type Blog = {
   id: number;
