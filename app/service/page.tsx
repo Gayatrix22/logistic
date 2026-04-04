@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css";
 
 const services = [
   { id: 1, title: "Sea Freight Forwarding", image: "/ship1.jpg", link: "/service/sea-freight"},

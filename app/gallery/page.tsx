@@ -20,7 +20,7 @@ export default function GalleryPage() {
   };
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/galleries")
+    fetch("http://192.168.1.11:8000/api/galleries")
       .then((res) => res.json())
       .then((data) => setImages(data));
   }, []);
