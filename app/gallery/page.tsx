@@ -32,31 +32,27 @@ export default function GalleryPage() {
 
   return (
     <>
-     <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[50vh] lg:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden">
+      <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[50vh] lg:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+        ></div>
 
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-  ></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
+        {/* Content */}
+        <div className="relative z-10 px-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+            Gallery
+          </h1>
 
-  {/* Content */}
-  <div className="relative z-10 px-4">
-    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-      Gallery
-    </h1>
-
-    <p className="mt-2 text-sm sm:text-base md:text-lg">
-      Home <span className="text-red-500">»</span> Gallery
-    </p>
-  </div>
-
-</section>
-
-
+          <p className="mt-2 text-sm sm:text-base md:text-lg">
+            Home <span className="text-red-500">»</span> Gallery
+          </p>
+        </div>
+      </section>
 
       {/* MAIN */}
       <main className="min-h-screen bg-gray-100 py-16 px-5">
@@ -68,22 +64,24 @@ export default function GalleryPage() {
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleFilter(cat)}
-              className={`px-5 py-2 rounded-full border transition-all duration-300 
-              ${
-                filter === cat
-                  ? "bg-blue-600 text-white"
-                  : "bg-white hover:bg-blue-50 hover:-translate-y-1"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        {/* ✅ UPDATED FILTERS (CENTER + SCROLL) */}
+        <div className="flex justify-center mb-10">
+          <div className="flex gap-4 overflow-x-auto whitespace-nowrap px-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => handleFilter(cat)}
+                className={`px-5 py-2 rounded-full border shrink-0 transition-all duration-300 
+                ${
+                  filter === cat
+                    ? "bg-blue-600 text-white"
+                    : "bg-white hover:bg-blue-50 hover:-translate-y-1"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Gallery Grid */}
