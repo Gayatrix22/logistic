@@ -65,24 +65,30 @@ export default function GalleryPage() {
         </div>
 
    {/* FILTER BUTTONS */}
-<div className="max-w-sm mx-auto mb-10 px-4">
-  <div className="grid grid-cols-2 gap-3">
-
+<div className="mb-10 px-4">
+  <div
+    className="
+      grid grid-cols-2 gap-3          /* 📱 Mobile: 2 columns */
+      sm:flex sm:flex-wrap sm:justify-center sm:gap-4   /* 💻 Laptop: 1 line */
+    "
+  >
     {categories.map((cat) => (
       <button
         key={cat}
         onClick={() => handleFilter(cat)}
-        className={`w-full py-3 rounded-lg border text-sm font-medium transition-all duration-300
-        ${
-          filter === cat
-            ? "bg-blue-600 text-white"
-            : "bg-white hover:bg-blue-50"
-        }`}
+        className={`
+          w-full sm:w-auto            /* mobile full width, desktop auto */
+          py-3 px-4 rounded-lg border text-sm font-medium transition-all duration-300
+          ${
+            filter === cat
+              ? "bg-blue-600 text-white"
+              : "bg-white hover:bg-blue-50"
+          }
+        `}
       >
         {cat}
       </button>
     ))}
-
   </div>
 </div>
 
