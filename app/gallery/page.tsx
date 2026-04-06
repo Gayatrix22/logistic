@@ -20,7 +20,7 @@ export default function GalleryPage() {
   };
 
   useEffect(() => {
-    fetch("http://192.168.1.11:8000/api/galleries")
+    fetch("http://127.0.0.1:8000/api/galleries")
       .then((res) => res.json())
       .then((data) => setImages(data));
   }, []);
@@ -64,25 +64,27 @@ export default function GalleryPage() {
           </p>
         </div>
 
-        {/* ✅ UPDATED FILTERS (CENTER + SCROLL) */}
-        <div className="flex justify-center mb-10">
-          <div className="flex gap-4 overflow-x-auto whitespace-nowrap px-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => handleFilter(cat)}
-                className={`px-5 py-2 rounded-full border shrink-0 transition-all duration-300 
-                ${
-                  filter === cat
-                    ? "bg-blue-600 text-white"
-                    : "bg-white hover:bg-blue-50 hover:-translate-y-1"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
+   {/* FILTER BUTTONS */}
+<div className="max-w-sm mx-auto mb-10 px-4">
+  <div className="grid grid-cols-2 gap-3">
+
+    {categories.map((cat) => (
+      <button
+        key={cat}
+        onClick={() => handleFilter(cat)}
+        className={`w-full py-3 rounded-lg border text-sm font-medium transition-all duration-300
+        ${
+          filter === cat
+            ? "bg-blue-600 text-white"
+            : "bg-white hover:bg-blue-50"
+        }`}
+      >
+        {cat}
+      </button>
+    ))}
+
+  </div>
+</div>
 
         {/* Gallery Grid */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

@@ -92,7 +92,7 @@ export default function ContactPage() {
 
     if (validate()) {
       try {
-        const res = await fetch("http://192.168.1.11:8000/api/contact", {
+        const res = await fetch("http://127.0.0.1:8000/api/contact", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -166,11 +166,6 @@ export default function ContactPage() {
               Enter Inquiry
             </h3>
 
-            {submitted && (
-              <div className="bg-green-100 text-green-700 p-3 mb-4 rounded">
-                Message Sent Successfully!
-              </div>
-            )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
 
@@ -196,6 +191,12 @@ export default function ContactPage() {
               <button className="w-full bg-blue-800 text-white py-3 rounded">
                 Send Message
               </button>
+              
+               {submitted && (
+              <div className="bg-green-100 text-green-700 p-3 mb-4 rounded">
+                Message Sent Successfully!
+              </div>
+            )}
 
             </form>
           </motion.div>
