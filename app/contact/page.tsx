@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
 
@@ -21,35 +21,35 @@ export default function ContactPage() {
 
   const [errors, setErrors] = useState<any>({});
 
-  const BASE_URL = process.env.NEXT_PUBLIC_API_URL!; // ✅ env usage
-
   // ✅ VALIDATION
   const validate = () => {
     let newErrors: any = {};
 
-    if (!form.name.trim()) newErrors.name = "Name is required";
-    if (!form.company.trim()) newErrors.company = "Company is required";
-    if (!form.city.trim()) newErrors.city = "City is required";
-    if (!form.state.trim()) newErrors.state = "State is required";
-    if (!form.country.trim()) newErrors.country = "Country is required";
+    const name = form.name.trim();
+    if (!name) newErrors.name = "Name is required";
+    else if (name.length < 3) newErrors.name = "Min 3 characters";
+    else if (!/^[a-zA-Z\s]+$/.test(name))
+      newErrors.name = "Only letters allowed";
 
-    if (!form.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
-      newErrors.email = "Enter valid email";
-    }
+    if (!form.company.trim()) newErrors.company = "Company required";
+    if (!form.city.trim()) newErrors.city = "City required";
+    if (!form.state.trim()) newErrors.state = "State required";
+    if (!form.country.trim()) newErrors.country = "Country required";
 
-    if (!form.phone.trim()) {
-      newErrors.phone = "Contact is required";
-    } else if (!/^[0-9]{10}$/.test(form.phone)) {
-      newErrors.phone = "Enter valid 10 digit number";
-    }
+    const email = form.email.trim();
+    if (!email) newErrors.email = "Email required";
+    else if (!/^\S+@\S+\.\S+$/.test(email))
+      newErrors.email = "Invalid email";
 
-    if (!form.message.trim()) {
-      newErrors.message = "Message is required";
-    } else if (form.message.length < 10) {
-      newErrors.message = "Message must be at least 10 characters";
-    }
+    const phone = form.phone.trim();
+    if (!phone) newErrors.phone = "Phone required";
+    else if (!/^[0-9]{10}$/.test(phone))
+      newErrors.phone = "Enter 10 digit number";
+
+    const message = form.message.trim();
+    if (!message) newErrors.message = "Message required";
+    else if (message.length < 10)
+      newErrors.message = "Min 10 characters";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -59,16 +59,14 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // ✅ FINAL SUBMIT FUNCTION
+  // ✅ SUBMIT
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     if (!validate()) return;
 
     try {
-      console.log("Sending:", form);
-
-      const res = await fetch(`${BASE_URL}/api/contact`, {
+      const res = await fetch("http://127.0.0.1:8000/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,10 +74,15 @@ export default function ContactPage() {
         body: JSON.stringify(form),
       });
 
-      const data = await res.json();
-      console.log("Response:", data);
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        alert("Invalid server response");
+        return;
+      }
 
-      if (res.ok && data.success) {
+      if (res.ok) {
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 3000);
 
@@ -94,11 +97,11 @@ export default function ContactPage() {
           message: "",
         });
       } else {
-        alert("Something went wrong");
+        alert(data.message || "Something went wrong");
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Server error");
+      console.log(error);
+      alert("Server error / CORS issue");
     }
   };
 
@@ -119,21 +122,55 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, x: 0 }}
             className="space-y-6"
           >
-            <h2 className="text-4xl font-bold text-blue-900">
-              Any Queries? Contact Us Now!
-            </h2>
 
-            <InfoCard icon={<MapPin size={32} />} title="Office Address" popup="Copied!" setPopup={setPopupText}>
-              ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED
-            </InfoCard>
+            {/* HEADING + LINE */}
+            <div>
+              <h3 className="text-4xl font-bold text-blue-900 inline-block">
+                Any Queries? Contact Us Now!
+              </h3>
 
-            <InfoCard icon={<Phone size={32} />} title="Phone" popup="Copied!" setPopup={setPopupText}>
-              +91 9909928018
-            </InfoCard>
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 0.8 }}
+                className="h-1 bg-orange-500 mt-2 rounded"
+              />
+            </div>
 
-            <InfoCard icon={<Mail size={32} />} title="Email" popup="Copied!" setPopup={setPopupText}>
-              info@eramarya.com
-            </InfoCard>
+            {/* CARDS */}
+            <motion.div
+              className="space-y-6"
+              initial="hidden"
+              whileInView="show"
+              variants={{
+                hidden: {},
+                show: {
+                  transition: { staggerChildren: 0.25 },
+                },
+              }}
+            >
+
+              <InfoCard icon={<MapPin size={32} />} title="Office Address" popup="Copied!" setPopup={setPopupText}>
+                <span className="font-semibold block mb-1">
+                  ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED
+                </span>
+                <p>Signet Hub, 909, 9th Floor</p>
+                <p>Akshar Chowk, Vadodara</p>
+                <p>Gujarat, India - 390020</p>
+              </InfoCard>
+
+              <InfoCard icon={<Phone size={32} />} title="Telephone number" popup="Copied!" setPopup={setPopupText}>
+                <span>(+91) 9909928018</span>
+                <p>(+91) 8866841444</p>
+              </InfoCard>
+
+              <InfoCard icon={<Mail size={32} />} title="Mail address" popup="Copied!" setPopup={setPopupText}>
+                <span>info@eramarya.com</span>
+                <p>sales@eramarya.com</p>
+              </InfoCard>
+
+            </motion.div>
+
           </motion.div>
 
           {/* FORM */}
@@ -141,12 +178,6 @@ export default function ContactPage() {
             <h3 className="text-3xl font-bold text-blue-900 mb-6">
               Enter Inquiry
             </h3>
-
-            {submitted && (
-              <div className="bg-green-100 text-green-700 p-3 mb-4 rounded">
-                Message Sent Successfully!
-              </div>
-            )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
 
@@ -167,14 +198,21 @@ export default function ContactPage() {
                 placeholder="Message"
                 className={`w-full p-3 border rounded ${errors.message ? "border-red-500" : ""}`}
               />
-              {errors.message && <p className="text-red-500">{errors.message}</p>}
+              {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
 
-              <button className="w-full bg-blue-800 text-white py-3 rounded">
+              <button className="w-full bg-blue-800 text-white py-3 rounded hover:bg-blue-900">
                 Send Message
               </button>
 
+              {submitted && (
+                <div className="bg-green-100 text-green-700 p-3 rounded">
+                  Message Sent Successfully!
+                </div>
+              )}
+
             </form>
           </motion.div>
+
         </div>
       </section>
     </>
@@ -192,30 +230,59 @@ function Input({ name, value, onChange, placeholder, error }: any) {
         placeholder={placeholder}
         className={`w-full p-3 border rounded ${error ? "border-red-500" : ""}`}
       />
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>
   );
 }
 
-/* POPUP */
+/* POPUP FIXED */
 function Popup({ text, clear }: any) {
-  setTimeout(clear, 2000);
+  useEffect(() => {
+    const timer = setTimeout(clear, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full">
+    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full shadow-lg">
       {text}
     </div>
   );
 }
 
-/* INFO CARD */
+/* INFO CARD WITH ANIMATION */
 function InfoCard({ icon, title, children, popup, setPopup }: any) {
   return (
-    <div onClick={() => setPopup(popup)} className="bg-white p-6 rounded-xl shadow-md flex gap-4 cursor-pointer">
-      <div className="text-orange-600">{icon}</div>
+    <motion.div
+      onClick={() => setPopup(popup)}
+      variants={{
+        hidden: { opacity: 0, y: 40 },
+        show: { opacity: 1, y: 0 },
+      }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.4 }}
+      className="relative bg-white p-6 rounded-xl flex gap-4 cursor-pointer overflow-hidden"
+    >
+      {/* 🔥 Animated Left Line */}
+      <motion.div
+        initial={{ height: 0 }}
+        whileInView={{ height: "100%" }}
+        transition={{ duration: 0.5 }}
+        className="absolute left-0 top-0 w-1 bg-orange-500 rounded"
+      />
+
+      {/* ICON */}
+      <motion.div
+        whileHover={{ rotate: 10, scale: 1.1 }}
+        className="text-orange-600 ml-2"
+      >
+        {icon}
+      </motion.div>
+
+      {/* TEXT */}
       <div>
         <h4 className="font-semibold">{title}</h4>
         <div className="text-gray-600 text-sm">{children}</div>
       </div>
-    </div>
+    </motion.div>
   );
 }

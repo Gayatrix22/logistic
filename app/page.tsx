@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import AOS from "aos";
 
 export default function HomePage() {
   const [showText, setShowText] = useState(false);
@@ -29,6 +30,14 @@ const item = {
     videoRef.current.playbackRate = 2;
   }
 }, []);
+
+useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
 
   return (
     <main>
@@ -361,7 +370,6 @@ const item = {
   ))}
 
 </section>
-      
       {/* ABOUT SECTION */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center" data-aos="fade-up">
