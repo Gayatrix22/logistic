@@ -329,30 +329,39 @@ const item = {
 </section>
 
       {/* FEATURE SECTION */}
-      <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-5 bg-white mb-10 gap-1">
+<section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-5 bg-white mb-10 gap-1">
 
-        {[
-          { img: "/img1.jpg", title: "Global Coverage Local Presence" },
-          { img: "/img2.jpg", title: "Safe & Secure Transportation" },
-          { img: "/img3.jpg", title: "Extensive Network of Partners & Carriers" },
-          { img: "/img4.jpg", title: "Expert Support & Customer Service" },
-        ].map((item, i) => (
+  {[
+    { img: "/img1.jpg", title: "Global Coverage Local Presence" },
+    { img: "/img2.jpg", title: "Safe & Secure Transportation" },
+    { img: "/img3.jpg", title: "Extensive Network of Partners & Carriers" },
+    { img: "/img4.jpg", title: "Expert Support & Customer Service" },
+  ].map((item, i) => (
 
-          <div
-            key={i}
-            className="feature-card"
-            style={{
-              backgroundImage: `url(${item.img})`,
-            }}
-          >
-            <div className="overlay"></div>
-            <span>{`0${i + 1}`}</span>
-            <h3>{item.title}</h3>
-          </div>
+    <div
+      key={i}
+      className="relative h-[500px] bg-cover bg-center flex flex-col justify-end p-6 text-white overflow-hidden transition-transform duration-500 hover:scale-105 group"
+      style={{ backgroundImage: `url(${item.img})` }}
+    >
 
-        ))}
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
 
-      </section>
+      {/* Content */}
+      <span className="relative z-10 text-3xl font-bold transition-all duration-500 group-hover:text-yellow-400 group-hover:scale-125">
+        {`0${i + 1}`}
+      </span>
+
+      <h3 className="relative z-10 text-lg mt-2 transition-all duration-500 group-hover:text-sky-400 group-hover:-translate-y-1">
+        {item.title}
+      </h3>
+
+    </div>
+
+  ))}
+
+</section>
+      
       {/* ABOUT SECTION */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center" data-aos="fade-up">
@@ -383,81 +392,6 @@ const item = {
         </div>
       </section>
       
-      {/* CSS */}
-      <style jsx>{`
-
-
-/* FEATURE CARDS */
-
-.feature-card{
-  height:500px;
-  background-size:cover;
-  background-position:center;
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:30px;
-  color:white;
-  overflow:hidden;
-  transition:transform 0.5s ease;
-}
-
-/* Image zoom effect */
-.feature-card:hover{
-  transform:scale(1.05);
-}
-
-/* Overlay */
-.overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.4);
-  transition:background 0.4s ease;
-}
-
-.feature-card:hover .overlay{
-  background:rgba(0,0,0,0.6);
-}
-
-/* Number */
-.feature-card span{
-  font-size:32px;
-  font-weight:700;
-  position:relative;
-  z-index:2;
-  transition:all 0.4s ease;
-}
-
-/* Title */
-.feature-card h3{
-  font-size:18px;
-  margin-top:10px;
-  position:relative;
-  z-index:2;
-  transition:all 0.4s ease;
-}
-
-/* Hover text animation */
-.feature-card:hover span{
-  color:#facc15;
-  transform:scale(1.2);
-}
-
-.feature-card:hover h3{
-  color:#38bdf8;
-  transform:translateY(-6px);
-}
-
-/* Bottom strip */
-.bottom-strip{
-  width:100%;
-  height:60px;
-  background:linear-gradient(90deg,#ea580c,#f97316);
-  transform:skewY(-3deg);
-}
-
-`}</style>
     </main>
   );
 }

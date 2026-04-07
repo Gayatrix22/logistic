@@ -21,61 +21,33 @@ export default function ContactPage() {
 
   const [errors, setErrors] = useState<any>({});
 
-  // ✅ VALIDATION (FIXED)
+  const BASE_URL = process.env.NEXT_PUBLIC_API_URL!; // ✅ env usage
+
+  // ✅ VALIDATION
   const validate = () => {
     let newErrors: any = {};
 
-    // Name
-    const name = form.name.trim();
-    if (!name) {
-      newErrors.name = "Name is required";
-    } else if (name.length < 3) {
-      newErrors.name = "Name must be at least 3 characters";
-    } else if (!/^[a-zA-Z\s]+$/.test(name)) {
-      newErrors.name = "Name can only contain letters and spaces";
-    }  
+    if (!form.name.trim()) newErrors.name = "Name is required";
+    if (!form.company.trim()) newErrors.company = "Company is required";
+    if (!form.city.trim()) newErrors.city = "City is required";
+    if (!form.state.trim()) newErrors.state = "State is required";
+    if (!form.country.trim()) newErrors.country = "Country is required";
 
-      // Company
-    if (!form.company.trim()) {
-      newErrors.company = "Company is required";
-    }
-
-    // City
-    if (!form.city.trim()) {
-      newErrors.city = "City is required";
-    }
-
-    // State
-    if (!form.state.trim()) {
-      newErrors.state = "State is required";
-    }
-
-    // Country
-    if (!form.country.trim()) {
-      newErrors.country = "Country is required";
-    }
-
-    // Email
-    const email = form.email.trim();
-    if (!email) {
+    if (!form.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
       newErrors.email = "Enter valid email";
     }
 
-    // Phone
-    const phone = form.phone.trim();
-    if (!phone) {
+    if (!form.phone.trim()) {
       newErrors.phone = "Contact is required";
-    } else if (!/^[0-9]{10}$/.test(phone)) {
+    } else if (!/^[0-9]{10}$/.test(form.phone)) {
       newErrors.phone = "Enter valid 10 digit number";
     }
 
-    // Message
-    const message = form.message.trim();
-    if (!message) {
+    if (!form.message.trim()) {
       newErrors.message = "Message is required";
-    } else if (message.length < 10) {
+    } else if (form.message.length < 10) {
       newErrors.message = "Message must be at least 10 characters";
     }
 
@@ -87,42 +59,46 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // ✅ FINAL SUBMIT FUNCTION
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    if (validate()) {
-      try {
-        const res = await fetch("http://127.0.0.1:8000/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form),
+    if (!validate()) return;
+
+    try {
+      console.log("Sending:", form);
+
+      const res = await fetch(`${BASE_URL}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+      console.log("Response:", data);
+
+      if (res.ok && data.success) {
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 3000);
+
+        setForm({
+          name: "",
+          company: "",
+          city: "",
+          state: "",
+          country: "",
+          email: "",
+          phone: "",
+          message: "",
         });
-
-        const data = await res.json();
-
-        if (data.status) {
-          setSubmitted(true);
-          setTimeout(() => setSubmitted(false), 3000);
-
-          setForm({
-            name: "",
-            company: "",
-            city: "",
-            state: "",
-            country: "",
-            email: "",
-            phone: "",
-            message: "",
-          });
-        } else {
-          alert("Something went wrong");
-        }
-      } catch (error) {
-        console.log(error);
-        alert("Server error");
+      } else {
+        alert("Something went wrong");
       }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Server error");
     }
   };
 
@@ -166,11 +142,16 @@ export default function ContactPage() {
               Enter Inquiry
             </h3>
 
+            {submitted && (
+              <div className="bg-green-100 text-green-700 p-3 mb-4 rounded">
+                Message Sent Successfully!
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
 
               <Input name="name" value={form.name} onChange={handleChange} placeholder="Name" error={errors.name} />
-              <Input name="company" value={form.company} onChange={handleChange} placeholder="Company" />
+              <Input name="company" value={form.company} onChange={handleChange} placeholder="Company" error={errors.company} />
 
               <Input name="city" value={form.city} onChange={handleChange} placeholder="City" error={errors.city} />
               <Input name="state" value={form.state} onChange={handleChange} placeholder="State" error={errors.state} />
@@ -191,12 +172,6 @@ export default function ContactPage() {
               <button className="w-full bg-blue-800 text-white py-3 rounded">
                 Send Message
               </button>
-              
-               {submitted && (
-              <div className="bg-green-100 text-green-700 p-3 mb-4 rounded">
-                Message Sent Successfully!
-              </div>
-            )}
 
             </form>
           </motion.div>
