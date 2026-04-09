@@ -125,9 +125,9 @@ export default function ContactPage() {
 
             {/* HEADING + LINE */}
             <div>
-              <h2 className="text-4xl font-bold text-blue-900 inline-block">
+              <h3 className="text-4xl font-bold text-blue-900 inline-block">
                 Any Queries? Contact Us Now!
-              </h2>
+              </h3>
 
               <motion.div
                 initial={{ width: 0 }}
