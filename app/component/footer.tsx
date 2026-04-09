@@ -2,6 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 export default function Footer() {
   return (
@@ -12,10 +31,16 @@ export default function Footer() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/70"></div>
 
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-10 relative z-10">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 md:grid-cols-2 gap-10 relative z-10"
+      >
         
         {/* Company Info */}
-        <div>
+        <motion.div variants={fadeUp}>
           <div className="flex items-start gap-3 mb-4">
             <Image
               src="/logo.png"
@@ -40,42 +65,42 @@ export default function Footer() {
             positive impact in the industry with innovative logistics
             solutions.
           </p>
-        </div>
+        </motion.div>
 
         {/* Sitemap */}
-        <div>
+        <motion.div variants={fadeUp}>
           <h3 className="font-semibold text-[25px] mb-4 text-white">
             Sitemap
           </h3>
 
           <ul className="space-y-3 text-white">
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/about">About us</Link></li>
-            <li><Link href="/service">Service</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
-            <li><Link href="/gallery">Gallery</Link></li>
-            <li><Link href="/contact">Contact Us</Link></li>
+            <li><Link href="/" className="hover:text-[#ff6a00] transition duration-300">Home</Link></li>
+            <li><Link href="/about" className="hover:text-[#ff6a00] transition duration-300">About us</Link></li>
+            <li><Link href="/service" className="hover:text-[#ff6a00] transition duration-300">Service</Link></li>
+            <li><Link href="/blog" className="hover:text-[#ff6a00] transition duration-300">Blog</Link></li>
+            <li><Link href="/gallery" className="hover:text-[#ff6a00] transition duration-300">Gallery</Link></li>
+            <li><Link href="/contact" className="hover:text-[#ff6a00] transition duration-300">Contact Us</Link></li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Industry */}
-        <div>
+        <motion.div variants={fadeUp}>
           <h3 className="font-semibold text-[25px] mb-4 text-white">
             Industry Sectors
           </h3>
 
           <ul className="space-y-3 text-white">
-            <li><Link href="/service/sea-freight">Sea Freight Forwarding</Link></li>
-            <li><Link href="/service/air-freight">Air Freight Forwarding</Link></li>
-            <li><Link href="/service/custom-clearance">Custom Clearance</Link></li>
-            <li><Link href="/service/odc-logistics">ODC Logistics Support</Link></li>
-            <li><Link href="/service/project-shipments">Project Shipments</Link></li>
-            <li><Link href="/service/warehousing">Warehousing</Link></li>
+            <li><Link href="/service/sea-freight" className="hover:text-[#ff6a00] transition duration-300">Sea Freight Forwarding</Link></li>
+            <li><Link href="/service/air-freight" className="hover:text-[#ff6a00] transition duration-300">Air Freight Forwarding</Link></li>
+            <li><Link href="/service/custom-clearance" className="hover:text-[#ff6a00] transition duration-300">Custom Clearance</Link></li>
+            <li><Link href="/service/odc-logistics" className="hover:text-[#ff6a00] transition duration-300">ODC Logistics Support</Link></li>
+            <li><Link href="/service/project-shipments" className="hover:text-[#ff6a00] transition duration-300">Project Shipments</Link></li>
+            <li><Link href="/service/warehousing" className="hover:text-[#ff6a00] transition duration-300">Warehousing</Link></li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Contact */}
-        <div>
+        <motion.div variants={fadeUp}>
           <h3 className="font-semibold text-[25px] mb-4 text-white">
             Get In Touch
           </h3>
@@ -97,17 +122,22 @@ export default function Footer() {
           <div className="border-t pt-3 text-white text-sm mt-3">
             Website: www.eramarya.com
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#083a3f] text-center text-white mt-12 py-4 text-sm relative z-10">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="bg-[#083a3f] text-center text-white mt-12 py-4 text-sm relative z-10"
+      >
         Copyright © 2026{" "}
         <span className="text-[#ff6a00] font-medium">
           Era Marya Global Logistics Pvt. Ltd.
         </span>{" "}
         Designed by <span className="text-white">TechStrota</span>
-      </div>
+      </motion.div>
     </footer>
   );
 }
