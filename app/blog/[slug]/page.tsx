@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
-
+import { useParams, useRouter } from "next/navigation"; // ✅ router add
+import { ArrowLeft } from "lucide-react";
 const BASE_URL = "http://127.0.0.1:8000";
+import { motion } from "framer-motion";
 
 type Blog = {
   id: number;
@@ -17,6 +18,7 @@ export default function BlogDetailPage() {
   
   const params = useParams();
   const slug = params.slug as string;
+  const router = useRouter(); // ✅ router
 
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
@@ -45,7 +47,31 @@ export default function BlogDetailPage() {
 
   return (
     <div className="max-w-4xl mx-auto p-6">
+
       
+     <motion.button
+  onClick={() => router.push("/blog")}
+  whileHover={{ scale: 1.05, x: -3 }}
+  whileTap={{ scale: 0.95 }}
+  className="mb-6 flex items-center gap-2 px-5 py-2.5 
+  bg-white/10 backdrop-blur-md border border-white/20 
+  text-gray-800 rounded-full shadow-lg 
+  hover:bg-white/20 hover:shadow-xl 
+  transition-all duration-300"
+>
+  <motion.span
+    initial={{ x: 0 }}
+    whileHover={{ x: -4 }}
+    transition={{ type: "spring", stiffness: 300 }}
+  >
+    <ArrowLeft size={18} />
+  </motion.span>
+
+  <span className="font-semibold tracking-wide">
+  Back to Blogs
+</span>
+</motion.button>
+
       {/* IMAGE */}
       {blog.main_image && (
         <img
@@ -58,10 +84,10 @@ export default function BlogDetailPage() {
       {/* TITLE */}
       <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
 
-     <div
-  className="text-black-700 leading-relaxed"
-  dangerouslySetInnerHTML={{ __html: blog.content }}
-/>
+      <div
+        className="text-black-700 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: blog.content }}
+      />
 
     </div>
   );
