@@ -143,21 +143,130 @@ useEffect(() => {
 
 </section>
 
+{/* Aboutus */}
+<section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-white">
+
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+{/* LEFT CONTENT */}
+    <div data-aos="fade-right">
+
+      <p className="text-sm uppercase tracking-widest text-orange-600 font-semibold mb-3">
+        Global Logistics
+      </p>
+
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-800">
+        Smart & Reliable
+        <span className="block text-orange-600">
+          Logistics Solutions
+        </span>
+      </h2>
+
+      <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
+        Era Marya Global Logistics Pvt. Ltd. delivers end-to-end freight
+        solutions designed to simplify complex supply chains and ensure
+        timely delivery across the globe.
+      </p>
+
+      <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8">
+        We combine industry expertise with advanced logistics strategies
+        to help your business grow faster and operate smarter.
+      </p>
+
+      <a
+        href="/contact"
+        className="inline-block bg-orange-500 text-white px-7 py-3 rounded-md font-medium hover:bg-orange-600 transition duration-300 shadow-md"
+      >
+        Get in Touch
+      </a>
+
+    </div>
+
+    
+  {/* RIGHT SIDE CARD */}
+<div data-aos="fade-left" className="relative perspective-1000">
+
+  <motion.div
+    whileHover={{
+      rotateX: 8,
+      rotateY: -8,
+      scale: 1.04,
+    }}
+    transition={{ type: "spring", stiffness: 180, damping: 12 }}
+    className="relative bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 p-8 rounded-2xl shadow-xl border border-gray-200 overflow-hidden"
+  >
+
+    {/* Glow Effect */}
+    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-300/30 to-transparent blur-2xl"></div>
+    </div>
+
+    {/* Content */}
+    <div className="relative z-10">
+
+      <h3 className="text-xl font-semibold mb-6 text-gray-800">
+        Why Choose Us?
+      </h3>
+
+      <ul className="space-y-4 text-gray-600">
+
+        <li className="flex items-start gap-3">
+          <span className="text-orange-500 font-bold">✔</span>
+          Fast & Secure Delivery Worldwide
+        </li>
+
+        <li className="flex items-start gap-3">
+          <span className="text-orange-500 font-bold">✔</span>
+          End-to-End Supply Chain Solutions
+        </li>
+
+        <li className="flex items-start gap-3">
+          <span className="text-orange-500 font-bold">✔</span>
+          Experienced Logistics Team
+        </li>
+
+        <li className="flex items-start gap-3">
+          <span className="text-orange-500 font-bold">✔</span>
+          Cost-Effective & Scalable Services
+        </li>
+
+      </ul>
+
+    </div>
+
+  </motion.div>
+</div>
+
+  </div>
+</section>
 {/* SERVICES */}
 <section className="py-20 bg-gray-100 px-4 sm:px-6 md:px-10">
 
   {/* TITLE */}
-  <h2 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800">
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+    className="text-3xl md:text-4xl font-extrabold text-center text-gray-800"
+  >
     Our Core Services
-  </h2>
+  </motion.h2>
 
   {/* GRID */}
   <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
     {/* CARD */}
-    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+    <motion.div
+  initial={{ opacity: 0, y: 100 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  viewport={{ once: true }}
+  whileHover={{ y: -10 }}
+  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+>
       
-      <img src="/ship1.jpg" className="w-full h-48 object-cover" />
+      <img src="/ship1.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
 
       <div className="p-6 text-center">
 
@@ -177,12 +286,19 @@ useEffect(() => {
         </a>
 
       </div>
-    </div>
+    </motion.div>
 
     {/* CARD */}
-    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+   <motion.div
+  initial={{ opacity: 0, y: 100 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  viewport={{ once: true }}
+  whileHover={{ y: -10 }}
+  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+>
       
-      <img src="/air.jpg" className="w-full h-48 object-cover" />
+      <img src="/air.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
 
       <div className="p-6 text-center">
 
@@ -202,12 +318,19 @@ useEffect(() => {
         </a>
 
       </div>
-    </div>
+    </motion.div>
 
     {/* CARD */}
-    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+    <motion.div
+  initial={{ opacity: 0, y: 100 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  viewport={{ once: true }}
+  whileHover={{ y: -10 }}
+  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+>
       
-      <img src="/c2.jpg" className="w-full h-48 object-cover" />
+      <img src="/c2.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
 
       <div className="p-6 text-center">
 
@@ -227,12 +350,19 @@ useEffect(() => {
         </a>
 
       </div>
-    </div>
+    </motion.div>
 
     {/* CARD */}
-    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+  <motion.div
+  initial={{ opacity: 0, y: 100 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  viewport={{ once: true }}
+  whileHover={{ y: -10 }}
+  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+>
       
-      <img src="/odc.jpg" className="w-full h-48 object-cover" />
+      <img src="/odc.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
 
       <div className="p-6 text-center">
 
@@ -252,12 +382,19 @@ useEffect(() => {
         </a>
 
       </div>
-    </div>
+    </motion.div>
 
     {/* CARD */}
-    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+    <motion.div
+  initial={{ opacity: 0, y: 100 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  viewport={{ once: true }}
+  whileHover={{ y: -10 }}
+  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+>
       
-      <img src="/project.jpg" className="w-full h-48 object-cover" />
+      <img src="/project.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
 
       <div className="p-6 text-center">
 
@@ -277,12 +414,19 @@ useEffect(() => {
         </a>
 
       </div>
-    </div>
+    </motion.div>
 
     {/* CARD */}
-    <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+    <motion.div
+  initial={{ opacity: 0, y: 100 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  viewport={{ once: true }}
+  whileHover={{ y: -10 }}
+  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+>
       
-      <img src="/warehouse.jpg" className="w-full h-48 object-cover" />
+      <img src="/warehouse.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
 
       <div className="p-6 text-center">
 
@@ -302,7 +446,7 @@ useEffect(() => {
         </a>
 
       </div>
-    </div>
+    </motion.div>
 
   </div>
 </section>
@@ -370,36 +514,7 @@ useEffect(() => {
   ))}
 
 </section>
-      {/* ABOUT SECTION */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center" data-aos="fade-up">
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
-            Providing World-Class
-          </h2> 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-6 sm:mb-8">
-            Logistics Solution
-          </h2>
-
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-           Era Marya Global Logistics Pvt. Ltd. is a privately owned Independent freight forwarder established with the concept of providing our customers with a comprehensive partnership, to enhance every aspect of their Forwarding requirement. This has been achieved through our sustained practice of adapting our services to meet the requirements of our clients and continuing confirm to their individual needs.
-          </p>
-
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
-            Our goal is to help businesses establish a strong online presence
-            and achieve long-term success.
-          </p>
-
-          <a
-            href="/contact"
-            className="inline-block bg-blue-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg shadow-md hover:bg-orange-500 transition duration-300 text-sm sm:text-base"
-          >
-            Contact Us
-          </a>
-
-        </div>
-      </section>
-      
+          
     </main>
   );
 }

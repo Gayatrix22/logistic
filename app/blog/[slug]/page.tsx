@@ -14,6 +14,7 @@ type Blog = {
 };
 
 export default function BlogDetailPage() {
+  
   const params = useParams();
   const slug = params.slug as string;
 
