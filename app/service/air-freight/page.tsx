@@ -5,151 +5,100 @@ import Link from "next/link";
 
 export default function AirFreight() {
   return (
-    <main className="bg-gray-100">
+    <main className="bg-gradient-to-b from-gray-50 to-gray-100">
 
-     <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+     
 
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-  />
 
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
+      {/* MAIN */}
+      <div className="max-w-6xl mx-auto px-4 py-14">
 
-  {/* Content */}
-  <div className="relative z-10">
-    <h1 className="text-4xl md:text-5xl font-bold">
-     Air Freight Forwarding
-    </h1>
+        {/* CENTER IMAGE */}
+        <div className="flex justify-center mb-10">
+          <div className="relative w-full md:w-[80%] h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/air-freight.jpg"
+              alt="Air Freight"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
 
-    <p className="mt-2">
-      Home <span className="text-orange-500">»</span> Offered Solution
-       <span className="text-red-500">»</span> Air Freight Forwarding
+        {/* TITLE */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Fast & Reliable Air Freight Solutions
+          </h2>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Our air freight services are designed for speed, reliability, and efficiency. 
+            We provide time-critical logistics solutions with global connectivity, ensuring 
+            your shipments reach their destination quickly and securely.
+          </p>
+        </div>
+
+        {/* 6 CARDS */}
+       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+
+  {/* Card 1 */}
+  <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+    <h3 className="text-xl font-semibold mb-2">🚀 Express Air Shipping</h3>
+    <p className="text-gray-600">
+      Ultra-fast air cargo solutions for urgent and time-sensitive shipments worldwide.
+      We ensure priority handling, quick transit, and reliable delivery timelines.
     </p>
   </div>
 
-</section>
+  {/* Card 2 */}
+  <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+    <h3 className="text-xl font-semibold mb-2">🌍 Global Air Network</h3>
+    <p className="text-gray-600">
+      Strong airline partnerships ensure seamless global connectivity and faster delivery.
+      We operate across major international airports with efficient coordination.
+    </p>
+  </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-10">
+  {/* Card 3 */}
+  <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+    <h3 className="text-xl font-semibold mb-2">🚚 Door-to-Door Delivery</h3>
+    <p className="text-gray-600">
+      Complete logistics handling from pickup to final destination delivery.
+      We manage every step for a smooth and hassle-free shipping experience.
+    </p>
+  </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+  {/* Card 4 */}
+  <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+    <h3 className="text-xl font-semibold mb-2">❄️ Perishable Cargo Handling</h3>
+    <p className="text-gray-600">
+      Temperature-controlled shipping for food, pharma, and sensitive goods.
+      Ensuring freshness and safety throughout the journey.
+    </p>
+  </div>
 
-          {/* SIDEBAR */}
-          <aside className="bg-white rounded-xl shadow-md p-6 h-fit">
-            <h3 className="text-xl font-bold text-blue-900 mb-6">
-              All Services
-            </h3>
+  {/* Card 5 */}
+  <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+    <h3 className="text-xl font-semibold mb-2">🏗️ Heavy & Project Cargo</h3>
+    <p className="text-gray-600">
+      Specialized solutions for oversized, high-value, and critical cargo shipments.
+      Expert handling with advanced equipment and planning.
+    </p>
+  </div>
 
-            <div className="space-y-4">
-              <ServiceLink href="/service/sea-freight" title="Sea Freight Forwarding" />
-              <ServiceLink href="/service/air-freight" title="Air Freight Forwarding" />
-              <ServiceLink href="/service/custom-clearance" title="Custom Clearance" />
-              <ServiceLink href="/service/odc-logistics" title="ODC Logistics Support" />
-              <ServiceLink href="/service/project-shipments" title="Project Shipments" />
-              <ServiceLink href="/service/warehousing" title="Warehousing" />
-            </div>
-          </aside>
-
-          {/* RIGHT SIDE */}
-          <div className="lg:col-span-3">
-
-            {/* IMAGE */}
-            <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
-              <Image
-                src="/air-freight.jpg"
-                alt="Air Freight Forwarding"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            {/* TITLE */}
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">
-              Air Freight Forwarding
-            </h2>
-
-            {/* CONTENT */}
-            <div className="space-y-6 text-gray-700 leading-7">
-
-              <div>
-                <h5 className="font-bold text-lg">Express Air Shipments</h5>
-                <p>
-                  Fast and reliable air cargo solutions for urgent and
-                  time-sensitive consignments across domestic and international destinations.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Airport-to-Airport Services</h5>
-                <p>
-                  Efficient airport handling with secure cargo movement ensuring
-                  smooth coordination between origin and destination terminals.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Door-to-Door Delivery</h5>
-                <p>
-                  Complete logistics management including pickup, customs clearance,
-                  air freight movement, and final delivery at consignee location.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Perishable & Pharma Cargo</h5>
-                <p>
-                  Temperature-controlled air freight solutions for pharmaceuticals,
-                  medical supplies, food products and other sensitive goods.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Heavy & Project Cargo</h5>
-                <p>
-                  Specialized air charter and heavy cargo solutions for oversized,
-                  high-value and critical project shipments.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">
-                  Cargo Insurance & Real-Time Tracking
-                </h5>
-                <p>
-                  Comprehensive insurance coverage and advanced tracking systems
-                  provide complete shipment visibility and maximum security.
-                </p>
-              </div>
-
-            </div>
-
-          </div>
+  {/* Card 6 */}
+  <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+    <h3 className="text-xl font-semibold mb-2">📡 Real-Time Tracking</h3>
+    <p className="text-gray-600">
+      Monitor your shipments with advanced tracking systems and full visibility.
+      Stay updated at every stage of delivery.
+    </p>
+  </div>
 
         </div>
+
 
       </div>
 
     </main>
-  );
-}
-
-
-/* ServiceLink Component */
-function ServiceLink({
-  href,
-  title,
-}: {
-  href: string;
-  title: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="block border border-gray-200 rounded-lg px-4 py-3 hover:bg-blue-900 hover:text-white transition"
-    >
-      {title} →
-    </Link>
   );
 }

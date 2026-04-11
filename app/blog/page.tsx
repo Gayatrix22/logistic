@@ -42,6 +42,7 @@ export default function BlogPage() {
     <div className="bg-gray-50 min-h-screen">
 
 
+
       <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
 
   {/* Background Image */}
@@ -65,6 +66,8 @@ export default function BlogPage() {
   </div>
 
 </section>
+
+    
 
 
       {/* BLOG GRID */}

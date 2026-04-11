@@ -1,133 +1,95 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 export default function ProjectShipments() {
   return (
     <main className="bg-gray-100">
 
-     
+   
 
-        <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+      {/* MAIN CONTENT */}
+      <div className="max-w-7xl mx-auto px-4 py-12">
 
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-  />
+        {/* CENTER IMAGE */}
+        <div className="flex justify-center mb-10">
+          <div className="relative w-full md:w-[70%] h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="/project-cargo.jpg"
+              alt="Project Shipments"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
 
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
+        {/* TITLE */}
+         <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+         End-to-End Project Cargo Solutions
+        </h2>
+         <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+         Managing project cargo requires detailed planning, coordination, and execution. Our end-to-end project cargo solutions are designed to handle complex, large-scale shipments from start to finish with complete efficiency and reliability.
 
-  {/* Content */}
-  <div className="relative z-10">
-    <h1 className="text-4xl md:text-5xl font-bold">
-     Project-Shipments
-    </h1>
+We provide a single-window solution for all your project logistics needs, ensuring seamless movement of cargo across every stage of the supply chain. 
+         </p>
+         </div>
 
-    <p className="mt-2">
-      Home <span className="text-orange-500">»</span> Offered Solution
-       <span className="text-red-500">»</span>  Project-Shipments
-    </p>
-  </div>   
-  </section>
+        {/* 6 CARDS (2 COLUMN FIXED) */}
+        <div className="grid grid-cols-2 gap-6">
 
+          {/* Card 1 */}
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+            <h3 className="text-xl font-semibold mb-2">🏗️ Large Scale Cargo Handling</h3>
+            <p className="text-gray-600">
+              Comprehensive logistics solutions for transporting large and complex cargo used in infrastructure and industrial projects.
+              We ensure safe handling of oversized shipments with precision and advanced equipment.
+            </p>
+          </div>
 
+          {/* Card 2 */}
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+            <h3 className="text-xl font-semibold mb-2">📊 Project Planning & Coordination</h3>
+            <p className="text-gray-600">
+              Detailed logistics planning and coordination for multi-stage cargo movement.
+              Our experts manage timelines, resources, and execution to ensure seamless project delivery.
+            </p>
+          </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-10">
+          {/* Card 3 */}
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+            <h3 className="text-xl font-semibold mb-2">🚛 Heavy Lift Transportation</h3>
+            <p className="text-gray-600">
+              Specialized lifting and transportation using cranes, hydraulic trailers, and heavy-duty equipment.
+              We handle extremely heavy and oversized cargo with maximum safety standards.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Card 4 */}
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+            <h3 className="text-xl font-semibold mb-2">🌍 Global Freight Management</h3>
+            <p className="text-gray-600">
+              Seamless coordination across sea, air, and land transportation.
+              Our global network ensures timely and efficient movement of project cargo worldwide.
+            </p>
+          </div>
 
-          {/* SIDEBAR */}
-          <aside className="bg-white rounded-xl shadow-md p-6 h-fit">
-            <h3 className="text-xl font-bold text-blue-900 mb-6">
-              All Services
-            </h3>
+          {/* Card 5 */}
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+            <h3 className="text-xl font-semibold mb-2">📑 Customs & Regulatory Support</h3>
+            <p className="text-gray-600">
+              Complete assistance with documentation, customs clearance, and compliance.
+              We ensure smooth approvals and avoid delays in project cargo shipments.
+            </p>
+          </div>
 
-            <div className="space-y-4">
-              <ServiceLink href="/service/sea-freight" title="Sea Freight Forwarding" />
-              <ServiceLink href="/service/air-freight" title="Air Freight Forwarding" />
-              <ServiceLink href="/service/custom-clearance" title="Custom Clearance" />
-              <ServiceLink href="/service/odc-logistics" title="ODC Logistics Support" />
-              <ServiceLink href="/service/project-shipments" title="Project Shipments" />
-              <ServiceLink href="/service/warehousing" title="Warehousing" />
-            </div>
-          </aside>
-
-          {/* RIGHT SIDE */}
-          <div className="lg:col-span-3">
-
-            {/* IMAGE */}
-            <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
-              <Image
-                src="/project-cargo.jpg"
-                alt="Project Shipments"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            {/* TITLE */}
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">
-              Project Shipments
-            </h2>
-
-            {/* CONTENT */}
-            <div className="space-y-6 text-gray-700 leading-7">
-
-              <div>
-                <h5 className="font-bold text-lg">Large Scale Cargo Handling</h5>
-                <p>
-                  Comprehensive logistics solutions for transporting large and
-                  complex cargo required for infrastructure and industrial projects.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Project Planning & Coordination</h5>
-                <p>
-                  Detailed logistics planning and coordination to ensure smooth
-                  handling of multi-stage project cargo movements.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Heavy Lift Transportation</h5>
-                <p>
-                  Specialized equipment and handling for lifting and transporting
-                  oversized and heavy cargo safely and efficiently.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Global Freight Management</h5>
-                <p>
-                  Seamless coordination of international freight including sea,
-                  air, and land transportation for project shipments.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Customs & Regulatory Support</h5>
-                <p>
-                  Assistance with documentation, customs clearance, and regulatory
-                  compliance for project cargo shipments.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">
-                  End-to-End Project Logistics
-                </h5>
-                <p>
-                  Complete logistics management from origin to destination ensuring
-                  safe and timely delivery of project cargo.
-                </p>
-              </div>
-
-            </div>
-
+          {/* Card 6 */}
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+            <h3 className="text-xl font-semibold mb-2">🔗 End-to-End Project Logistics</h3>
+            <p className="text-gray-600">
+              Full-service logistics management from origin to final delivery.
+              Dedicated project managers ensure transparency, real-time tracking, and timely completion.
+            </p>
           </div>
 
         </div>
@@ -135,24 +97,5 @@ export default function ProjectShipments() {
       </div>
 
     </main>
-  );
-}
-
-
-/* ServiceLink Component */
-function ServiceLink({
-  href,
-  title,
-}: {
-  href: string;
-  title: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="block border border-gray-200 rounded-lg px-4 py-3 hover:bg-blue-900 hover:text-white transition"
-    >
-      {title} →
-    </Link>
   );
 }

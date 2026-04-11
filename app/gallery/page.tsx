@@ -32,6 +32,7 @@ export default function GalleryPage() {
       : images.filter((img) => img.category === filter);
 
   return (
+<<<<<<< HEAD
     <main className="min-h-screen bg-gray-100 py-16 px-5">
 
       {/* 🔥 ANIMATED TITLE */}
@@ -78,6 +79,10 @@ animate-[slideIn_0.8s_ease-out]">
           </div>
         ))}
       </div>
+=======
+    <>
+     
+>>>>>>> e90f8a3388f997e0f502aa070e16ac0dff9882d4
 
       {/* LIGHTBOX */}
       {selectedImage && (
