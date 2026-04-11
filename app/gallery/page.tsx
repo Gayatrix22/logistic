@@ -43,7 +43,7 @@ export default function GalleryPage() {
           Logistics Gallery
         </h2>
         <p className="text-gray-600">
-          Explore our trucks, warehouses and logistics operation
+          Explore our trucks, warehouses and logistic operation
         </p>
       </div>
 
