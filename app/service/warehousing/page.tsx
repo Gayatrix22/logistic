@@ -7,124 +7,102 @@ export default function Warehousing() {
   return (
     <main className="bg-gray-100">
 
-      <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+    
 
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-  />
-
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
-
-  {/* Content */}
-  <div className="relative z-10">
-    <h1 className="text-4xl md:text-5xl font-bold">
-      Warehousing
-    </h1>
-
-    <p className="mt-2">
-      Home <span className="text-orange-500">»</span> Offered Solution
-       <span className="text-red-500">»</span>  Warehousing
-    </p>
-  </div>
-
-</section>
-
+      {/* CONTENT */}
       <div className="max-w-7xl mx-auto px-4 py-10">
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        {/* CENTER IMAGE */}
+        <div className="flex justify-center mb-10">
+          <div className="relative w-full md:w-[80%] h-[350px] rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/warehousing2.jpg"
+              alt="Warehousing"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
 
-          {/* SIDEBAR */}
-          <aside className="bg-white rounded-xl shadow-md p-6 h-fit">
-            <h3 className="text-xl font-bold text-blue-900 mb-6">
-              All Services
-            </h3>
+        {/* TITLE */}
+         <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          Smart & Scalable Warehousing Solutions
+        </h2>
+        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          Efficient warehousing is the backbone of a strong supply chain. Our smart and scalable warehousing solutions are designed to provide secure storage, optimized inventory management, and seamless distribution for businesses of all sizes.
 
-            <div className="space-y-4">
-              <ServiceLink href="/service/sea-freight" title="Sea Freight Forwarding" />
-              <ServiceLink href="/service/air-freight" title="Air Freight Forwarding" />
-              <ServiceLink href="/service/custom-clearance" title="Custom Clearance" />
-              <ServiceLink href="/service/odc-logistics" title="ODC Logistics Support" />
-              <ServiceLink href="/service/project-shipments" title="Project Shipments" />
-              <ServiceLink href="/service/warehousing" title="Warehousing" />
-            </div>
-          </aside>
+We combine advanced technology with flexible infrastructure to ensure your goods are stored safely and delivered efficiently—whenever and wherever needed.
+        </p>
+        </div>
 
-          {/* RIGHT SIDE */}
-          <div className="lg:col-span-3">
+        {/* CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
 
-            {/* IMAGE */}
-            <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
-              <Image
-                src="/warehousing2.jpg"
-                alt="Warehousing"
-                fill
-                className="object-cover"
-              />
-            </div>
+          {/* CARD 1 */}
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+            <h5 className="text-xl font-semibold mb-2">
+              🛡️ Secure Storage Infrastructure
+            </h5>
+            <p className="text-gray-600">
+              Our modern warehouses are equipped with 24/7 surveillance, fire safety systems, and advanced protection measures to ensure complete safety of your goods.
+              We follow strict security protocols, controlled access systems, and regular monitoring to prevent any risk of damage, theft, or loss during storage.
+            </p>
+          </div>
 
-            {/* TITLE */}
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">
-              Warehousing
-            </h2>
+          {/* CARD 2 */}
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+            <h5 className="text-xl font-semibold mb-2">
+              📊 Real-Time Inventory Tracking
+            </h5>
+            <p className="text-gray-600">
+              Smart inventory management systems provide real-time visibility of your stock, enabling better decision-making and operational control.
+              With automated tracking, reporting, and analytics, businesses can reduce errors, optimize stock levels, and improve overall supply chain efficiency.
+            </p>
+          </div>
 
-            {/* CONTENT */}
-            <div className="space-y-6 text-gray-700 leading-7">
+          {/* CARD 3 */}
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+            <h5 className="text-xl font-semibold mb-2">
+              🚚 Order Fulfillment & Distribution
+            </h5>
+            <p className="text-gray-600">
+              From picking and packing to dispatch and last-mile delivery, our end-to-end fulfillment services ensure fast and accurate order processing.
+              We help businesses streamline operations, reduce delivery time, and enhance customer satisfaction through efficient distribution networks.
+            </p>
+          </div>
 
-              <div>
-                <h5 className="font-bold text-lg">Secure Storage Facilities</h5>
-                <p>
-                  Modern warehousing facilities with advanced security systems
-                  ensuring safe storage of goods for short-term and long-term needs.
-                </p>
-              </div>
+          {/* CARD 4 */}
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+            <h5 className="text-xl font-semibold mb-2">
+              🌡️ Temperature-Controlled Warehousing
+            </h5>
+            <p className="text-gray-600">
+              We offer specialized temperature-controlled storage solutions for sensitive goods such as pharmaceuticals, food products, and chemicals.
+              Our facilities maintain consistent environmental conditions to preserve product quality, safety, and compliance with industry standards.
+            </p>
+          </div>
 
-              <div>
-                <h5 className="font-bold text-lg">Inventory Management</h5>
-                <p>
-                  Efficient inventory control systems that help businesses track
-                  stock levels, manage orders, and streamline warehouse operations.
-                </p>
-              </div>
+          {/* CARD 5 */}
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+            <h5 className="text-xl font-semibold mb-2">
+              📦 Packaging & Cargo Handling
+            </h5>
+            <p className="text-gray-600">
+              Our expert team provides professional packaging, labeling, and cargo handling services to ensure goods remain protected during storage and transit.
+              We use high-quality materials and standardized processes to minimize damage and maintain product integrity throughout the logistics cycle.
+            </p>
+          </div>
 
-              <div>
-                <h5 className="font-bold text-lg">Distribution & Fulfillment</h5>
-                <p>
-                  Complete distribution solutions including order processing,
-                  packaging, and delivery to customers or retail locations.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Temperature Controlled Storage</h5>
-                <p>
-                  Specialized storage facilities for sensitive goods such as
-                  pharmaceuticals, food products, and other temperature-sensitive items.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Cargo Handling & Packaging</h5>
-                <p>
-                  Professional handling, packaging, and labeling services to ensure
-                  goods remain protected during storage and transportation.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">
-                  Flexible Storage Solutions
-                </h5>
-                <p>
-                  Scalable warehousing services tailored to meet the changing
-                  logistics needs of businesses across different industries.
-                </p>
-              </div>
-
-            </div>
-
+          {/* CARD 6 */}
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+            <h5 className="text-xl font-semibold mb-2">
+              📈 Flexible & Scalable Solutions
+            </h5>
+            <p className="text-gray-600">
+              Our warehousing solutions are designed to be flexible and scalable, adapting to your business needs and seasonal demands.
+              Whether you require short-term storage or long-term logistics support, we provide customized solutions that grow with your business.
+            </p>
           </div>
 
         </div>
@@ -132,24 +110,5 @@ export default function Warehousing() {
       </div>
 
     </main>
-  );
-}
-
-
-/* ServiceLink Component */
-function ServiceLink({
-  href,
-  title,
-}: {
-  href: string;
-  title: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="block border border-gray-200 rounded-lg px-4 py-3 hover:bg-blue-900 hover:text-white transition"
-    >
-      {title} →
-    </Link>
   );
 }

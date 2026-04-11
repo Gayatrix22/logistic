@@ -5,149 +5,111 @@ import Link from "next/link";
 
 export default function SeaFreight() {
   return (
-    <main className="bg-gray-100">
+    <main className="bg-gradient-to-b from-gray-50 to-gray-100">
 
-       <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
+    
+  
+  
 
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-  />
+      {/* MAIN CONTENT */}
+      <div className="max-w-6xl mx-auto px-4 py-14">
 
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
+        {/* IMAGE CENTER */}
+        <div className="flex justify-center mb-10">
+          <div className="relative w-full md:w-[80%] h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/sff.jpeg"
+              alt="Sea Freight"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
 
-  {/* Content */}
-  <div className="relative z-10">
-    <h1 className="text-4xl md:text-5xl font-bold">
-     Sea Freight Forwarding
-    </h1>
+        {/* TITLE */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Global Sea Freight Solutions
+          </h2>
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+          We provide comprehensive and reliable sea freight services designed to support businesses in managing their international logistics with efficiency and confidence. Our solutions are built to handle shipments of all sizes, ensuring cost optimization, timely delivery, and complete transparency throughout the shipping process.
+          </p>
+        </div>
 
-    <p className="mt-2">
-      Home <span className="text-orange-500">»</span> Offered Solution
-       <span className="text-red-500">»</span> Sea Freight Forwarding
+       {/* FEATURES GRID */}
+<div className="grid gap-6 md:grid-cols-2">
+
+  {/* CARD */}
+  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+    <h4 className="font-semibold text-lg text-gray-800">
+     🚢 End-to-End Shipping
+    </h4>
+    <p className="text-gray-600 mt-2">
+      Our end-to-end logistics solutions cover every stage of the shipping process — from cargo pickup and packaging to documentation, customs clearance, and final delivery.
+    </p>
+    <p className="text-gray-600 mt-2">
+      We ensure seamless coordination between all stakeholders, reducing delays and ensuring that your shipments reach their destination safely and on time.
     </p>
   </div>
 
-</section>
+  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+    <h4 className="font-semibold text-lg text-gray-800">
+    📦 FCL & LCL Services
+    </h4>
+    <p className="text-gray-600 mt-2">
+      We offer both Full Container Load (FCL) and Less than Container Load (LCL) services to match your business needs.
+    </p>
+    <p className="text-gray-600 mt-2">
+      Flexible options for large shipments or shared containers to optimize your logistics cost.
+    </p>
+  </div>
 
+  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+    <h4 className="font-semibold text-lg text-gray-800">
+      🌐 Global Network
+    </h4>
+    <p className="text-gray-600 mt-2">
+      Our global partnerships ensure efficient shipping across major international routes.
+    </p>
+    <p className="text-gray-600 mt-2">
+      We minimize delays and maintain high service quality worldwide.
+    </p>
+  </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-10">
+  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+    <h4 className="font-semibold text-lg text-gray-800">
+     🔒Secure Cargo Handling
+    </h4>
+    <p className="text-gray-600 mt-2">
+      Advanced safety measures and secure packaging ensure cargo protection.
+    </p>
+    <p className="text-gray-600 mt-2">
+      We handle all shipments with precision and care.
+    </p>
+  </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-
-          {/* SIDEBAR */}
-          <aside className="bg-white rounded-xl shadow-md p-6 h-fit">
-            <h3 className="text-xl font-bold text-blue-900 mb-6">
-              All Services
-            </h3>
-
-            <div className="space-y-4">
-              <ServiceLink href="/service/sea-freight" title="Sea Freight Forwarding" />
-             <ServiceLink href="/service/air-freight" title="Air Freight Forwarding" />
-             <ServiceLink href="/service/custom-clearance" title="Custom Clearance" />
-             <ServiceLink href="/service/odc-logistics" title="ODC Logistics Support" />
-             <ServiceLink href="/service/project-shipments" title="Project Shipments" />
-             <ServiceLink href="/service/warehousing" title="Warehousing" />
-            </div>
-          </aside>
-
-          {/* RIGHT SIDE */}
-          <div className="lg:col-span-3">
-
-            <div className="relative w-full h-[350px] rounded-xl overflow-hidden mb-6">
-              <Image
-                src="/sff.jpeg"
-                alt="Sea Freight Forwarding"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <h2 className="text-2xl font-bold text-blue-900 mb-4">
-              Sea Freight Forwaeding
-            </h2>
-
-            <div className="space-y-6 text-gray-700 leading-7">
-
-              <div>
-                <h5 className="font-bold text-lg">CFS Loads</h5>
-                <p>
-                  We offer Container Freight Station (CFS) services to ensure
-                  efficient and secure loading and unloading of containers.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Consolidation Services</h5>
-                <p>
-                  FCL and LCL shipping solutions ensuring cost-effective
-                  reliable global transportation.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Dry Bulk Shipments</h5>
-                <p>
-                  Handling grains, cement, fertilizers and industrial commodities
-                  with moisture-controlled protection.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">ODC & Project Cargo</h5>
-                <p>
-                  Specialized solutions for oversized and heavy cargo including
-                  route planning and heavy lift coordination.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">Refrigerated Services</h5>
-                <p>
-                  Temperature-controlled containers for pharmaceuticals,
-                  frozen foods and perishables.
-                </p>
-              </div>
-
-              <div>
-                <h5 className="font-bold text-lg">
-                  Freight Insurance & Tracking
-                </h5>
-                <p>
-                  Cargo insurance coverage and real-time shipment tracking for
-                  full transparency.
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
+  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+    <h4 className="font-semibold text-lg text-gray-800">
+     ⏱️ Real-Time Tracking & Visibility
+    </h4>
+    <p className="text-gray-600 mt-2">
+      Stay informed at every step with our real-time shipment tracking system. We provide complete visibility into your cargo’s journey, allowing you to monitor progress, manage timelines, and make informed business decisions.
+    </p>
+  </div>
+ 
+    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+    <h4 className="font-semibold text-lg text-gray-800">
+    💼 Customized Logistics Solutions
+    </h4>
+    <p className="text-gray-600 mt-2">
+     Every business has unique shipping requirements. Our team works closely with clients to design customized logistics strategies that align with their operational goals, ensuring maximum efficiency and cost savings.
+    </p>
+  </div> 
+</div>
+       
 
       </div>
 
     </main>
-  );
-}
-
-
-/* ServiceLink Component */
-function ServiceLink({
-  href,
-  title,
-}: {
-  href: string;
-  title: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="block border border-gray-200 rounded-lg px-4 py-3 hover:bg-blue-900 hover:text-white transition"
-    >
-      {title} →
-    </Link>
   );
 }
