@@ -5,6 +5,59 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import AOS from "aos";
+import Link from "next/link";
+import { Truck, Plane, FileText, Settings, Package, Warehouse } from "lucide-react";
+
+const services = [
+  { 
+    id: 1, 
+    title: "Sea Freight Forwarding", 
+    desc: "Cost-effective global shipping solutions via sea routes.",
+    icon: <Truck size={22} />,
+    image: "/ship1.jpg", 
+    link: "/service/sea-freight"
+  },
+  { 
+    id: 2, 
+    title: "Air Freight Forwarding", 
+    desc: "Fast and reliable air cargo services worldwide.",
+    icon: <Plane size={22} />,
+    image: "/air.jpg", 
+    link: "/service/air-freight"
+  },
+  { 
+    id: 3, 
+    title: "Custom Clearance", 
+    desc: "Smooth and hassle-free customs documentation & compliance.",
+    icon: <FileText size={22} />,
+    image: "/c2.jpg", 
+    link: "/service/custom-clearance"
+  },
+  { 
+    id: 4, 
+    title: "ODC Logistics Support", 
+    desc: "Specialized handling of over-dimensional cargo shipments.",
+    icon: <Settings size={22} />,
+    image: "/odc.jpg", 
+    link: "/service/odc-logistics"
+  },
+  { 
+    id: 5, 
+    title: "Project Shipments", 
+    desc: "End-to-end logistics for complex industrial projects.",
+    icon: <Package size={22} />,
+    image: "/project.jpg", 
+    link: "/service/project-shipments"
+  },
+  { 
+    id: 6, 
+    title: "Warehousing", 
+    desc: "Smart storage and inventory management solutions.",
+    icon: <Warehouse size={22} />,
+    image: "/warehouse.jpg", 
+    link: "/service/warehousing"
+  },
+];
 
 export default function HomePage() {
   const [showText, setShowText] = useState(false);
@@ -241,215 +294,81 @@ useEffect(() => {
 </section>
 
 {/* SERVICES */}
+{/* SERVICES SECTION */}
 <section className="py-20 bg-gray-100 px-4 sm:px-6 md:px-10">
 
   {/* TITLE */}
-  <motion.h2
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-    className="text-3xl md:text-4xl font-extrabold text-center text-gray-800"
+  <div
+    data-aos="fade-up"
+    className="text-center mb-14"
   >
-    Our Core Services
-  </motion.h2>
+    <p className="text-orange-500 font-semibold uppercase tracking-widest">
+      What We Offer
+    </p>
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mt-3">
+      Smart Logistics Solutions
+    </h2>
+  </div>
 
   {/* GRID */}
-  <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
 
-    {/* CARD */}
-    <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, ease: "easeOut" }}
-  viewport={{ once: true }}
-  whileHover={{ y: -10 }}
-  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
->
-      
-      <img src="/ship1.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
+    {services.map((service) => (
+      <Link key={service.id} href={service.link}>
 
-      <div className="p-6 text-center">
-
-        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
-          Sea Freight Forwarding
-        </h3>
-
-        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
-          Offering seamless and efficient sea freight forwarding solutions for all your import and export needs.
-        </p>
-
-        <a
-          href="/service/sea-freight"
-          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
+        <div
+          data-aos="fade-up"
+          className="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
         >
-          Read More →
-        </a>
 
-      </div>
-    </motion.div>
+          {/* IMAGE */}
+          <div className="relative overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+          </div>
 
-    {/* CARD */}
-   <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, ease: "easeOut" }}
-  viewport={{ once: true }}
-  whileHover={{ y: -10 }}
-  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
->
-      
-      <img src="/air.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
+          {/* CONTENT */}
+          <div className="absolute bottom-0 p-6 text-white w-full">
 
-      <div className="p-6 text-center">
+            {/* ICON + TAG */}
+            <div className="flex items-center gap-2 mb-2">
+              <span className="bg-orange-500 p-2 rounded-full shadow-md">
+                {service.icon}
+              </span>
+              <span className="text-xs bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                Logistics
+              </span>
+            </div>
 
-        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
-          Air Freight Forwarding
-        </h3>
+            {/* TITLE */}
+            <h3 className="text-xl font-semibold">
+              {service.title}
+            </h3>
 
-        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
-          Speed, reliability, and affordability – our air freight forwarding service guarantees a seamless experience.
-        </p>
+            {/* DESCRIPTION */}
+            <p className="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+              {service.desc}
+            </p>
 
-        <a
-          href="/service/air-freight"
-          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
-        >
-          Read More →
-        </a>
+            {/* BUTTON */}
+            <div className="mt-4 flex items-center gap-2 text-sm group-hover:text-orange-300 transition">
+              <span>Explore Service</span>
+              <span className="group-hover:translate-x-1 transition">→</span>
+            </div>
 
-      </div>
-    </motion.div>
+          </div>
 
-    {/* CARD */}
-    <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, ease: "easeOut" }}
-  viewport={{ once: true }}
-  whileHover={{ y: -10 }}
-  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
->
-      
-      <img src="/c2.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
+        </div>
 
-      <div className="p-6 text-center">
-
-        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
-          Custom Clearance
-        </h3>
-
-        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
-          Effortlessly navigate the customs clearance process with Era Marya Global Logistics Pvt. Ltd.
-        </p>
-
-        <a
-          href="/service/custom-clearance"
-          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
-        >
-          Read More →
-        </a>
-
-      </div>
-    </motion.div>
-
-    {/* CARD */}
-  <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, ease: "easeOut" }}
-  viewport={{ once: true }}
-  whileHover={{ y: -10 }}
-  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
->
-      
-      <img src="/odc.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
-
-      <div className="p-6 text-center">
-
-        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
-          ODC Logistics Support
-        </h3>
-
-        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
-          From heavy machinery to delicate equipment, our ODC logistics service ensures secure delivery.
-        </p>
-
-        <a
-          href="/service/odc-logistics"
-          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
-        >
-          Read More →
-        </a>
-
-      </div>
-    </motion.div>
-
-    {/* CARD */}
-    <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, ease: "easeOut" }}
-  viewport={{ once: true }}
-  whileHover={{ y: -10 }}
-  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
->
-      
-      <img src="/project.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
-
-      <div className="p-6 text-center">
-
-        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
-          Project Shipments
-        </h3>
-
-        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
-          Expert project shipment services providing customized solutions for challenging cargo.
-        </p>
-
-        <a
-          href="/service/project-shipments"
-          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
-        >
-          Read More →
-        </a>
-
-      </div>
-    </motion.div>
-
-    {/* CARD */}
-    <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, ease: "easeOut" }}
-  viewport={{ once: true }}
-  whileHover={{ y: -10 }}
-  className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
->
-      
-      <img src="/warehouse.jpg" className="w-full h-48 object-cover transition duration-500 group-hover:scale-110" />
-
-      <div className="p-6 text-center">
-
-        <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition">
-          Warehousing
-        </h3>
-
-        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
-          Secure and scalable warehousing services designed for modern supply chains.
-        </p>
-
-        <a
-          href="/service/warehousing"
-          className="inline-block mt-5 px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition"
-        >
-          Read More →
-        </a>
-
-      </div>
-    </motion.div>
+      </Link>
+    ))}
 
   </div>
+
 </section>
 
 {/* ABOUT */}

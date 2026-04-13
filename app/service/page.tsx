@@ -65,7 +65,21 @@ export default function Services() {
   return (
     <main className="bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden">
 
-    
+      {/* HERO */}
+      <section className="relative w-full h-[40vh] flex items-center justify-center text-white text-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative z-10 px-4">
+          <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
+          <p className="mt-3 text-sm md:text-lg text-gray-200">
+            Delivering Excellence in Global Logistics
+          </p>
+        </div>
+      </section>
 
       {/* TITLE */}
       <section className="py-14 text-center" data-aos="fade-up">
