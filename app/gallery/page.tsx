@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 type ImageType = {
   id: number;
@@ -11,6 +12,10 @@ type ImageType = {
 export default function GalleryPage() {
   const [images, setImages] = useState<ImageType[]>([]);
   const [filter, setFilter] = useState("All");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [relatedImages, setRelatedImages] = useState<ImageType[]>([]);
+
+  const mainSwiperRef = useRef<any>(null);
 
   const categories = ["All", "Truck", "Warehouse", "Shipping", "Delivery"];
 
@@ -18,7 +23,6 @@ export default function GalleryPage() {
     fetch("http://127.0.0.1:8000/api/galleries")
       .then((res) => res.json())
       .then((data) => {
-        // ✅ duplicate remove (same image)
         const uniqueData = data.filter(
           (item: any, index: number, self: any[]) =>
             index === self.findIndex((i) => i.image === item.image)
@@ -68,18 +72,16 @@ export default function GalleryPage() {
         {filteredImages.map((img) => (
           <div
             key={img.id}
-
             onClick={() => {
               setSelectedImage(img.image);
+
               const related = images.filter(
                 (item) => item.category === img.category
               );
+
               setRelatedImages(related);
             }}
-            className="break-inside-avoid rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition group"
-
-            className="break-inside-avoid mb-6 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition"
-
+            className="break-inside-avoid mb-6 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition group cursor-pointer"
           >
             <img
               src={img.image}
@@ -126,12 +128,11 @@ export default function GalleryPage() {
 
               <Swiper
                 onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
-                initialSlide={Math.max(
-                  0,
+                initialSlide={
                   relatedImages.findIndex(
                     (img) => img.image === selectedImage
-                  )
-                )}
+                  ) || 0
+                }
               >
                 {relatedImages.map((img) => (
                   <SwiperSlide key={img.id}>
