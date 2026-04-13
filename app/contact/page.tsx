@@ -1,12 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [popupText, setPopupText] = useState("");
 
   const [form, setForm] = useState({
     name: "",
@@ -21,45 +19,46 @@ export default function ContactPage() {
 
   const [errors, setErrors] = useState<any>({});
 
-  // ✅ VALIDATION
+  /* ================= VALIDATION ================= */
   const validate = () => {
-    let newErrors: any = {};
+    let err: any = {};
 
-    const name = form.name.trim();
-    if (!name) newErrors.name = "Name is required";
-    else if (name.length < 3) newErrors.name = "Min 3 characters";
-    else if (!/^[a-zA-Z\s]+$/.test(name))
-      newErrors.name = "Only letters allowed";
+    if (!form.name.trim()) err.name = "Name required";
+    if (!form.company.trim()) err.company = "Company required";
+    if (!form.city.trim()) err.city = "City required";
+    if (!form.state.trim()) err.state = "State required";
+    if (!form.country.trim()) err.country = "Country required";
+    
+    if (!form.name.trim()) {
+  err.name = "Name required";
+} else if (!/^[A-Za-z\s]+$/.test(form.name)) {
+  err.name = "Only letters allowed";
+} else if (form.name.length < 3) {
+  err.name = "Minimum 3 characters required";
+} 
 
-    if (!form.company.trim()) newErrors.company = "Company required";
-    if (!form.city.trim()) newErrors.city = "City required";
-    if (!form.state.trim()) newErrors.state = "State required";
-    if (!form.country.trim()) newErrors.country = "Country required";
+    if (!form.email.trim()) err.email = "Email required";
+    else if (!/^\S+@\S+\.\S+$/.test(form.email))
+      err.email = "Invalid email";
 
-    const email = form.email.trim();
-    if (!email) newErrors.email = "Email required";
-    else if (!/^\S+@\S+\.\S+$/.test(email))
-      newErrors.email = "Invalid email";
+    if (!form.phone.trim()) err.phone = "Phone required";
+    else if (!/^[0-9]{10}$/.test(form.phone))
+      err.phone = "Enter 10 digit number";
 
-    const phone = form.phone.trim();
-    if (!phone) newErrors.phone = "Phone required";
-    else if (!/^[0-9]{10}$/.test(phone))
-      newErrors.phone = "Enter 10 digit number";
+    if (!form.message.trim()) err.message = "Message required";
+    else if (form.message.length < 10)
+      err.message = "Min 10 characters";
 
-    const message = form.message.trim();
-    if (!message) newErrors.message = "Message required";
-    else if (message.length < 10)
-      newErrors.message = "Min 10 characters";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(err);
+    return Object.keys(err).length === 0;
   };
 
+  /* ================= HANDLE CHANGE ================= */
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // ✅ SUBMIT
+  /* ================= SUBMIT ================= */
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -73,14 +72,6 @@ export default function ContactPage() {
         },
         body: JSON.stringify(form),
       });
-
-      let data;
-      try {
-        data = await res.json();
-      } catch {
-        alert("Invalid server response");
-        return;
-      }
 
       if (res.ok) {
         setSubmitted(true);
@@ -97,125 +88,143 @@ export default function ContactPage() {
           message: "",
         });
       } else {
-        alert(data.message || "Something went wrong");
+        alert("Something went wrong");
       }
-    } catch (error) {
-      console.log(error);
-      alert("Server error / CORS issue");
+    } catch {
+      alert("Server error");
     }
   };
 
   return (
-    <>
-      <AnimatePresence>
-        {popupText && (
-          <Popup text={popupText} clear={() => setPopupText("")} />
-        )}
-      </AnimatePresence>
+    <section className="bg-gray-100 min-h-screen py-16 px-6">
 
-      <section className="bg-gray-100 min-h-screen py-16 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+      {/* 🔥 TOP GRID */}
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 rounded-2xl overflow-hidden shadow-xl">
 
-          {/* LEFT */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="space-y-6"
-          >
+        {/* LEFT */}
+        <div className="bg-orange-400 text-white p-10 space-y-8 flex flex-col justify-center">
+          <h2 className="text-4xl font-bold">
+            Contact Our Logistics Experts
+          </h2>
 
-            {/* HEADING + LINE */}
+          <div className="space-y-5 text-sm">
+
+            {/* Address */}
             <div>
-              <h3 className="text-4xl font-bold text-blue-900 inline-block">
-                Any Queries? Contact Us Now!
-              </h3>
+              <p className="font-semibold flex items-center gap-2 mb-1">
+                <MapPin className="bg-white/20 p-1 rounded-full" size={22} />
+                <span>Office Address</span>
+              </p>
 
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                transition={{ duration: 0.8 }}
-                className="h-1 bg-orange-500 mt-2 rounded"
-              />
+              <p className="font-semibold text-base">
+                ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED
+              </p>
+              <p>Signet Hub, 909, 9th Floor</p>
+              <p>Akshar Chowk, Vadodara</p>
+              <p>Gujarat, India - 390020</p>
             </div>
 
-            {/* CARDS */}
-            <motion.div
-              className="space-y-6"
-              initial="hidden"
-              whileInView="show"
-              variants={{
-                hidden: {},
-                show: {
-                  transition: { staggerChildren: 0.25 },
-                },
-              }}
-            >
+            {/* Phone */}
+            <div>
+              <p className="font-semibold flex items-center gap-2">
+                <Phone className="bg-white/20 p-1 rounded-full" size={22} />
+                <span>Telephone</span>
+              </p>
+              <p>(+91) 9909928018</p>
+              <p>(+91) 8866841444</p>
+            </div>
 
-              <InfoCard icon={<MapPin size={32} />} title="Office Address" popup="Copied!" setPopup={setPopupText}>
-                <span className="font-semibold block mb-1">
-                  ERA MARYA GLOBAL LOGISTICS PRIVATE LIMITED
-                </span>
-                <p>Signet Hub, 909, 9th Floor</p>
-                <p>Akshar Chowk, Vadodara</p>
-                <p>Gujarat, India - 390020</p>
-              </InfoCard>
+            {/* Email */}
+            <div>
+              <p className="font-semibold flex items-center gap-2">
+                <Mail className="bg-white/20 p-1 rounded-full" size={22} />
+                <span>Email</span>
+              </p>
+              <p>info@eramarya.com</p>
+              <p>sales@eramarya.com</p>
+            </div>
 
-              <InfoCard icon={<Phone size={32} />} title="Telephone number" popup="Copied!" setPopup={setPopupText}>
-                <span>(+91) 9909928018</span>
-                <p>(+91) 8866841444</p>
-              </InfoCard>
+          </div>
+        </div>
 
-              <InfoCard icon={<Mail size={32} />} title="Mail address" popup="Copied!" setPopup={setPopupText}>
-                <span>info@eramarya.com</span>
-                <p>sales@eramarya.com</p>
-              </InfoCard>
+        {/* RIGHT FORM */}
+        <div className="bg-white p-8">
+          <h3 className="text-2xl font-bold mb-6">Send Inquiry</h3>
 
-            </motion.div>
+          <form onSubmit={handleSubmit} className="space-y-4">
 
-          </motion.div>
+            <div className="grid md:grid-cols-2 gap-4">
+              <Input name="name" value={form.name} onChange={handleChange} placeholder="Full Name" error={errors.name} />
+              <Input name="email" value={form.email} onChange={handleChange} placeholder="Email" error={errors.email} />
+            </div>
 
-          {/* FORM */}
-          <motion.div className="bg-white p-8 rounded-2xl shadow-xl">
-            <h3 className="text-3xl font-bold text-blue-900 mb-6">
-              Enter Inquiry
-            </h3>
+            <Input name="company" value={form.company} onChange={handleChange} placeholder="Company" error={errors.company} />
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-
-              <Input name="name" value={form.name} onChange={handleChange} placeholder="Name" error={errors.name} />
-              <Input name="company" value={form.company} onChange={handleChange} placeholder="Company" error={errors.company} />
-
+            <div className="grid md:grid-cols-2 gap-4">
               <Input name="city" value={form.city} onChange={handleChange} placeholder="City" error={errors.city} />
               <Input name="state" value={form.state} onChange={handleChange} placeholder="State" error={errors.state} />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
               <Input name="country" value={form.country} onChange={handleChange} placeholder="Country" error={errors.country} />
-
-              <Input name="email" value={form.email} onChange={handleChange} placeholder="Email" error={errors.email} />
               <Input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone" error={errors.phone} />
+            </div>
 
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Message"
-                className={`w-full p-3 border rounded ${errors.message ? "border-red-500" : ""}`}
-              />
-              {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="Message"
+              className={`w-full p-3 border rounded outline-none focus:ring-2 focus:ring-orange-400 ${
+                errors.message ? "border-red-500" : ""
+              }`}
+            />
+            {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
 
-              <button className="w-full bg-blue-800 text-white py-3 rounded hover:bg-blue-900">
-                Send Message
-              </button>
+            <button className="w-full bg-orange-500 text-white py-3 rounded hover:bg-orange-600 transition duration-300 transform hover:scale-[1.02]">
+              Send Inquiry
+            </button>
 
-              {submitted && (
-                <div className="bg-green-100 text-green-700 p-3 rounded">
-                  Message Sent Successfully!
-                </div>
-              )}
-
-            </form>
-          </motion.div>
-
+            {submitted && (
+              <div className="bg-green-100 text-green-700 p-3 rounded text-center font-medium animate-pulse">
+                ✅ Message Sent Successfully!
+              </div>
+            )}
+          </form>
         </div>
-      </section>
-    </>
+
+      </div>
+
+      {/* 🔥 LOCATION HEADING */}
+      <div className="text-center mt-12 mb-6">
+        <h2 className="text-3xl font-bold">Our Location</h2>
+        <p className="text-gray-600 text-sm">
+          Visit our office or find us easily on the map
+        </p>
+      </div>
+
+      {/* 🔥 MAP CARD */}
+      <div className="flex justify-center px-4">
+        <div className="w-full max-w-5xl bg-white p-4 rounded-2xl shadow-xl">
+          <iframe
+            src="https://www.google.com/maps?q=Akshar%20Chowk%20Vadodara&output=embed"
+            className="w-full h-[350px] rounded-xl border-0"
+            loading="lazy"
+          ></iframe>
+
+          <div className="text-center mt-4">
+            <a
+              href="https://www.google.com/maps?q=Akshar%20Chowk%20Vadodara"
+              target="_blank"
+              className="inline-block bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition"
+            >
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
   );
 }
 
@@ -223,66 +232,17 @@ export default function ContactPage() {
 function Input({ name, value, onChange, placeholder, error }: any) {
   return (
     <div>
-      <input
-        name={name}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        className={`w-full p-3 border rounded ${error ? "border-red-500" : ""}`}
-      />
+    <input
+  name={name}
+  value={value}
+  onChange={onChange}
+  placeholder={placeholder}
+  autoComplete="off"
+  className={`w-full p-3 border rounded outline-none focus:ring-2 focus:ring-orange-400 ${
+    error ? "border-red-500" : ""
+  }`}
+/>
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>
-  );
-}
-
-/* POPUP FIXED */
-function Popup({ text, clear }: any) {
-  useEffect(() => {
-    const timer = setTimeout(clear, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full shadow-lg">
-      {text}
-    </div>
-  );
-}
-
-/* INFO CARD WITH ANIMATION */
-function InfoCard({ icon, title, children, popup, setPopup }: any) {
-  return (
-    <motion.div
-      onClick={() => setPopup(popup)}
-      variants={{
-        hidden: { opacity: 0, y: 40 },
-        show: { opacity: 1, y: 0 },
-      }}
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.4 }}
-      className="relative bg-white p-6 rounded-xl flex gap-4 cursor-pointer overflow-hidden"
-    >
-      {/* 🔥 Animated Left Line */}
-      <motion.div
-        initial={{ height: 0 }}
-        whileInView={{ height: "100%" }}
-        transition={{ duration: 0.5 }}
-        className="absolute left-0 top-0 w-1 bg-orange-500 rounded"
-      />
-
-      {/* ICON */}
-      <motion.div
-        whileHover={{ rotate: 10, scale: 1.1 }}
-        className="text-orange-600 ml-2"
-      >
-        {icon}
-      </motion.div>
-
-      {/* TEXT */}
-      <div>
-        <h4 className="font-semibold">{title}</h4>
-        <div className="text-gray-600 text-sm">{children}</div>
-      </div>
-    </motion.div>
   );
 }

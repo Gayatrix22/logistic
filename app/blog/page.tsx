@@ -42,9 +42,31 @@ export default function BlogPage() {
     <div className="bg-gray-50 min-h-screen">
 
 
-     
+{/* 🔥 BLOG TITLE */}
+<div className="text-center py-10">
+  <motion.h1
+    initial={{ x: -100, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.6 }}
+    className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800"
+  >
+    Our Blogs
+  </motion.h1>
+
 
      
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.4 }}
+    className="text-gray-500 mt-3"
+  >
+    Explore our latest logistics insights & updates
+  </motion.p>
+</div>
+
+
+    
 
 
       {/* BLOG GRID */}

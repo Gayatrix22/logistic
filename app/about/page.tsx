@@ -18,30 +18,31 @@ export default function About() {
   return (
     <main className="bg-gray-50 w-full overflow-x-hidden">
 
-     <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[50vh] lg:h-[45vh] flex items-center justify-center text-white text-center overflow-hidden">
+   {/* 🔥 ABOUT TITLE (BLOG STYLE) */}
+<div className="text-center py-10">
 
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-  ></div>
+  <motion.h1
+    initial={{ x: -100, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.6 }}
+    className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800"
+  >
+    About Us
+  </motion.h1>
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.4 }}
+    className="text-gray-500 mt-3"
+  >
+    Learn more about our logistics expertise & global services
+  </motion.p>
 
-  {/* Content */}
-  <div className="relative z-10 px-4">
-    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-      About Our Company
-    </h1>
+</div>
 
-    <p className="mt-2 text-sm sm:text-base md:text-lg">
-      Home <span className="text-red-500">»</span> About
-    </p>
-  </div>
-
-</section>
-
+ 
+   
 
    <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-white">
 
