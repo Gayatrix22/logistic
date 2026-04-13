@@ -42,30 +42,26 @@ export default function BlogPage() {
     <div className="bg-gray-50 min-h-screen">
 
 
+{/* 🔥 BLOG TITLE */}
+<div className="text-center py-10">
+  <motion.h1
+    initial={{ x: -100, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.6 }}
+    className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800"
+  >
+    Our Blogs
+  </motion.h1>
 
-      <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center text-center text-white overflow-hidden">
-
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: "url('/Global-Logistics.jpg')" }}
-  />
-
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60"></div>
-
-  {/* Content */}
-  <div className="relative z-10">
-    <h1 className="text-4xl md:text-5xl font-bold">
-      Blog
-    </h1>
-
-    <p className="mt-2">
-      Home <span className="text-orange-500">»</span> Blog
-    </p>
-  </div>
-
-</section>
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.4 }}
+    className="text-gray-500 mt-3"
+  >
+    Explore our latest logistics insights & updates
+  </motion.p>
+</div>
 
     
 
