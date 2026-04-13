@@ -239,6 +239,7 @@ useEffect(() => {
 
   </div>
 </section>
+
 {/* SERVICES */}
 <section className="py-20 bg-gray-100 px-4 sm:px-6 md:px-10">
 
@@ -456,26 +457,107 @@ useEffect(() => {
   <div className="max-w-14xl mx-auto flex flex-col md:flex-row items-center gap-12">
     
     {/* LEFT SIDE IMAGE */}
-    <div className="md:w-1/2">
-      <img
-        src="/global-delivery-model.jpg"
-        alt="Global Delivery Model"
-        className="w-full rounded-lg "
-      />
-    </div>
+<div className="md:w-1/2 flex justify-center items-center">
+  <img
+    src="/global-delivery-model.jpg"
+    alt="Global Delivery Model"
+    className="w-[90%] md:w-[80%] rounded-lg shadow-lg"
+  />
+</div>
 
     {/* RIGHT SIDE TEXT */}
     <div className="md:w-1/2 text-center md:text-left">
-      <h2 className="text-5xl md:text-6xl font-extrabold text-gray-800">
-        Global Logistics, Delivered With Excellence
-      </h2>
+     
+ {/* Top Label */}
+    <p className="text-orange-700 uppercase tracking-widest text-sm font-semibold mb-4">
+      THE KINETIC ADVANTAGE
+    </p>
 
-      <p className="mt-4 text-2xl md:text-2xl text-gray-800">
-        We are a leading logistics and supply chain company committed to
-        delivering seamless, safe, and cost-effective transport solutions
-        across the world. Our global delivery model ensures efficiency,
-        innovation, and operational excellence for every shipment.
+    {/* Heading */}
+    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-12">
+     Global Logistics,<br />
+     Delivered With Excellence
+    </h2>
+
+   {/* Items */}
+<div className="space-y-10">
+
+  {/* Item 1 */}
+  <div className="flex gap-5 items-start">
+    <div className="bg-[#efe7e3] p-4 rounded-lg flex items-center justify-center">
+      <svg
+        className="w-6 h-6 text-[#c2410c]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
+        <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+        <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" />
+      </svg>
+    </div>
+
+    <div>
+      <h3 className="text-xl font-semibold text-[#111827]">
+        Global Reach
+      </h3>
+      <p className="text-[#4b5563] mt-2 leading-relaxed">
+        Network span across 150+ countries with local expertise at every port and border.
       </p>
+    </div>
+  </div>
+
+  {/* Item 2 */}
+  <div className="flex gap-5 items-start">
+    <div className="bg-[#efe7e3] p-4 rounded-lg flex items-center justify-center">
+      <svg
+        className="w-6 h-6 text-[#c2410c]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
+        <path d="M3 17l6-6 4 4 7-7" />
+        <path d="M14 7h7v7" />
+      </svg>
+    </div>
+
+    <div>
+      <h3 className="text-xl font-semibold text-[#111827]">
+        Real-time Tracking
+      </h3>
+      <p className="text-[#4b5563] mt-2 leading-relaxed">
+        Military-grade satellite tracking for every single package, updated in millisecond intervals.
+      </p>
+    </div>
+  </div>
+
+  {/* Item 3 */}
+  <div className="flex gap-5 items-start">
+    <div className="bg-[#efe7e3] p-4 rounded-lg flex items-center justify-center">
+      <svg
+        className="w-6 h-6 text-[#c2410c]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
+        <path d="M18 10a6 6 0 10-12 0v4a2 2 0 002 2h8a2 2 0 002-2v-4z" />
+        <path d="M9 21h6" />
+      </svg>
+    </div>
+
+    <div>
+      <h3 className="text-xl font-semibold text-[#111827]">
+        24/7 Support
+      </h3>
+      <p className="text-[#4b5563] mt-2 leading-relaxed">
+        Dedicated account managers available around the clock to handle any logistical challenge.
+      </p>
+    </div>
+  </div>
+
+</div>
     </div>
 
   </div>

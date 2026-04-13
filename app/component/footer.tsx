@@ -29,7 +29,7 @@ export default function Footer() {
       style={{ backgroundImage: "url('/footer-bg.jpg')" }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/70"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
 
       <motion.div
         variants={container}
