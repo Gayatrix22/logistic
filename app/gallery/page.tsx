@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect, useState } from "react";
 
 type ImageType = {
   id: number;
@@ -12,17 +11,21 @@ type ImageType = {
 export default function GalleryPage() {
   const [images, setImages] = useState<ImageType[]>([]);
   const [filter, setFilter] = useState("All");
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [relatedImages, setRelatedImages] = useState<ImageType[]>([]);
-
-  const mainSwiperRef = useRef<any>(null);
 
   const categories = ["All", "Truck", "Warehouse", "Shipping", "Delivery"];
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/galleries")
       .then((res) => res.json())
-      .then((data) => setImages(data));
+      .then((data) => {
+        // ✅ duplicate remove (same image)
+        const uniqueData = data.filter(
+          (item: any, index: number, self: any[]) =>
+            index === self.findIndex((i) => i.image === item.image)
+        );
+
+        setImages(uniqueData);
+      });
   }, []);
 
   const filteredImages =
@@ -65,6 +68,7 @@ export default function GalleryPage() {
         {filteredImages.map((img) => (
           <div
             key={img.id}
+
             onClick={() => {
               setSelectedImage(img.image);
               const related = images.filter(
@@ -73,6 +77,9 @@ export default function GalleryPage() {
               setRelatedImages(related);
             }}
             className="break-inside-avoid rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition group"
+
+            className="break-inside-avoid mb-6 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition"
+
           >
             <img
               src={img.image}
@@ -159,6 +166,7 @@ export default function GalleryPage() {
           </div>
         </div>
       )}
+
     </main>
   );
 }
