@@ -27,7 +27,7 @@ export default function About() {
     transition={{ duration: 0.6 }}
     className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800"
   >
-    About Us
+    About <span className="text-orange-500">us</span>
   </motion.h1>
 
   <motion.p

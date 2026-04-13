@@ -102,7 +102,7 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 rounded-2xl overflow-hidden shadow-xl">
 
         {/* LEFT */}
-        <div className="bg-orange-400 text-white p-10 space-y-8 flex flex-col justify-center">
+        <div className="bg-orange-500 text-white p-10 space-y-8 flex flex-col justify-center">
           <h2 className="text-4xl font-bold">
             Contact Our Logistics Experts
           </h2>

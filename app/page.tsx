@@ -482,33 +482,26 @@ useEffect(() => {
   </div>
 </section>
 
-      {/* FEATURE SECTION */}
-<section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-5 bg-white mb-10 gap-1">
+     {/* FEATURE SECTION */}
+<section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 py-16 bg-gray-50">
 
   {[
-    { img: "/img1.jpg", title: "Global Coverage Local Presence" },
-    { img: "/img2.jpg", title: "Safe & Secure Transportation" },
-    { img: "/img3.jpg", title: "Extensive Network of Partners & Carriers" },
-    { img: "/img4.jpg", title: "Expert Support & Customer Service" },
+    { img: "/img1.jpg", title: "Global Coverage" },
+    { img: "/img2.jpg", title: "Secure Transport" },
+    { img: "/img3.jpg", title: "Strong Network" },
+    { img: "/img4.jpg", title: "24/7 Support" },
   ].map((item, i) => (
 
-    <div
-      key={i}
-      className="relative h-[500px] bg-cover bg-center flex flex-col justify-end p-6 text-white overflow-hidden transition-transform duration-500 hover:scale-105 group"
-      style={{ backgroundImage: `url(${item.img})` }}
-    >
+    <div key={i} className="bg-white rounded-xl shadow-md overflow-hidden">
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 transition-all duration-500 group-hover:bg-black/60"></div>
+      <img src={item.img} className="w-full h-40 object-cover" />
 
-      {/* Content */}
-      <span className="relative z-10 text-3xl font-bold transition-all duration-500 group-hover:text-yellow-400 group-hover:scale-125">
-        {`0${i + 1}`}
-      </span>
-
-      <h3 className="relative z-10 text-lg mt-2 transition-all duration-500 group-hover:text-sky-400 group-hover:-translate-y-1">
-        {item.title}
-      </h3>
+      <div className="p-5">
+        <h3 className="font-semibold text-gray-800">{item.title}</h3>
+        <p className="text-sm text-gray-500 mt-2">
+          Reliable logistics services tailored for your needs.
+        </p>
+      </div>
 
     </div>
 
