@@ -52,10 +52,21 @@ export default function Header() {
                       return (
                         <li key={item.name} className="relative group">
 
-                          <button className="flex items-center gap-1 relative hover:text-orange-600 transition">
-                            {item.name}
+                          {/* ✅ FIXED PART */}
+                          <div className="flex items-center gap-1 relative">
+
+                            {/* CLICK → PAGE OPEN */}
+                            <Link
+                              href="/service"
+                              className="hover:text-orange-600 transition relative"
+                            >
+                              {item.name}
+                              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
+                            </Link>
+
+                            {/* DROPDOWN ICON */}
                             <svg
-                              className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
+                              className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180 cursor-pointer"
                               fill="none"
                               stroke="currentColor"
                               strokeWidth="2"
@@ -63,8 +74,8 @@ export default function Header() {
                             >
                               <path d="M19 9l-7 7-7-7" />
                             </svg>
-                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
-                          </button>
+
+                          </div>
 
                           {/* DROPDOWN */}
                           <div className="absolute left-1/2 -translate-x-1/2 mt-6 w-[750px] bg-white rounded-2xl shadow-2xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -72,46 +83,42 @@ export default function Header() {
                             <div className="grid grid-cols-3">
 
                               {/* LEFT PANEL */}
-                            <div className="col-span-1 bg-gradient-to-br from-red-600 to-orange-400 text-white p-6 flex flex-col justify-between">
-                              <div>
-                                <h3 className="text-xl font-bold mb-3">
-                                  Our Services
-                                </h3>
-                                <p className="text-sm text-white/80">
-                                  We provide end-to-end logistics solutions tailored for your business needs.
-                                </p>
+                              <div className="col-span-1 bg-gradient-to-br from-red-600 to-orange-400 text-white p-6 flex flex-col justify-between">
+                                <div>
+                                  <h3 className="text-xl font-bold mb-3">
+                                    Our Services
+                                  </h3>
+                                  <p className="text-sm text-white/80">
+                                    We provide end-to-end logistics solutions tailored for your business needs.
+                                  </p>
+                                </div>
+
+                                <Link
+                                  href="/service"
+                                  className="group mt-6 inline-flex items-center gap-2 bg-white text-red-600 px-5 py-2 rounded-md text-sm font-semibold shadow-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl"
+                                >
+                                  View All →
+                                </Link>
                               </div>
 
-                              <Link
-                                href="/service"
-                                className="group mt-6 inline-flex items-center gap-2 bg-white text-red-600 px-5 py-2 rounded-md text-sm font-semibold shadow-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl"
-                              >
-                                View All
-                                <span className="transition-transform duration-300 group-hover:translate-x-2">
-                                  →
-                                </span>
-                              </Link>
-                            </div>
-
-
                               {/* SERVICES */}
-                               <div className="col-span-2 p-6 grid grid-cols-2 gap-6">
-
-                              {[
-                                { name: "Sea Freight", link: "/service/sea-freight" },
-                                { name: "Air Freight", link: "/service/air-freight" },
-                                { name: "Custom Clearance", link: "/service/custom-clearance" },
-                                { name: "ODC Logistics", link: "/service/odc-logistics" },
-                                { name: "Project Shipments", link: "/service/project-shipments" },
-                                { name: "Warehousing", link: "/service/warehousing" },
-                              ].map((s) => (
-                                <div key={s.name} className="hover:-translate-y-2 hover:scale-105 transition-all duration-300">
-                                  <Link href={s.link} className="flex flex-col p-3 rounded-lg bg-gray-50 hover:bg-white">
-                                    <span className="font-semibold hover:text-red-600">{s.name}</span>
-                                  </Link>
-                                </div>
-                              ))}
-
+                              <div className="col-span-2 p-6 grid grid-cols-2 gap-6">
+                                {[
+                                  { name: "Sea Freight", link: "/service/sea-freight" },
+                                  { name: "Air Freight", link: "/service/air-freight" },
+                                  { name: "Custom Clearance", link: "/service/custom-clearance" },
+                                  { name: "ODC Logistics", link: "/service/odc-logistics" },
+                                  { name: "Project Shipments", link: "/service/project-shipments" },
+                                  { name: "Warehousing", link: "/service/warehousing" },
+                                ].map((s) => (
+                                  <div key={s.name} className="hover:-translate-y-2 hover:scale-105 transition-all duration-300">
+                                    <Link href={s.link} className="flex flex-col p-3 rounded-lg bg-gray-50 hover:bg-white">
+                                      <span className="font-semibold hover:text-red-600">
+                                        {s.name}
+                                      </span>
+                                    </Link>
+                                  </div>
+                                ))}
                               </div>
 
                             </div>
@@ -155,7 +162,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* MOBILE DRAWER */}
+      {/* MOBILE DRAWER (same as your code) */}
       <div className={`fixed top-0 left-0 h-screen w-[260px] bg-white shadow-xl transition-transform duration-300 z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="p-5">
 
