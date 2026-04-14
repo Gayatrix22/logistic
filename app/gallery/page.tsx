@@ -12,14 +12,12 @@ export default function GalleryPage() {
   const [images, setImages] = useState<ImageType[]>([]);
   const [filter, setFilter] = useState("All");
 
-<<<<<<< HEAD
-=======
   // ✅ ADD THESE
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [relatedImages, setRelatedImages] = useState<ImageType[]>([]);
   const mainSwiperRef = useRef<any>(null);
 
->>>>>>> 9ac66c0793aa91d5539dfa5238e3e77b43b77de4
+
   const categories = ["All", "Truck", "Warehouse", "Shipping", "Delivery"];
 
   useEffect(() => {
