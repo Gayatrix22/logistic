@@ -108,7 +108,7 @@ export default function GalleryPage() {
             <div className="relative">
 
               {/* LEFT */}
-              <button
+              <button 
                 onClick={() => mainSwiperRef.current?.slidePrev()}
                 className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-orange-500 text-white rounded-full"
               >

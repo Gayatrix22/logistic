@@ -18,28 +18,7 @@ export default function About() {
   return (
     <main className="bg-gray-50 w-full overflow-x-hidden">
 
-   {/* 🔥 ABOUT TITLE (BLOG STYLE) */}
-<div className="text-center py-10">
-
-  <motion.h1
-    initial={{ x: -100, opacity: 0 }}
-    animate={{ x: 0, opacity: 1 }}
-    transition={{ duration: 0.6 }}
-    className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800"
-  >
-    About <span className="text-orange-500">us</span>
-  </motion.h1>
-
-  <motion.p
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ delay: 0.4 }}
-    className="text-gray-500 mt-3"
-  >
-    Learn more about our logistics expertise & global services
-  </motion.p>
-
-</div>
+  
 
  
    
