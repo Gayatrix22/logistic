@@ -107,15 +107,6 @@ export default function Warehousing() {
 
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-14">
-          <Link
-            href="/contact"
-            className="inline-block bg-orange-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-orange-600 hover:scale-105 transition duration-300"
-          >
-            Get a Quote
-          </Link>
-        </div>
 
       </div>
 
