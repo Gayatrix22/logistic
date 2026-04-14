@@ -18,7 +18,6 @@ export default function GalleryPage() {
     fetch("http://127.0.0.1:8000/api/galleries")
       .then((res) => res.json())
       .then((data) => {
-        // ✅ duplicate remove
         const uniqueData = data.filter(
           (item: any, index: number, self: any[]) =>
             index === self.findIndex((i) => i.image === item.image)
@@ -68,11 +67,11 @@ export default function GalleryPage() {
         {filteredImages.map((img) => (
           <div
             key={img.id}
-            className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition group"
+            className="break-inside-avoid mb-6 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition"
           >
             <img
               src={img.image}
-              className="w-full object-cover group-hover:scale-105 transition duration-300"
+              className="w-full object-cover hover:scale-105 transition duration-300"
             />
           </div>
         ))}

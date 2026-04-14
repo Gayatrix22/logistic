@@ -46,49 +46,68 @@ export default function BlogDetailPage() {
   if (!blog) return <p className="p-6">Blog not found</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+  <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white py-10 px-4">
 
-      
-     <motion.button
-  onClick={() => router.push("/blog")}
-  whileHover={{ scale: 1.05, x: -3 }}
-  whileTap={{ scale: 0.95 }}
-  className="mb-6 flex items-center gap-2 px-5 py-2.5 
-  bg-white/10 backdrop-blur-md border border-white/20 
-  text-gray-800 rounded-full shadow-lg 
-  hover:bg-white/20 hover:shadow-xl 
-  transition-all duration-300"
->
-  <motion.span
-    initial={{ x: 0 }}
-    whileHover={{ x: -4 }}
-    transition={{ type: "spring", stiffness: 300 }}
-  >
-    <ArrowLeft size={18} />
-  </motion.span>
+    <div className="max-w-4xl mx-auto">
 
-  <span className="font-semibold tracking-wide">
-  Back to Blogs
-</span>
-</motion.button>
+      {/* 🔙 BACK BUTTON */}
+      <motion.button
+        onClick={() => router.push("/blog")}
+        whileHover={{ scale: 1.05, x: -3 }}
+        whileTap={{ scale: 0.95 }}
+        className="mb-8 flex items-center gap-2 px-5 py-2.5 
+        bg-orange-500 text-white rounded-full shadow-md 
+        hover:bg-orange-600 hover:shadow-lg transition-all duration-300"
+      >
+        <ArrowLeft size={18} />
+        <span className="font-semibold tracking-wide">
+          Back to Blogs
+        </span>
+      </motion.button>
 
-      {/* IMAGE */}
-      {blog.main_image && (
-        <img
-          src={`${BASE_URL}/storage/${blog.main_image}`}
-          alt={blog.title}
-          className="w-full h-80 object-cover mb-6 rounded"
-        />
-      )}
+      {/* 📦 BLOG CARD */}
+      <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-orange-100">
 
-      {/* TITLE */}
-      <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+        {/* 🖼 IMAGE */}
+        {blog.main_image && (
+          <div className="relative">
+            <img
+              src={`${BASE_URL}/storage/${blog.main_image}`}
+              alt={blog.title}
+              className="w-full h-72 md:h-96 object-cover"
+            />
 
-      <div
-        className="text-black-700 leading-relaxed"
-        dangerouslySetInnerHTML={{ __html: blog.content }}
-      />
+            {/* ORANGE OVERLAY */}
+            <div className="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent"></div>
+          </div>
+        )}
+
+        {/* 📝 CONTENT */}
+        <div className="p-6 md:p-8">
+
+          {/* TITLE */}
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 leading-snug">
+            {blog.title}
+          </h1>
+
+          {/* DIVIDER */}
+          <div className="w-16 h-1 bg-orange-500 mb-6 rounded-full"></div>
+
+          {/* CONTENT BODY */}
+          <div
+            className="text-gray-700 leading-relaxed space-y-4 
+            [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-orange-600
+            [&_h3]:text-xl [&_h3]:font-semibold
+            [&_p]:mb-4
+            [&_ul]:list-disc [&_ul]:pl-6
+            [&_a]:text-orange-500 [&_a]:underline"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
+
+        </div>
+      </div>
 
     </div>
-  );
+  </div>
+);
 }
