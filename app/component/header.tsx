@@ -34,10 +34,10 @@ export default function Header() {
   return (
     <>
       {/* HEADER - CENTERED NAV */}
-      <header className="w-full bg-gradient-to-r from-orange-600 to-orange-200 py-5 sticky top-0 z-50">
+      <header className="w-full bg-gradient-to-r from-orange-600 to-orange-200 py-3 lg:py-5 sticky top-0 z-50">
         <div className="max-w-[1400px] mx-auto px-5">
 
-          <div className="bg-white rounded-[20px] px-6 py-4 flex items-center shadow-md">
+          <div className="bg-white rounded-[20px] px-4 py-2 lg:px-6 lg:py-4 flex items-center shadow-md">
 
             {/* LEFT: LOGO */}
             <div className="flex items-center gap-2 flex-shrink-0">
@@ -53,7 +53,10 @@ export default function Header() {
                   Private Limited
                 </span>
               </div>
+            
             </div>
+            
+            
 
             {/* CENTER: NAVIGATION */}
             <div className="flex-1 flex justify-center">
@@ -134,12 +137,13 @@ export default function Header() {
 
             {/* RIGHT */}
             <div className="flex items-center gap-4 flex-shrink-0">
-              <a
-                href="tel:+918866841444"
-                className="hidden lg:block bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-              >
-                Get Quote
-              </a>
+           {/* CTA */}
+            <a
+              href="tel:+918866841444"
+              className="bg-orange-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-600"
+            >
+              📞 Call
+            </a>
               
             </div>
 
