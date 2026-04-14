@@ -14,7 +14,7 @@ export default function GalleryPage() {
   const [images, setImages] = useState<ImageType[]>([]);
   const [filter, setFilter] = useState("All");
 
-  // ✅ ADD THESE
+
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [relatedImages, setRelatedImages] = useState<ImageType[]>([]);
   const mainSwiperRef = useRef<any>(null);

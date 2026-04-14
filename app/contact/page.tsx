@@ -197,7 +197,7 @@ export default function ContactPage() {
 
       {/* 🔥 LOCATION HEADING */}
       <div className="text-center mt-12 mb-6">
-        <h2 className="text-3xl font-bold">Our Location</h2>
+        <h2 className="text-3xl font-bold">Our <span className="text-orange-500">Location</span></h2>
         <p className="text-gray-600 text-sm">
           Visit our office or find us easily on the map
         </p>
