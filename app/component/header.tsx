@@ -2,8 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { Home, Info, Wrench, BookOpen, Image, Phone } from "lucide-react";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  // ✅ FIX: Added missing state
   const [menuOpen, setMenuOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
 
@@ -16,16 +21,26 @@ export default function Header() {
     { name: "Contact", link: "/contact" },
   ];
 
+  // ✅ MOBILE ICON NAV (ADDED - like your image)
+  const mobileNav = [
+    { name: "Home", link: "/", icon: Home },
+    { name: "About", link: "/about", icon: Info },
+    { name: "Service", link: "/service", icon: Wrench },
+    { name: "Blog", link: "/blog", icon: BookOpen },
+    { name: "Gallery", link: "/gallery", icon: Image },
+    { name: "Contact", link: "/contact", icon: Phone },
+  ];
+
   return (
     <>
-      {/* HEADER */}
+      {/* HEADER - CENTERED NAV */}
       <header className="w-full bg-gradient-to-r from-orange-600 to-orange-200 py-5 sticky top-0 z-50">
-        <div className="max-w-[1200px] mx-auto px-5">
+        <div className="max-w-[1400px] mx-auto px-5">
 
-          <div className="bg-white rounded-[20px] px-6 py-3 flex items-center justify-between shadow-md">
+          <div className="bg-white rounded-[20px] px-6 py-4 flex items-center shadow-md">
 
-            {/* LOGO */}
-            <div className="flex items-center gap-2">
+            {/* LEFT: LOGO */}
+            <div className="flex items-center gap-2 flex-shrink-0">
               <img src="/logo.png" alt="Logo" className="w-[60px] h-[60px] object-contain" />
               <div className="leading-tight">
                 <h2 className="text-[18px] font-bold text-orange-600 uppercase">
@@ -40,22 +55,15 @@ export default function Header() {
               </div>
             </div>
 
-            {/* RIGHT SIDE */}
-            <div className="flex items-center gap-4">
-
-              {/* DESKTOP MENU */}
+            {/* CENTER: NAVIGATION */}
+            <div className="flex-1 flex justify-center">
               <nav className="hidden lg:block">
-                <ul className="flex gap-8 text-[16px] font-semibold text-gray-700">
-
+                <ul className="flex gap-8 text-[16px] font-semibold text-gray-700 items-center">
                   {menuLinks.map((item) => {
                     if (item.name === "Service") {
                       return (
                         <li key={item.name} className="relative group">
-
-                          {/* ✅ FIXED PART */}
                           <div className="flex items-center gap-1 relative">
-
-                            {/* CLICK → PAGE OPEN */}
                             <Link
                               href="/service"
                               className="hover:text-orange-600 transition relative"
@@ -63,8 +71,6 @@ export default function Header() {
                               {item.name}
                               <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
                             </Link>
-
-                            {/* DROPDOWN ICON */}
                             <svg
                               className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180 cursor-pointer"
                               fill="none"
@@ -74,25 +80,18 @@ export default function Header() {
                             >
                               <path d="M19 9l-7 7-7-7" />
                             </svg>
-
                           </div>
 
                           {/* DROPDOWN */}
                           <div className="absolute left-1/2 -translate-x-1/2 mt-6 w-[750px] bg-white rounded-2xl shadow-2xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-
                             <div className="grid grid-cols-3">
-
-                              {/* LEFT PANEL */}
                               <div className="col-span-1 bg-gradient-to-br from-red-600 to-orange-400 text-white p-6 flex flex-col justify-between">
                                 <div>
-                                  <h3 className="text-xl font-bold mb-3">
-                                    Our Services
-                                  </h3>
+                                  <h3 className="text-xl font-bold mb-3">Our Services</h3>
                                   <p className="text-sm text-white/80">
                                     We provide end-to-end logistics solutions tailored for your business needs.
                                   </p>
                                 </div>
-
                                 <Link
                                   href="/service"
                                   className="group mt-6 inline-flex items-center gap-2 bg-white text-red-600 px-5 py-2 rounded-md text-sm font-semibold shadow-md transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl"
@@ -100,8 +99,6 @@ export default function Header() {
                                   View All →
                                 </Link>
                               </div>
-
-                              {/* SERVICES */}
                               <div className="col-span-2 p-6 grid grid-cols-2 gap-6">
                                 {[
                                   { name: "Sea Freight", link: "/service/sea-freight" },
@@ -113,20 +110,16 @@ export default function Header() {
                                 ].map((s) => (
                                   <div key={s.name} className="hover:-translate-y-2 hover:scale-105 transition-all duration-300">
                                     <Link href={s.link} className="flex flex-col p-3 rounded-lg bg-gray-50 hover:bg-white">
-                                      <span className="font-semibold hover:text-red-600">
-                                        {s.name}
-                                      </span>
+                                      <span className="font-semibold hover:text-red-600">{s.name}</span>
                                     </Link>
                                   </div>
                                 ))}
                               </div>
-
                             </div>
                           </div>
                         </li>
                       );
                     }
-
                     return (
                       <li key={item.name}>
                         <Link href={item.link} className="hover:text-orange-600 transition">
@@ -135,91 +128,74 @@ export default function Header() {
                       </li>
                     );
                   })}
-
                 </ul>
               </nav>
+            </div>
 
-              {/* CTA BUTTON */}
+            {/* RIGHT */}
+            <div className="flex items-center gap-4 flex-shrink-0">
               <a
                 href="tel:+918866841444"
-                className="hidden lg:block bg-orange-500 text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition"
+                className="hidden lg:block bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
                 Get Quote
               </a>
-
-              {/* MOBILE MENU */}
-              <div
-                onClick={() => setMenuOpen(true)}
-                className="w-8 h-8 flex flex-col justify-center gap-[5px] cursor-pointer lg:hidden"
-              >
-                <span className="h-[3px] bg-orange-500"></span>
-                <span className="h-[3px] bg-orange-500"></span>
-                <span className="h-[3px] bg-orange-500"></span>
-              </div>
-
+              
             </div>
+
           </div>
         </div>
       </header>
 
-      {/* MOBILE DRAWER (same as your code) */}
-      <div className={`fixed top-0 left-0 h-screen w-[260px] bg-white shadow-xl transition-transform duration-300 z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}>
-        <div className="p-5">
+      {/* ✅ MOBILE ICON NAVBAR (NEW ADD) */}
+      <div className="lg:hidden bg-white border-b flex justify-between items-center px-2 py-2">
+        {mobileNav.map((item) => {
+          const isActive = pathname === item.link;
+          const Icon = item.icon;
 
-          <button onClick={() => setMenuOpen(false)} className="text-2xl">✕</button>
+          return (
+            <Link
+              key={item.name}
+              href={item.link}
+              className={`flex flex-col items-center text-[11px] flex-1 ${
+                isActive ? "text-orange-500" : "text-gray-500"
+              }`}
+            >
+              <Icon size={20} />
+              <span>{item.name}</span>
 
-          <div className="mt-6 flex flex-col">
+              {isActive && (
+                <div className="w-5 h-[2px] bg-orange-500 mt-1"></div>
+              )}
+            </Link>
+          );
+        })}
+      </div>
 
-            {menuLinks.map((item) => {
-              if (item.name === "Service") {
-                return (
-                  <div key={item.name}>
-                    <button
-                      onClick={() => setServiceOpen(!serviceOpen)}
-                      className="w-full text-left py-3 font-semibold border-b"
-                    >
-                      Service ⌄
-                    </button>
+      {/* MOBILE DRAWER */}
+      <div className={`fixed top-0 left-0 h-screen w-[280px] bg-white shadow-2xl transition-transform duration-500 z-50 ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className="p-6">
+          <button onClick={() => setMenuOpen(false)} className="text-3xl mb-6">✕</button>
 
-                    {serviceOpen && (
-                      <div className="ml-3">
-                        {[
-                          "Sea Freight",
-                          "Air Freight",
-                          "Custom Clearance",
-                          "ODC Logistics",
-                          "Project Shipments",
-                          "Warehousing",
-                        ].map((s) => (
-                          <Link key={s} href="/service" className="block py-2 text-sm text-gray-600">
-                            {s}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-
-              return (
-                <Link
-                  key={item.name}
-                  href={item.link}
-                  onClick={() => setMenuOpen(false)}
-                  className="py-3 border-b"
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-
-          </div>
+          {menuLinks.map((item) => (
+            <Link
+              key={item.name}
+              href={item.link}
+              onClick={() => setMenuOpen(false)}
+              className="block py-4 border-b text-lg font-semibold hover:text-orange-600"
+            >
+              {item.name}
+            </Link>
+          ))}
         </div>
       </div>
 
       {/* OVERLAY */}
       {menuOpen && (
-        <div onClick={() => setMenuOpen(false)} className="fixed inset-0 bg-black/40 z-40"></div>
+        <div
+          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 bg-black/50 z-40"
+        />
       )}
     </>
   );

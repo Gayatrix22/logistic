@@ -5,16 +5,14 @@ import Link from "next/link";
 
 export default function Warehousing() {
   return (
-    <main className="bg-gray-100">
-
-    
+    <main className="bg-gradient-to-b from-white to-orange-50">
 
       {/* CONTENT */}
-      <div className="max-w-7xl mx-auto px-4 py-10">
+      <div className="max-w-7xl mx-auto px-4 py-12">
 
         {/* CENTER IMAGE */}
         <div className="flex justify-center mb-10">
-          <div className="relative w-full md:w-[80%] h-[350px] rounded-xl overflow-hidden shadow-lg">
+          <div className="relative w-full md:w-[80%] h-[350px] rounded-2xl overflow-hidden shadow-2xl border-4 border-orange-200">
             <Image
               src="/warehousing2.jpg"
               alt="Warehousing"
@@ -25,23 +23,25 @@ export default function Warehousing() {
         </div>
 
         {/* TITLE */}
-         <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-          Smart & Scalable Warehousing Solutions
-        </h2>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-          Efficient warehousing is the backbone of a strong supply chain. Our smart and scalable warehousing solutions are designed to provide secure storage, optimized inventory management, and seamless distribution for businesses of all sizes.
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Smart & Scalable{" "}
+            <span className="text-orange-500">Warehousing Solutions</span>
+          </h2>
 
-We combine advanced technology with flexible infrastructure to ensure your goods are stored safely and delivered efficiently—whenever and wherever needed.
-        </p>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Efficient warehousing is the backbone of a strong supply chain. Our smart and scalable warehousing solutions are designed to provide secure storage, optimized inventory management, and seamless distribution for businesses of all sizes.
+
+            We combine advanced technology with flexible infrastructure to ensure your goods are stored safely and delivered efficiently—whenever and wherever needed.
+          </p>
         </div>
 
         {/* CARDS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
 
           {/* CARD 1 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h5 className="text-xl font-semibold mb-2">
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-orange-400">
+            <h5 className="text-xl font-semibold mb-2 text-orange-600">
               🛡️ Secure Storage Infrastructure
             </h5>
             <p className="text-gray-600">
@@ -51,8 +51,8 @@ We combine advanced technology with flexible infrastructure to ensure your goods
           </div>
 
           {/* CARD 2 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h5 className="text-xl font-semibold mb-2">
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-orange-400">
+            <h5 className="text-xl font-semibold mb-2 text-orange-600">
               📊 Real-Time Inventory Tracking
             </h5>
             <p className="text-gray-600">
@@ -62,8 +62,8 @@ We combine advanced technology with flexible infrastructure to ensure your goods
           </div>
 
           {/* CARD 3 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h5 className="text-xl font-semibold mb-2">
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-orange-400">
+            <h5 className="text-xl font-semibold mb-2 text-orange-600">
               🚚 Order Fulfillment & Distribution
             </h5>
             <p className="text-gray-600">
@@ -73,8 +73,8 @@ We combine advanced technology with flexible infrastructure to ensure your goods
           </div>
 
           {/* CARD 4 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h5 className="text-xl font-semibold mb-2">
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-orange-400">
+            <h5 className="text-xl font-semibold mb-2 text-orange-600">
               🌡️ Temperature-Controlled Warehousing
             </h5>
             <p className="text-gray-600">
@@ -84,8 +84,8 @@ We combine advanced technology with flexible infrastructure to ensure your goods
           </div>
 
           {/* CARD 5 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h5 className="text-xl font-semibold mb-2">
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-orange-400">
+            <h5 className="text-xl font-semibold mb-2 text-orange-600">
               📦 Packaging & Cargo Handling
             </h5>
             <p className="text-gray-600">
@@ -95,8 +95,8 @@ We combine advanced technology with flexible infrastructure to ensure your goods
           </div>
 
           {/* CARD 6 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h5 className="text-xl font-semibold mb-2">
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition border-t-4 border-orange-400">
+            <h5 className="text-xl font-semibold mb-2 text-orange-600">
               📈 Flexible & Scalable Solutions
             </h5>
             <p className="text-gray-600">
@@ -105,6 +105,16 @@ We combine advanced technology with flexible infrastructure to ensure your goods
             </p>
           </div>
 
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-14">
+          <Link
+            href="/contact"
+            className="inline-block bg-orange-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-orange-600 hover:scale-105 transition duration-300"
+          >
+            Get a Quote
+          </Link>
         </div>
 
       </div>
